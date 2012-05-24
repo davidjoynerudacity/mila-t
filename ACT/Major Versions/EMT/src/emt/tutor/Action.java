@@ -4,8 +4,6 @@
  */
 package emt.tutor;
 
-import emt.TutorPanel;
-
 /**
  *
  * @author David
