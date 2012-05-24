@@ -4,7 +4,7 @@
  */
 package emt.tutor.actions;
 
-import emt.TutorPanel;
+import emt.tutor.TutorPanel;
 import emt.tutor.Action;
 import emt.tutor.Tutor;
 

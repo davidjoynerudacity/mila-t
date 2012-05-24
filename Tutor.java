@@ -4,7 +4,6 @@
  */
 package emt.tutor;
 
-import emt.TutorPanel;
 import emt.tutor.actions.ChangePictureAction;
 import emt.tutor.percepts.SamplePercept;
 import java.awt.Image;
@@ -21,6 +20,7 @@ import javax.swing.ImageIcon;
 public class Tutor {
     private String myName;
     private TutorPanel myPanel;
+    private TutorPopupFrame myFrame;
     private HashMap myImages;
     private ArrayList<Mapping> myMappings;
     
@@ -29,6 +29,9 @@ public class Tutor {
         myPanel=null;
         myImages=new HashMap();
         myMappings=new ArrayList<Mapping>();
+        myFrame=new TutorPopupFrame();
+        myFrame.pack();
+        myFrame.setVisible(false);
         
         initializeSampleTutor();
     }
@@ -85,6 +88,9 @@ public class Tutor {
     }
     public String toString() {
         return myName;
+    }
+    public void showTutor() {
+        myFrame.setVisible(!myFrame.isVisible());
     }
     
     public void initializeSampleTutor() {
