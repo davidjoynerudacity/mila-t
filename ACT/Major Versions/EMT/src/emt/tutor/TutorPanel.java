@@ -126,7 +126,7 @@ public class TutorPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        //myTutor.checkMappings();
+        myTutor.checkMappings();
         myTutor.showTutor();
     }//GEN-LAST:event_formMouseClicked
 

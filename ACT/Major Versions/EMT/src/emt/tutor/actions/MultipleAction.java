@@ -30,4 +30,7 @@ public class MultipleAction extends Action {
     public ArrayList<Action> getActions() {
         return myActions;
     }
+    public void addAction(Action action) {
+        myActions.add(action);
+    }
 }
