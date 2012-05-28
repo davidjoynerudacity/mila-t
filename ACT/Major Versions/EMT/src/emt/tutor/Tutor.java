@@ -33,7 +33,7 @@ public class Tutor {
         myFrame.pack();
         myFrame.setVisible(false);
         
-        initializeSampleTutor();
+        //initializeSampleTutor();
     }
     public Tutor(String name) {
         this();
@@ -105,8 +105,8 @@ public class Tutor {
     }
     
     public void initializeSampleTutor() {
-        TruePercept t1=new TruePercept(this);
-        MultipleAction ma1=new MultipleAction(this);
+//        TruePercept t1=new TruePercept(this);
+//        MultipleAction ma1=new MultipleAction(this);
         
         //TextFeedbackAction tfa1=new TextFeedbackAction(this);
         //tfa1.setFeedback("This is the feedback the tutor would give to the student if this TextFeedbackAction was triggered. The text would be put in the box you see here. This text could be generated from a tutor check or from the student clicking a question on a question list."); 
@@ -119,18 +119,18 @@ public class Tutor {
 //        qla1.addQuestion("When is it appropriate to ask for help?");
 //        ma1.addAction(qla1);
         
-        FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
-        fpa1.setPrompt("What did you learn during the camp today?");
-        ma1.addAction(fpa1);
-        
-        ChangePictureAction cpa1=new ChangePictureAction(this);
-        cpa1.setPicKey("2");
-        ma1.addAction(cpa1);
-        
-        Mapping m1=new Mapping();
-        m1.setPercept(t1);
-        m1.setAction(ma1);
-        addMapping(m1);
+//        FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
+//        fpa1.setPrompt("What did you learn during the camp today?");
+//        ma1.addAction(fpa1);
+//        
+//        ChangePictureAction cpa1=new ChangePictureAction(this);
+//        cpa1.setPicKey("2");
+//        ma1.addAction(cpa1);
+//        
+//        Mapping m1=new Mapping();
+//        m1.setPercept(t1);
+//        m1.setAction(ma1);
+//        addMapping(m1);
 //        SamplePercept sp1=new SamplePercept(this);
 //        sp1.setTarget(0);
 //        SamplePercept sp2=new SamplePercept(this);
