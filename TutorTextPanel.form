@@ -1,12 +1,9 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
   </Properties>
-  <SyntheticProperties>
-    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-  </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
@@ -23,31 +20,28 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="tutorImageLabel" min="-2" pref="148" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tutorContentPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="tutorTextLabel" pref="517" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-              <Component id="tutorImageLabel" alignment="0" max="32767" attributes="1"/>
-              <Component id="tutorContentPanel1" alignment="0" max="32767" attributes="1"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="tutorTextLabel" pref="122" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="tutorImageLabel">
+    <Component class="javax.swing.JLabel" name="tutorTextLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="tutorImageLabel.text"/>
-        <Property name="name" type="java.lang.String" value="tutorImageLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="emt.tutor.TutorContentPanel" name="tutorContentPanel1">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="tutorContentPanel1" noResource="true"/>
+        <Property name="text" type="java.lang.String" resourceKey="tutorTextLabel.text"/>
+        <Property name="verticalAlignment" type="int" value="1"/>
+        <Property name="name" type="java.lang.String" value="tutorTextLabel" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>
