@@ -18,9 +18,9 @@ public class MentorTutor extends Tutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "m1.png");
-        addImage("2", "m2.png");
-        addImage("3", "m3.png");
+        addImage("1", "m1.jpg");
+        addImage("2", "m2.jpg");
+        addImage("3", "m3.jpg");
     
         TruePercept t1=new TruePercept(this);
         MultipleAction ma1=new MultipleAction(this);

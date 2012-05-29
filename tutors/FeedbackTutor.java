@@ -18,9 +18,9 @@ public class FeedbackTutor extends Tutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "s1.png");
-        addImage("2", "s2.png");
-        addImage("3", "s3.png");
+        addImage("1", "s1.jpg");
+        addImage("2", "s2.jpg");
+        addImage("3", "s3.jpg");
     
         TruePercept t1=new TruePercept(this);
         MultipleAction ma1=new MultipleAction(this);

@@ -18,9 +18,9 @@ public class CriticTutor extends Tutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "c1.png");
-        addImage("2", "c2.png");
-        addImage("3", "c3.png");
+        addImage("1", "c1.jpg");
+        addImage("2", "c2.jpg");
+        addImage("3", "c3.jpg");
         
         TruePercept t1=new TruePercept(this);
         MultipleAction ma1=new MultipleAction(this);

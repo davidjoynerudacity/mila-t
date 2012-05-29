@@ -20,9 +20,9 @@ public class GuideTutor extends Tutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "g1.png");
-        addImage("2", "g2.png");
-        addImage("3", "g3.png");
+        addImage("1", "g1.jpg");
+        addImage("2", "g2.jpg");
+        addImage("3", "g3.jpg");
         
         TruePercept t1=new TruePercept(this);
         MultipleAction ma1=new MultipleAction(this);
