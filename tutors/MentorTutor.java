@@ -4,6 +4,7 @@
  */
 package emt.tutor.tutors;
 
+import emt.ProjectModelPanel;
 import emt.tutor.*;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
@@ -14,6 +15,11 @@ import emt.tutor.percepts.*;
 public class MentorTutor extends Tutor {
     public MentorTutor() {
         super("Mentor");
+        initializeTutor();
+    }
+
+    public MentorTutor(ProjectModelPanel modelPanel) {
+        super("Mentor",modelPanel);
         initializeTutor();
     }
     

@@ -4,6 +4,7 @@
  */
 package emt.tutor.tutors;
 
+import emt.ProjectModelPanel;
 import emt.tutor.*;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
@@ -14,6 +15,11 @@ import emt.tutor.percepts.*;
 public class CriticTutor extends Tutor {
     public CriticTutor() {
         super("Critic");
+        initializeTutor();
+    }
+
+    public CriticTutor(ProjectModelPanel modelPanel) {
+        super("Critic",modelPanel);
         initializeTutor();
     }
     

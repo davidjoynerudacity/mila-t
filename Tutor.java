@@ -4,6 +4,8 @@
  */
 package emt.tutor;
 
+import emt.ProjectModelPanel;
+import emt.evexmodel.EvexModel;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
 import java.awt.Image;
@@ -23,6 +25,7 @@ public class Tutor {
     private TutorPopupFrame myFrame;
     private HashMap myImages;
     private ArrayList<Mapping> myMappings;
+    private ProjectModelPanel myModelPanel;
     
     public Tutor() {
         myName="";
@@ -38,10 +41,12 @@ public class Tutor {
     public Tutor(String name) {
         this();
         myName=name;
+        myModelPanel=null;
     }
-    public Tutor(String name,TutorPanel panel) {
-        this(name);
-        myPanel=panel;
+    public Tutor(String name,ProjectModelPanel modelPanel) {
+        this();
+        myName=name;
+        myModelPanel=modelPanel;
     }
     public void checkMappings() {
         for(Mapping mapping : myMappings) {
@@ -102,6 +107,10 @@ public class Tutor {
     }
     public void showTutor() {
         myFrame.setVisible(!myFrame.isVisible());
+    }
+    
+    public EvexModel getModel() {
+        return myModelPanel.getModel();
     }
     
     public void initializeSampleTutor() {
