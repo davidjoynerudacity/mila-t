@@ -4,6 +4,7 @@
  */
 package emt.tutor.tutors;
 
+import emt.ProjectModelPanel;
 import emt.tutor.*;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
@@ -14,6 +15,11 @@ import emt.tutor.percepts.*;
 public class FeedbackTutor extends Tutor {
     public FeedbackTutor() {
         super("Feedback");
+        initializeTutor();
+    }
+
+    public FeedbackTutor(ProjectModelPanel modelPanel) {
+        super("Feedback",modelPanel);
         initializeTutor();
     }
     
