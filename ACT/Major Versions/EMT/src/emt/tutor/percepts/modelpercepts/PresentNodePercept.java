@@ -1,0 +1,66 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package emt.tutor.percepts.modelpercepts;
+
+import emt.evexmodel.*;
+import emt.tutor.Tutor;
+
+/**
+ *
+ * @author David
+ */
+public class PresentNodePercept extends ModelPercept {
+    private String myNode;
+    private String myProperty;
+    private String myColor;
+    
+    public PresentNodePercept(Tutor myTutor) {
+        super(myTutor);
+        myNode="";
+        myProperty="";
+        myColor="";
+    }
+    
+    public boolean isTrue() {
+        EvexModel myModel=getModel();
+        for(EvexNode node : myModel.getNodes()) {
+            if(node.getName().equals(myNode)) {
+                if(myProperty.length()>0) {
+                    if(node.getComponent().equals(myProperty)) {
+                        if(myColor.length()>0) {
+                            if(node.getColor().equalsIgnoreCase(myColor)) {
+                                return true;
+                            }
+                        } else {
+                            return true;
+                        }
+                    }
+                } else {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public void setNode(String node) {
+        myNode=node;
+    }
+    public void setProperty(String property) {
+        myProperty=property;
+    }
+    public void setColor(String color) {
+        myColor=color;
+    }
+    public String getNode() {
+        return myNode;
+    }
+    public String getProperty() {
+        return myProperty;
+    }
+    public String getColor() {
+        return myColor;
+    }
+}

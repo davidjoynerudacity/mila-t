@@ -32,7 +32,7 @@ public class GuideTutor extends Tutor {
         addImage("2", "g2.jpg");
         addImage("3", "g3.jpg");
         
-        TruePercept t1=new TruePercept(this);
+        //TruePercept t1=new TruePercept(this);
         
         //UnevidencedEdgePercept t1=new UnevidencedEdgePercept(this);
         
@@ -42,11 +42,26 @@ public class GuideTutor extends Tutor {
         //t1.setNode("Fish");
         //t1.setProperty("Population");
         
+        //PresentNodePercept t1=new PresentNodePercept(this);
+        //t1.setNode("Fish");
+        //t1.setProperty("Population");
+        
         //AbsentConnectionPercept t1=new AbsentConnectionPercept(this);
         //t1.setNode1("Fish");
         //t1.setProperty1("Population");
         //t1.setNode2("Nitrate");
         //t1.setProperty2("Concentration");
+        
+        PresentConnectionPercept t1=new PresentConnectionPercept(this);
+        t1.setNode1("Fish");
+        t1.setProperty1("Population");
+        t1.setNode2("Nitrate");
+        t1.setProperty2("Concentration");
+        
+        //TimePercept t1=new TimePercept(this);
+        //t1.setStartTime(2012,5,31,13,0,0);
+        //t1.setEndTime(2012,5,31,14,0,0);
+        //t1.setDateMatters(true);
         
         MultipleAction ma1=new MultipleAction(this);
         TextFeedbackAction tfa1=new TextFeedbackAction(this);
