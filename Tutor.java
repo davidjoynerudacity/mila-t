@@ -82,7 +82,7 @@ public class Tutor {
     public void giveTextFeedback(String feedback) {
         myFrame.giveTextFeedback(feedback);
     }
-    public void giveQuestionList(ArrayList<String> questions) {
+    public void giveQuestionList(ArrayList<QuestionItem> questions) {
         myFrame.giveQuestionList(questions);
     }
     public void giveFeedbackPrompt(String prompt) {

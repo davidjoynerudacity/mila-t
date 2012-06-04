@@ -16,23 +16,28 @@ package emt.tutor;
  */
 public class TutorQuestionsPanel extends javax.swing.JPanel {
     private TutorContentPanel myContentPanel;
+    private QuestionItem q1,q2,q3,q4;
     
     /** Creates new form TutorQuestionsPanel */
     public TutorQuestionsPanel(TutorContentPanel contentPanel) {
         initComponents();
         myContentPanel=contentPanel;
     }
-    public void setQuestion1(String question) {
-        Question1Label.setText(question);
+    public void setQuestion1(QuestionItem question) {
+        q1=question;
+        Question1Label.setText(question.getQuestion());
     }
-    public void setQuestion2(String question) {
-        Question2Label.setText(question);
+    public void setQuestion2(QuestionItem question) {
+        q2=question;
+        Question2Label.setText(question.getQuestion());
     }
-    public void setQuestion3(String question) {
-        Question3Label.setText(question);
+    public void setQuestion3(QuestionItem question) {
+        q3=question;
+        Question3Label.setText(question.getQuestion());
     }
-    public void setQuestion4(String question) {
-        Question4Label.setText(question);
+    public void setQuestion4(QuestionItem question) {
+        q4=question;
+        Question4Label.setText(question.getQuestion());
     }
 
     /** This method is called from within the constructor to
@@ -55,15 +60,35 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorQuestionsPanel.class);
         Question1Label.setText(resourceMap.getString("Question1Label.text")); // NOI18N
         Question1Label.setName("Question1Label"); // NOI18N
+        Question1Label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Question1LabelMouseClicked(evt);
+            }
+        });
 
         Question2Label.setText(resourceMap.getString("Question2Label.text")); // NOI18N
         Question2Label.setName("Question2Label"); // NOI18N
+        Question2Label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Question2LabelMouseClicked(evt);
+            }
+        });
 
         Question3Label.setText(resourceMap.getString("Question3Label.text")); // NOI18N
         Question3Label.setName("Question3Label"); // NOI18N
+        Question3Label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Question3LabelMouseClicked(evt);
+            }
+        });
 
         Question4Label.setText(resourceMap.getString("Question4Label.text")); // NOI18N
         Question4Label.setName("Question4Label"); // NOI18N
+        Question4Label.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Question4LabelMouseClicked(evt);
+            }
+        });
 
         QuestionHeadingLabel.setText(resourceMap.getString("QuestionHeadingLabel.text")); // NOI18N
         QuestionHeadingLabel.setName("QuestionHeadingLabel"); // NOI18N
@@ -98,6 +123,23 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Question1LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question1LabelMouseClicked
+        q1.getAction().doAction();
+    }//GEN-LAST:event_Question1LabelMouseClicked
+
+    private void Question2LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question2LabelMouseClicked
+        q2.getAction().doAction();
+    }//GEN-LAST:event_Question2LabelMouseClicked
+
+    private void Question3LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question3LabelMouseClicked
+        q3.getAction().doAction();
+    }//GEN-LAST:event_Question3LabelMouseClicked
+
+    private void Question4LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question4LabelMouseClicked
+        q4.getAction().doAction();
+    }//GEN-LAST:event_Question4LabelMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Question1Label;
     private javax.swing.JLabel Question2Label;

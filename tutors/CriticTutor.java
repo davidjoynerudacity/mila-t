@@ -31,10 +31,10 @@ public class CriticTutor extends Tutor {
         TruePercept t1=new TruePercept(this);
         MultipleAction ma1=new MultipleAction(this);
         QuestionListAction qla1=new QuestionListAction(this);
-        qla1.addQuestion("Do you have any content advice for us?");
-        qla1.addQuestion("How do I use a simulation?");
-        qla1.addQuestion("What's the difference between biotic and abiotic substances?");
-        qla1.addQuestion("When is it appropriate to ask for help?");
+        qla1.addQuestion(new QuestionItem("Do you have any content advice for us?",new TextFeedbackAction(this,"Feedback for Q1")));
+        qla1.addQuestion(new QuestionItem("How do I use a simulation?",new TextFeedbackAction(this,"Feedback for Q2")));
+        qla1.addQuestion(new QuestionItem("What's the difference between biotic and abiotic substances?",new TextFeedbackAction(this,"Feedback for Q3")));
+        qla1.addQuestion(new QuestionItem("When is it appropriate to ask for help?",new TextFeedbackAction(this,"Feedback for Q4")));
         ma1.addAction(qla1);
         
         ChangePictureAction cpa1=new ChangePictureAction(this);
