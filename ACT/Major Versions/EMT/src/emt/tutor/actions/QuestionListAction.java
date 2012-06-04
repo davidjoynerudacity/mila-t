@@ -5,6 +5,7 @@
 package emt.tutor.actions;
 
 import emt.tutor.Action;
+import emt.tutor.QuestionItem;
 import emt.tutor.Tutor;
 import java.util.ArrayList;
 
@@ -13,22 +14,23 @@ import java.util.ArrayList;
  * @author David
  */
 public class QuestionListAction extends Action {
-    private ArrayList<String> myQuestions;
+    //private ArrayList<String> myQuestions;
+    private ArrayList<QuestionItem> myQuestions;
     
     public QuestionListAction(Tutor myTutor) {
         super(myTutor);
-        myQuestions=new ArrayList<String>();
+        myQuestions=new ArrayList<QuestionItem>();
     }
     public void doAction() {
         getTutor().giveQuestionList(myQuestions);
     }
-    public ArrayList<String> getQuestions() {
+    public ArrayList<QuestionItem> getQuestions() {
         return myQuestions;
     }
-    public void setQuestions(ArrayList<String> questions) {
+    public void setQuestions(ArrayList<QuestionItem> questions) {
         myQuestions=questions;
     }
-    public void addQuestion(String question) {
+    public void addQuestion(QuestionItem question) {
         myQuestions.add(question);
     }
     

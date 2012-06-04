@@ -17,6 +17,10 @@ public class TextFeedbackAction extends Action {
     public TextFeedbackAction(Tutor myTutor) {
         super(myTutor);
     }
+    public TextFeedbackAction(Tutor myTutor,String feedback) {
+        this(myTutor);
+        myFeedback=feedback;
+    }
     public void doAction() {
         getTutor().giveTextFeedback(myFeedback);
     }

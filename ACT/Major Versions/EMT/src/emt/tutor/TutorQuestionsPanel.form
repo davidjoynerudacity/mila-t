@@ -56,24 +56,36 @@
         <Property name="text" type="java.lang.String" resourceKey="Question1Label.text"/>
         <Property name="name" type="java.lang.String" value="Question1Label" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Question1LabelMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Question2Label">
       <Properties>
         <Property name="text" type="java.lang.String" resourceKey="Question2Label.text"/>
         <Property name="name" type="java.lang.String" value="Question2Label" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Question2LabelMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Question3Label">
       <Properties>
         <Property name="text" type="java.lang.String" resourceKey="Question3Label.text"/>
         <Property name="name" type="java.lang.String" value="Question3Label" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Question3LabelMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Question4Label">
       <Properties>
         <Property name="text" type="java.lang.String" resourceKey="Question4Label.text"/>
         <Property name="name" type="java.lang.String" value="Question4Label" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Question4LabelMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="QuestionHeadingLabel">
       <Properties>

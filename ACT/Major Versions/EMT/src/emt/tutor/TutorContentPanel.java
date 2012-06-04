@@ -45,26 +45,26 @@ public class TutorContentPanel extends javax.swing.JPanel {
         myTextPanel.giveTextFeedback(feedback);
         myLayout.show(this, "Text");
     }
-    public void giveQuestionList(ArrayList<String> questions) {
+    public void giveQuestionList(ArrayList<QuestionItem> questions) {
         if(questions.size()>0) {
             myQuestionsPanel.setQuestion1(questions.get(0));
         } else {
-            myQuestionsPanel.setQuestion1("");
+            myQuestionsPanel.setQuestion1(new QuestionItem("",null));
         }
         if(questions.size()>1) {
             myQuestionsPanel.setQuestion2(questions.get(1));
         } else {
-            myQuestionsPanel.setQuestion2("");
+            myQuestionsPanel.setQuestion2(new QuestionItem("",null));
         }
         if(questions.size()>2) {
             myQuestionsPanel.setQuestion3(questions.get(2));
         } else {
-            myQuestionsPanel.setQuestion3("");
+            myQuestionsPanel.setQuestion3(new QuestionItem("",null));
         }
         if(questions.size()>3) {
             myQuestionsPanel.setQuestion4(questions.get(3));
         } else {
-            myQuestionsPanel.setQuestion4("");
+            myQuestionsPanel.setQuestion4(new QuestionItem("",null));
         }
         myLayout.show(this,"Questions");
     }
