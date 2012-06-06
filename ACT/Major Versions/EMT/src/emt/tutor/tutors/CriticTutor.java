@@ -12,7 +12,7 @@ import emt.tutor.percepts.*;
  *
  * @author David
  */
-public class CriticTutor extends Tutor {
+public class CriticTutor extends OnDemandTutor {
     public CriticTutor() {
         super("Critic");
         initializeTutor();
