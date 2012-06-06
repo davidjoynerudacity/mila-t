@@ -14,7 +14,7 @@ import emt.tutor.percepts.modelpercepts.*;
  *
  * @author David
  */
-public class GuideTutor extends Tutor {
+public class GuideTutor extends OnDemandTutor {
     public GuideTutor() {
         super("Guide");
         

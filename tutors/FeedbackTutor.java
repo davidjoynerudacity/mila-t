@@ -12,7 +12,7 @@ import emt.tutor.percepts.*;
  *
  * @author David
  */
-public class FeedbackTutor extends Tutor {
+public class FeedbackTutor extends InterruptTutor {
     public FeedbackTutor() {
         super("Feedback");
         initializeTutor();

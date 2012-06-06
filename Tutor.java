@@ -60,6 +60,9 @@ public class Tutor {
     public void addMapping(Mapping newMapping) {
         myMappings.add(newMapping);
     }
+    public void wasClicked() {
+        showTutor();
+    }
     
     public void addImage(String label,String filename) {
         try {
