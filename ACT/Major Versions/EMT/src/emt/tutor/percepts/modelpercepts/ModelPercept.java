@@ -20,4 +20,7 @@ public abstract class ModelPercept extends Percept {
     public EvexModel getModel() {
         return getTutor().getModel();
     }
+    public boolean modelSelected() {
+        return !(getTutor().getModel()==null);
+    }
 }

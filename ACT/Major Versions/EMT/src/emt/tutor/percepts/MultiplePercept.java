@@ -33,4 +33,7 @@ public class MultiplePercept extends Percept {
     public ArrayList<Percept> getPercepts() {
         return myPercepts;
     }
+    public void addPercept(Percept percept) {
+        myPercepts.add(percept);
+    }
 }

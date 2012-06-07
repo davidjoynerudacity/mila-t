@@ -16,13 +16,15 @@ import java.util.ArrayList;
 public class QuestionListAction extends Action {
     //private ArrayList<String> myQuestions;
     private ArrayList<QuestionItem> myQuestions;
+    private String myIntro;
     
     public QuestionListAction(Tutor myTutor) {
         super(myTutor);
         myQuestions=new ArrayList<QuestionItem>();
+        myIntro="Hi! What can I help you with today?";
     }
     public void doAction() {
-        getTutor().giveQuestionList(myQuestions);
+        getTutor().giveQuestionList(myQuestions,myIntro);
     }
     public ArrayList<QuestionItem> getQuestions() {
         return myQuestions;
@@ -32,6 +34,12 @@ public class QuestionListAction extends Action {
     }
     public void addQuestion(QuestionItem question) {
         myQuestions.add(question);
+    }
+    public void setIntro(String intro) {
+        myIntro=intro;
+    }
+    public String getIntro() {
+        return myIntro;
     }
     
 }

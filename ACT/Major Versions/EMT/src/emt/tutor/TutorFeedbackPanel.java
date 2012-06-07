@@ -10,6 +10,12 @@
  */
 package emt.tutor;
 
+import java.beans.XMLEncoder;
+import java.io.File;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author David
@@ -26,6 +32,18 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
     public void setPrompt(String prompt) {
         QuestionLabel.setText(prompt);
     }
+    
+    private void saveFeedback() {
+        try {
+            new File("Feedback Answers").mkdir();
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+            PrintWriter save = new PrintWriter("Feedback Answers" + File.separator + "feedback-"+sdf.format(cal.getTime())+".txt");
+            save.println(QuestionLabel.getText());
+            save.println(FeedbackTextArea.getText());
+            save.close();
+        } catch(Exception ex) {}
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -39,6 +57,7 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
         QuestionLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         FeedbackTextArea = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
 
@@ -53,6 +72,14 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
         FeedbackTextArea.setName("FeedbackTextArea"); // NOI18N
         jScrollPane1.setViewportView(FeedbackTextArea);
 
+        jButton1.setText(resourceMap.getString("jButton1.text")); // NOI18N
+        jButton1.setName("jButton1"); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,23 +87,35 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-                    .addComponent(QuestionLabel))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addContainerGap())
+                    .addComponent(QuestionLabel)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(QuestionLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        saveFeedback();
+        myContentPanel.giveTextFeedback("Thanks for your response! You can close me now -- I'll let you know if I have any more questions.");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea FeedbackTextArea;
     private javax.swing.JLabel QuestionLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

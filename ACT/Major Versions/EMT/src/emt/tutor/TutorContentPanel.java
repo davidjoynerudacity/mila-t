@@ -45,7 +45,8 @@ public class TutorContentPanel extends javax.swing.JPanel {
         myTextPanel.giveTextFeedback(feedback);
         myLayout.show(this, "Text");
     }
-    public void giveQuestionList(ArrayList<QuestionItem> questions) {
+    public void giveQuestionList(ArrayList<QuestionItem> questions, String intro) {
+        myQuestionsPanel.setIntro(intro);
         if(questions.size()>0) {
             myQuestionsPanel.setQuestion1(questions.get(0));
         } else {
