@@ -26,6 +26,7 @@ public class AbsentConnectionPercept extends ModelPercept {
     }
     
     public boolean isTrue() {
+        if(!super.modelSelected()) { return false; }
         EvexModel myModel=getModel();
         for(EvexEdge edge : myModel.getEdges()) {
             String node1=edge.getSourceNode().getName();

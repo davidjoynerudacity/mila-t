@@ -17,6 +17,7 @@ public class MissingPropertiesPercept extends ModelPercept {
     }
     
     public boolean isTrue() {
+        if(!super.modelSelected()) { return false; }
         EvexModel myModel=getModel();
         for(EvexNode node : myModel.getNodes()) {
             if(node.getComponent().length()<1) {

@@ -17,6 +17,7 @@ public class UnevidencedEdgePercept extends ModelPercept {
     }
     
     public boolean isTrue() {
+        if(!super.modelSelected()) { return false; }
         EvexModel myModel=getModel();
         for(EvexEdge edge : myModel.getEdges()) {
             if(!edge.isEvidenced()) {

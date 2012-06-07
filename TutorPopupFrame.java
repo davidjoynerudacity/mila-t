@@ -31,8 +31,8 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     public void giveTextFeedback(String feedback) {
         tutorContentPanel1.giveTextFeedback(feedback);
     }
-    public void giveQuestionList(ArrayList<QuestionItem> questions) {
-        tutorContentPanel1.giveQuestionList(questions);
+    public void giveQuestionList(ArrayList<QuestionItem> questions, String intro) {
+        tutorContentPanel1.giveQuestionList(questions,intro);
     }
     public void giveFeedbackPrompt(String prompt) {
         tutorContentPanel1.giveFeedbackPrompt(prompt);

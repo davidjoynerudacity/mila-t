@@ -23,6 +23,9 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
         initComponents();
         myContentPanel=contentPanel;
     }
+    public void setIntro(String intro) {
+        QuestionHeadingLabel.setText(intro);
+    }
     public void setQuestion1(QuestionItem question) {
         q1=question;
         Question1Label.setText(question.getQuestion());

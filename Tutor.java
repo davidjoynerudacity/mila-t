@@ -85,8 +85,8 @@ public class Tutor {
     public void giveTextFeedback(String feedback) {
         myFrame.giveTextFeedback(feedback);
     }
-    public void giveQuestionList(ArrayList<QuestionItem> questions) {
-        myFrame.giveQuestionList(questions);
+    public void giveQuestionList(ArrayList<QuestionItem> questions,String intro) {
+        myFrame.giveQuestionList(questions,intro);
     }
     public void giveFeedbackPrompt(String prompt) {
         myFrame.giveFeedbackPrompt(prompt);

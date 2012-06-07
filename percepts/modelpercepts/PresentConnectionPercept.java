@@ -26,10 +26,8 @@ public class PresentConnectionPercept extends ModelPercept {
     }
     
     public boolean isTrue() {
+        if(!super.modelSelected()) { return false; }
         EvexModel myModel=getModel();
-        if(myModel==null) {
-            return false;
-        }
         for(EvexEdge edge : myModel.getEdges()) {
             String node1=edge.getSourceNode().getName();
             String node2=edge.getDestNode().getName();
