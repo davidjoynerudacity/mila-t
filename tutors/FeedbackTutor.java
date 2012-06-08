@@ -42,8 +42,14 @@ public class FeedbackTutor extends InterruptTutor {
         ma1.addAction(fpa1);
         ma1.addAction(new FocusTutorAction(this));
         
+        UnansweredFeedbackPercept fap1=new UnansweredFeedbackPercept(this);
+        fap1.setFeedbackActionPrompt(fpa1);
+        MultiplePercept mp1=new MultiplePercept(this);
+        mp1.addPercept(pnp1);
+        mp1.addPercept(fap1);
+        
         Mapping m1=new Mapping();
-        m1.setPercept(pnp1);
+        m1.setPercept(mp1);
         m1.setAction(ma1);
         this.addMapping(m1);
         

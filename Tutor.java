@@ -42,11 +42,13 @@ public class Tutor {
         this();
         myName=name;
         myModelPanel=null;
+        myFrame.setTitle(myName);
     }
     public Tutor(String name,ProjectModelPanel modelPanel) {
         this();
         myName=name;
         myModelPanel=modelPanel;
+        myFrame.setTitle(myName);
     }
     public void checkMappings() {
         for(Mapping mapping : myMappings) {
@@ -85,10 +87,13 @@ public class Tutor {
     public void giveTextFeedback(String feedback) {
         myFrame.giveTextFeedback(feedback);
     }
+    public void giveTextFeedback(TextFeedbackAction tfa) {
+        myFrame.giveTextFeedback(tfa);
+    }
     public void giveQuestionList(ArrayList<QuestionItem> questions,String intro) {
         myFrame.giveQuestionList(questions,intro);
     }
-    public void giveFeedbackPrompt(String prompt) {
+    public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         myFrame.giveFeedbackPrompt(prompt);
     }
     

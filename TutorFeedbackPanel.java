@@ -10,6 +10,7 @@
  */
 package emt.tutor;
 
+import emt.tutor.actions.FeedbackPromptAction;
 import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.PrintWriter;
@@ -22,6 +23,7 @@ import java.util.Calendar;
  */
 public class TutorFeedbackPanel extends javax.swing.JPanel {
     private TutorContentPanel myContentPanel;
+    private FeedbackPromptAction myFPA;
     
     /** Creates new form TutorFeedbackPanel */
     public TutorFeedbackPanel(TutorContentPanel contentPanel) {
@@ -29,8 +31,9 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
         myContentPanel=contentPanel;
     }
     
-    public void setPrompt(String prompt) {
-        QuestionLabel.setText(prompt);
+    public void setPrompt(FeedbackPromptAction prompt) {
+        QuestionLabel.setText(prompt.getPrompt());
+        myFPA=prompt;
     }
     
     private void saveFeedback() {
@@ -42,6 +45,7 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
             save.println(QuestionLabel.getText());
             save.println(FeedbackTextArea.getText());
             save.close();
+            myFPA.setHasBeenAnswered(true);
         } catch(Exception ex) {}
     }
 
