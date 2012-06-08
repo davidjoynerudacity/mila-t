@@ -62,13 +62,14 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
         setName("Form"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorFeedbackPanel.class);
+        QuestionLabel.setFont(resourceMap.getFont("QuestionLabel.font")); // NOI18N
         QuestionLabel.setText(resourceMap.getString("QuestionLabel.text")); // NOI18N
         QuestionLabel.setName("QuestionLabel"); // NOI18N
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         FeedbackTextArea.setColumns(20);
-        FeedbackTextArea.setRows(5);
+        FeedbackTextArea.setRows(4);
         FeedbackTextArea.setName("FeedbackTextArea"); // NOI18N
         jScrollPane1.setViewportView(FeedbackTextArea);
 
@@ -101,8 +102,8 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
                 .addComponent(QuestionLabel)
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

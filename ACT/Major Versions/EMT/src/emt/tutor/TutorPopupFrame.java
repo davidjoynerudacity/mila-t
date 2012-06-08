@@ -22,6 +22,7 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     /** Creates new form TutorPopupFrame */
     public TutorPopupFrame() {
         initComponents();
+        this.setLocation(293,326);
     }
     
     public void switchImage(ImageIcon image) {
@@ -51,6 +52,7 @@ public class TutorPopupFrame extends javax.swing.JFrame {
         tutorContentPanel1 = new emt.tutor.TutorContentPanel();
 
         setName("Form"); // NOI18N
+        setResizable(false);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorPopupFrame.class);
         tutorImageLabel.setText(resourceMap.getString("tutorImageLabel.text")); // NOI18N

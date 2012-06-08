@@ -39,6 +39,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="tutorTextLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="tutorTextLabel.font"/>
         <Property name="text" type="java.lang.String" resourceKey="tutorTextLabel.text"/>
         <Property name="verticalAlignment" type="int" value="1"/>
         <Property name="name" type="java.lang.String" value="tutorTextLabel" noResource="true"/>

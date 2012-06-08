@@ -61,6 +61,8 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
         setName("Form"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorQuestionsPanel.class);
+        Question1Label.setFont(resourceMap.getFont("QuestionHeadingLabel.font")); // NOI18N
+        Question1Label.setForeground(resourceMap.getColor("Question3Label.foreground")); // NOI18N
         Question1Label.setText(resourceMap.getString("Question1Label.text")); // NOI18N
         Question1Label.setName("Question1Label"); // NOI18N
         Question1Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,6 +71,8 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
             }
         });
 
+        Question2Label.setFont(resourceMap.getFont("QuestionHeadingLabel.font")); // NOI18N
+        Question2Label.setForeground(resourceMap.getColor("Question3Label.foreground")); // NOI18N
         Question2Label.setText(resourceMap.getString("Question2Label.text")); // NOI18N
         Question2Label.setName("Question2Label"); // NOI18N
         Question2Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,6 +81,8 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
             }
         });
 
+        Question3Label.setFont(resourceMap.getFont("QuestionHeadingLabel.font")); // NOI18N
+        Question3Label.setForeground(resourceMap.getColor("Question3Label.foreground")); // NOI18N
         Question3Label.setText(resourceMap.getString("Question3Label.text")); // NOI18N
         Question3Label.setName("Question3Label"); // NOI18N
         Question3Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,6 +91,8 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
             }
         });
 
+        Question4Label.setFont(resourceMap.getFont("QuestionHeadingLabel.font")); // NOI18N
+        Question4Label.setForeground(resourceMap.getColor("Question3Label.foreground")); // NOI18N
         Question4Label.setText(resourceMap.getString("Question4Label.text")); // NOI18N
         Question4Label.setName("Question4Label"); // NOI18N
         Question4Label.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,6 +101,7 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
             }
         });
 
+        QuestionHeadingLabel.setFont(resourceMap.getFont("QuestionHeadingLabel.font")); // NOI18N
         QuestionHeadingLabel.setText(resourceMap.getString("QuestionHeadingLabel.text")); // NOI18N
         QuestionHeadingLabel.setName("QuestionHeadingLabel"); // NOI18N
 
@@ -103,19 +112,22 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(QuestionHeadingLabel)
-                    .addComponent(Question1Label)
-                    .addComponent(Question2Label)
-                    .addComponent(Question3Label)
-                    .addComponent(Question4Label))
-                .addContainerGap(108, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Question1Label)
+                            .addComponent(Question2Label)
+                            .addComponent(Question3Label)
+                            .addComponent(Question4Label)))
+                    .addComponent(QuestionHeadingLabel))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(QuestionHeadingLabel)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Question1Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Question2Label)
@@ -123,7 +135,7 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
                 .addComponent(Question3Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Question4Label)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

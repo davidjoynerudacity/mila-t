@@ -41,6 +41,7 @@ public class TutorTextPanel extends javax.swing.JPanel {
         setName("Form"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorTextPanel.class);
+        tutorTextLabel.setFont(resourceMap.getFont("tutorTextLabel.font")); // NOI18N
         tutorTextLabel.setText(resourceMap.getString("tutorTextLabel.text")); // NOI18N
         tutorTextLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         tutorTextLabel.setName("tutorTextLabel"); // NOI18N
