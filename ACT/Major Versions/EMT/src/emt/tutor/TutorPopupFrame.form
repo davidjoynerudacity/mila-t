@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="title" type="java.lang.String" resourceKey="Tutor-Name.title"/>
+    <Property name="alwaysOnTop" type="boolean" value="true"/>
     <Property name="name" type="java.lang.String" value="Tutor-Name" noResource="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>

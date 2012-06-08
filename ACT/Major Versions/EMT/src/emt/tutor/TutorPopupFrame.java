@@ -60,6 +60,7 @@ public class TutorPopupFrame extends javax.swing.JFrame {
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorPopupFrame.class);
         setTitle(resourceMap.getString("Tutor-Name.title")); // NOI18N
+        setAlwaysOnTop(true);
         setName("Tutor-Name"); // NOI18N
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
