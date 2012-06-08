@@ -19,16 +19,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Question1Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Question2Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Question3Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Question4Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Component id="QuestionHeadingLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Question1Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Question2Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Question3Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Question4Label" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="108" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -37,7 +42,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="QuestionHeadingLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="Question1Label" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Question2Label" min="-2" max="-2" attributes="0"/>
@@ -45,7 +50,7 @@
               <Component id="Question3Label" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Question4Label" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,6 +58,8 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="Question1Label">
       <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="QuestionHeadingLabel.font"/>
+        <Property name="foreground" type="java.awt.Color" resourceKey="Question3Label.foreground"/>
         <Property name="text" type="java.lang.String" resourceKey="Question1Label.text"/>
         <Property name="name" type="java.lang.String" value="Question1Label" noResource="true"/>
       </Properties>
@@ -62,6 +69,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Question2Label">
       <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="QuestionHeadingLabel.font"/>
+        <Property name="foreground" type="java.awt.Color" resourceKey="Question3Label.foreground"/>
         <Property name="text" type="java.lang.String" resourceKey="Question2Label.text"/>
         <Property name="name" type="java.lang.String" value="Question2Label" noResource="true"/>
       </Properties>
@@ -71,6 +80,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Question3Label">
       <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="QuestionHeadingLabel.font"/>
+        <Property name="foreground" type="java.awt.Color" resourceKey="Question3Label.foreground"/>
         <Property name="text" type="java.lang.String" resourceKey="Question3Label.text"/>
         <Property name="name" type="java.lang.String" value="Question3Label" noResource="true"/>
       </Properties>
@@ -80,6 +91,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Question4Label">
       <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="QuestionHeadingLabel.font"/>
+        <Property name="foreground" type="java.awt.Color" resourceKey="Question3Label.foreground"/>
         <Property name="text" type="java.lang.String" resourceKey="Question4Label.text"/>
         <Property name="name" type="java.lang.String" value="Question4Label" noResource="true"/>
       </Properties>
@@ -89,6 +102,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="QuestionHeadingLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="QuestionHeadingLabel.font"/>
         <Property name="text" type="java.lang.String" resourceKey="QuestionHeadingLabel.text"/>
         <Property name="name" type="java.lang.String" value="QuestionHeadingLabel" noResource="true"/>
       </Properties>

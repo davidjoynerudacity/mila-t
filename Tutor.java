@@ -111,6 +111,9 @@ public class Tutor {
     public void showTutor() {
         myFrame.setVisible(!myFrame.isVisible());
     }
+    public void focusTutor() {
+        myModelPanel.switchTutor(myName);
+    }
     
     public EvexModel getModel() {
         return myModelPanel.getModel();

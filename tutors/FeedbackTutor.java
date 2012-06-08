@@ -40,6 +40,7 @@ public class FeedbackTutor extends InterruptTutor {
         FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
         fpa1.setPrompt("I noticed you added Bacteria Population to your model. Why did you add that?");
         ma1.addAction(fpa1);
+        ma1.addAction(new FocusTutorAction(this));
         
         Mapping m1=new Mapping();
         m1.setPercept(pnp1);

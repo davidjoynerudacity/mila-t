@@ -47,6 +47,14 @@ public class TutorSelectPanel extends javax.swing.JPanel {
         tutorLabel.setText(tutors.get(currentTutorIndex).getName());
         multiTutorPanel1.switchTutor(tutors.get(currentTutorIndex).getName());
     }
+    public void switchTutor(String tutorName) {
+        for(Tutor tutor : tutors) {
+            if(tutor.getName().equalsIgnoreCase(tutorName)) {
+                currentTutorIndex=tutors.indexOf(tutor);
+            }
+        }
+        updateTutor();
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
