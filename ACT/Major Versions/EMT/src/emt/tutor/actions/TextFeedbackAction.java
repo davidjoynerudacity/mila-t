@@ -13,6 +13,7 @@ import emt.tutor.Tutor;
  */
 public class TextFeedbackAction extends Action {
     private String myFeedback;
+    private boolean isRead=false;
     
     public TextFeedbackAction(Tutor myTutor) {
         super(myTutor);
@@ -22,7 +23,7 @@ public class TextFeedbackAction extends Action {
         myFeedback=feedback;
     }
     public void doAction() {
-        getTutor().giveTextFeedback(myFeedback);
+        getTutor().giveTextFeedback(this);
     }
     public String getFeedback() {
         return myFeedback;
@@ -30,4 +31,12 @@ public class TextFeedbackAction extends Action {
     public void setFeedback(String feedback) {
         myFeedback=feedback;
     }
+    
+    public boolean getIsRead() {
+        return isRead;
+    }
+    public void setIsRead(boolean read) {
+        isRead=read;
+    }
+    
 }

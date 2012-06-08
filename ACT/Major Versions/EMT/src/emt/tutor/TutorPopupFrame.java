@@ -10,6 +10,8 @@
  */
 package emt.tutor;
 
+import emt.tutor.actions.FeedbackPromptAction;
+import emt.tutor.actions.TextFeedbackAction;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -18,7 +20,8 @@ import javax.swing.ImageIcon;
  * @author David
  */
 public class TutorPopupFrame extends javax.swing.JFrame {
-
+    private TextFeedbackAction myTFA;
+    
     /** Creates new form TutorPopupFrame */
     public TutorPopupFrame() {
         initComponents();
@@ -32,10 +35,14 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     public void giveTextFeedback(String feedback) {
         tutorContentPanel1.giveTextFeedback(feedback);
     }
+    public void giveTextFeedback(TextFeedbackAction tfa) {
+        tutorContentPanel1.giveTextFeedback(tfa.getFeedback());
+        myTFA=tfa;
+    }
     public void giveQuestionList(ArrayList<QuestionItem> questions, String intro) {
         tutorContentPanel1.giveQuestionList(questions,intro);
     }
-    public void giveFeedbackPrompt(String prompt) {
+    public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         tutorContentPanel1.giveFeedbackPrompt(prompt);
     }
 
@@ -51,10 +58,16 @@ public class TutorPopupFrame extends javax.swing.JFrame {
         tutorImageLabel = new javax.swing.JLabel();
         tutorContentPanel1 = new emt.tutor.TutorContentPanel();
 
-        setName("Form"); // NOI18N
-        setResizable(false);
-
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorPopupFrame.class);
+        setTitle(resourceMap.getString("Tutor-Name.title")); // NOI18N
+        setName("Tutor-Name"); // NOI18N
+        setResizable(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
+
         tutorImageLabel.setText(resourceMap.getString("tutorImageLabel.text")); // NOI18N
         tutorImageLabel.setName("tutorImageLabel"); // NOI18N
 
@@ -78,6 +91,12 @@ public class TutorPopupFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        if(!(myTFA==null)) {
+            myTFA.setIsRead(true);
+        }
+    }//GEN-LAST:event_formComponentHidden
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

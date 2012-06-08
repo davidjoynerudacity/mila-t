@@ -10,6 +10,7 @@
  */
 package emt.tutor;
 
+import emt.tutor.actions.FeedbackPromptAction;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 
@@ -69,7 +70,7 @@ public class TutorContentPanel extends javax.swing.JPanel {
         }
         myLayout.show(this,"Questions");
     }
-    public void giveFeedbackPrompt(String prompt) {
+    public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         myFeedbackPanel.setPrompt(prompt);
         myLayout.show(this,"Prompt");
     }

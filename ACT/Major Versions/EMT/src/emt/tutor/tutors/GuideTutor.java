@@ -32,6 +32,8 @@ public class GuideTutor extends OnDemandTutor {
         addImage("2", "g2.jpg");
         addImage("3", "g3.jpg");
         
+        CurrentLessonPercept clp1=new CurrentLessonPercept(this);
+        
         PresentNodePercept pn1=new PresentNodePercept(this);
         pn1.setNode("Nitrate");
         PresentNodePercept pn2=new PresentNodePercept(this);
