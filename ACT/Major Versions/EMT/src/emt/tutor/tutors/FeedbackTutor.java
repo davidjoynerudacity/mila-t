@@ -15,12 +15,12 @@ import emt.tutor.percepts.modelpercepts.*;
  */
 public class FeedbackTutor extends InterruptTutor {
     public FeedbackTutor() {
-        super("Feedback");
+        super("Interviewer");
         initializeTutor();
     }
 
     public FeedbackTutor(ProjectModelPanel modelPanel) {
-        super("Feedback",modelPanel);
+        super("Interviewer",modelPanel);
         initializeTutor();
     }
     
