@@ -15,20 +15,21 @@ import javax.swing.Timer;
  */
 public class InterruptTutor extends Tutor implements ActionListener {
     private Timer myTimer;
+    private int myDelay=5000;
     
     public InterruptTutor() {
         super();
-        myTimer=new Timer(5000,this);
+        myTimer=new Timer(myDelay,this);
         myTimer.start();
     }
     public InterruptTutor(String name) {
         super(name);
-        myTimer=new Timer(5000,this);
+        myTimer=new Timer(myDelay,this);
         myTimer.start();
     }
     public InterruptTutor(String name,ProjectModelPanel modelPanel) {
         super(name,modelPanel);
-        myTimer=new Timer(5000,this);
+        myTimer=new Timer(myDelay,this);
         myTimer.start();
     }
     
