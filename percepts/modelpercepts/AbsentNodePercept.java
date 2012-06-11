@@ -25,9 +25,9 @@ public class AbsentNodePercept extends ModelPercept {
         if(!super.modelSelected()) { return false; }
         EvexModel myModel=getModel();
         for(EvexNode node : myModel.getNodes()) {
-            if(node.getName().equals(myNode)) {
+            if(node.getName().equalsIgnoreCase(myNode)) {
                 if(myProperty.length()>0) {
-                    if(node.getComponent().equals(myProperty)) {
+                    if(node.getComponent().equalsIgnoreCase(myProperty)) {
                         return false;
                     }
                 } else {
