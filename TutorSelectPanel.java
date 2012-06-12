@@ -89,7 +89,6 @@ public class TutorSelectPanel extends javax.swing.JPanel {
         });
 
         nextTutorButton.setIcon(resourceMap.getIcon("nextTutorButton.icon")); // NOI18N
-        nextTutorButton.setBorder(null);
         nextTutorButton.setName("nextTutorButton"); // NOI18N
         nextTutorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
