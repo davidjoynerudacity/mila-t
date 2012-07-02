@@ -27,95 +27,93 @@ public class MentorTutor extends InterruptTutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "m1.jpg");
-        addImage("2", "m2.jpg");
-        addImage("3", "m3.jpg");
+        addImage("amazed-front", "a-amazed-front.jpg");
+        addImage("amazed-side", "a-amazed-side.jpg");
+        addImage("concerned-front", "a-concerned-front.jpg");
+        addImage("concerned-side", "a-concerned-side.jpg");
+        addImage("confused-front", "a-confused-front.jpg");
+        addImage("confused-side", "a-confused-side.jpg");
+        addImage("excited-front", "a-excited-front.jpg");
+        addImage("excited-side", "a-excited-side.jpg");
+        addImage("happy-front", "a-happy-front.jpg");
+        addImage("happy-side", "a-happy-side.jpg");
+        addImage("interested-front", "a-interested-front.jpg");
+        addImage("interested-side", "a-interested-side.jpg");
+        addImage("neutral-front", "a-neutral-front.jpg");
+        addImage("neutral-side", "a-neutral-side.jpg");
         
-//        CurrentLessonPercept clp1=new CurrentLessonPercept(this);
-//        clp1.setLesson("1");
-//        
-//        CurrentLessonPercept clp2=new CurrentLessonPercept(this);
-//        clp2.setLesson("2");
-//        
-//        TextFeedbackAction tfa1=new TextFeedbackAction(this,"It is currently Lesson 1");
-//        TextFeedbackAction tfa2=new TextFeedbackAction(this,"It is currently Lesson 2");
-//        
-//        Mapping m1=new Mapping();
-//        m1.setPercept(clp1);
-//        m1.setAction(tfa1);
-//        
-//        Mapping m2=new Mapping();
-//        m2.setPercept(clp2);
-//        m2.setAction(tfa2);
-//        
-//        this.addMapping(m1); 
-//        this.addMapping(m2);
-    
-        PresentConnectionPercept t1=new PresentConnectionPercept(this);
-        t1.setNode1("Fish");
-        t1.setProperty1("Population");
-        t1.setNode2("Nitrate");
-        t1.setProperty2("Concentration");
+        ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
+        ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
+        ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
+        ChangePictureAction cpaConcernedSide=new ChangePictureAction(this,"concerned-side");
+        ChangePictureAction cpaConfusedFront=new ChangePictureAction(this,"confused-front");
+        ChangePictureAction cpaConfusedSide=new ChangePictureAction(this,"confused-side");
+        ChangePictureAction cpaExcitedFront=new ChangePictureAction(this,"excited-front");
+        ChangePictureAction cpaExcitedSide=new ChangePictureAction(this,"excited-side");
+        ChangePictureAction cpaHappyFront=new ChangePictureAction(this,"happy-front");
+        ChangePictureAction cpaHappySide=new ChangePictureAction(this,"happy-side");
+        ChangePictureAction cpaInterestedFront=new ChangePictureAction(this,"interested-front");
+        ChangePictureAction cpaInterestedSide=new ChangePictureAction(this,"interested-side");
+        ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
+        ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
         
-        MultipleAction ma1=new MultipleAction(this);
-        TextFeedbackAction tfa1=new TextFeedbackAction(this);
-        tfa1.setFeedback("I noticed you just connected Fish Population with Nitrate Concentration. Did you know that Nitrate itself is increased by the presence of bacteria?"); 
-        ma1.addAction(tfa1);
-        ChangePictureAction cpa1=new ChangePictureAction(this);
-        cpa1.setPicKey("2");
-        ma1.addAction(cpa1);
+        /* LESSON 7 ***********************************************************/
+        CurrentLessonPercept clp7=new CurrentLessonPercept(this,"7");
         
-        MultiplePercept mp1=new MultiplePercept(this);
-        UnreadTextFeedbackPercept utfp1=new UnreadTextFeedbackPercept(this);
-        utfp1.setTextFeedbackAction(tfa1);
-        mp1.addPercept(t1);
-        mp1.addPercept(utfp1);
         
-        Mapping m1=new Mapping();
-        m1.setPercept(mp1);
-        m1.setAction(ma1);
+        /* LESSON 9 ***********************************************************/
+        CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
+        
+        
+        /* LESSON 11 **********************************************************/
+        CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
+        
+        
+        /* LESSON 12/13 *******************************************************/
+        CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
+        
+        
+        /* LESSON 14 **********************************************************/
+        CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
+        
+        
+        /* LESSON 15 **********************************************************/
+        CurrentLessonPercept clp15=new CurrentLessonPercept(this,"15");
+        
+        
+        /* LESSON 16 **********************************************************/
+        CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
+        
+        
+        /* LESSON 17 **********************************************************/
+        CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
+        
+        
+        /* LESSON 18/19 *******************************************************/
+        CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
+        
+        
+        /* LESSON 20 **********************************************************/
+        CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
+        
+        
+        /* LESSON 21 **********************************************************/
+        CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
+        
+        
+        /* LESSON 22 **********************************************************/
+        CurrentLessonPercept clp22=new CurrentLessonPercept(this,"22");
+        
+        
+        /* LESSON 23 **********************************************************/
+        CurrentLessonPercept clp23=new CurrentLessonPercept(this,"23");
 
         
-        PresentConnectionPercept t2=new PresentConnectionPercept(this);
-        t2.setNode1("Bacteria");
-        t2.setProperty1("Population");
-        t2.setNode2("Nitrate");
-        t2.setProperty2("Concentration");
+        /* END LESSON-SPECIFIC CONTENT ****************************************/
         
-        MultipleAction ma2=new MultipleAction(this);
-        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Nice! You connected Bacteria with Nitrate Concentration. Did you know that bacteria producing nitrate is a known scientific fact? You can use that as evidence, if you'd like.");
-        ma2.addAction(tfa2);
-        ChangePictureAction cpa2=new ChangePictureAction(this);
-        cpa2.setPicKey("3");
-        ma2.addAction(cpa2);
-        
-        MultiplePercept mp2=new MultiplePercept(this);
-        UnreadTextFeedbackPercept utfp2=new UnreadTextFeedbackPercept(this);
-        utfp2.setTextFeedbackAction(tfa2);
-        mp2.addPercept(t2);
-        mp2.addPercept(utfp2);
-        
-        Mapping m2=new Mapping();
-        m2.setPercept(mp2);
-        m2.setAction(ma2);
-
-        
-        TruePercept t3=new TruePercept(this);
-        MultipleAction ma3=new MultipleAction(this);
-        TextFeedbackAction tfa3=new TextFeedbackAction(this);
-        tfa3.setFeedback("I don't have anything to say right now. Keep up the good work!");
-        ma3.addAction(tfa3);
-        
-        ChangePictureAction cpa3=new ChangePictureAction(this);
-        cpa3.setPicKey("1");
-        ma3.addAction(cpa3);
-        
-        Mapping m3=new Mapping();
-        m3.setPercept(t3);
-        m3.setAction(ma3);
-        
-        addMapping(m2);
+        TruePercept tp1=new TruePercept(this);
+        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
+        Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
         addMapping(m1);
-        addMapping(m3);
     }
 }

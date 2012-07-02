@@ -19,6 +19,20 @@ public class MultipleAction extends Action {
         super(tutor);
         myActions=new ArrayList<Action>();
     }
+    public MultipleAction(Tutor tutor,Action action) {
+        this(tutor);
+        this.addAction(action);
+    }
+    public MultipleAction(Tutor tutor,Action[] actions) {
+        this(tutor);
+        for(Action p : actions) {
+            addAction(p);
+        }
+    }
+    public MultipleAction(Tutor tutor,ArrayList<Action> actions) {
+        this(tutor);
+        myActions.addAll(actions);
+    }
     public void doAction() {
         for(Action action : myActions) {
             action.doAction();

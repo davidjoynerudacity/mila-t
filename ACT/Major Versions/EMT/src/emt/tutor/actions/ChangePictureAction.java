@@ -17,6 +17,10 @@ public class ChangePictureAction extends Action {
     public ChangePictureAction(Tutor myTutor) {
         super(myTutor);
     }
+    public ChangePictureAction(Tutor myTutor,String picKey) {
+        this(myTutor);
+        myPicKey=picKey;
+    }
     public void doAction() {
             getTutor().switchImage(myPicKey);
     }

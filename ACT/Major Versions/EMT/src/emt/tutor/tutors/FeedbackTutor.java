@@ -25,44 +25,93 @@ public class FeedbackTutor extends InterruptTutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "s1.jpg");
-        addImage("2", "s2.jpg");
-        addImage("3", "s3.jpg");
+        addImage("amazed-front", "s-amazed-front.jpg");
+        addImage("amazed-side", "s-amazed-side.jpg");
+        addImage("concerned-front", "s-concerned-front.jpg");
+        addImage("concerned-side", "s-concerned-side.jpg");
+        addImage("confused-front", "s-confused-front.jpg");
+        addImage("confused-side", "s-confused-side.jpg");
+        addImage("excited-front", "s-excited-front.jpg");
+        addImage("excited-side", "s-excited-side.jpg");
+        addImage("happy-front", "s-happy-front.jpg");
+        addImage("happy-side", "s-happy-side.jpg");
+        addImage("interested-front", "s-interested-front.jpg");
+        addImage("interested-side", "s-interested-side.jpg");
+        addImage("neutral-front", "s-neutral-front.jpg");
+        addImage("neutral-side", "s-neutral-side.jpg");
     
-        PresentNodePercept pnp1=new PresentNodePercept(this);
-        pnp1.setNode("Bacteria");
-        pnp1.setProperty("Population");
+ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
+        ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
+        ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
+        ChangePictureAction cpaConcernedSide=new ChangePictureAction(this,"concerned-side");
+        ChangePictureAction cpaConfusedFront=new ChangePictureAction(this,"confused-front");
+        ChangePictureAction cpaConfusedSide=new ChangePictureAction(this,"confused-side");
+        ChangePictureAction cpaExcitedFront=new ChangePictureAction(this,"excited-front");
+        ChangePictureAction cpaExcitedSide=new ChangePictureAction(this,"excited-side");
+        ChangePictureAction cpaHappyFront=new ChangePictureAction(this,"happy-front");
+        ChangePictureAction cpaHappySide=new ChangePictureAction(this,"happy-side");
+        ChangePictureAction cpaInterestedFront=new ChangePictureAction(this,"interested-front");
+        ChangePictureAction cpaInterestedSide=new ChangePictureAction(this,"interested-side");
+        ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
+        ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
         
-        MultipleAction ma1=new MultipleAction(this);
-        ChangePictureAction cpa1=new ChangePictureAction(this);
-        cpa1.setPicKey("2");
-        ma1.addAction(cpa1);
-        FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
-        fpa1.setPrompt("I noticed you added Bacteria Population to your model. Why did you add that?");
-        ma1.addAction(fpa1);
-        ma1.addAction(new FocusTutorAction(this));
+        /* LESSON 7 ***********************************************************/
+        CurrentLessonPercept clp7=new CurrentLessonPercept(this,"7");
         
-        UnansweredFeedbackPercept fap1=new UnansweredFeedbackPercept(this);
-        fap1.setFeedbackActionPrompt(fpa1);
-        MultiplePercept mp1=new MultiplePercept(this);
-        mp1.addPercept(pnp1);
-        mp1.addPercept(fap1);
         
-        Mapping m1=new Mapping();
-        m1.setPercept(mp1);
-        m1.setAction(ma1);
-        this.addMapping(m1);
+        /* LESSON 9 ***********************************************************/
+        CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
         
-        TruePercept t1=new TruePercept(this);
-        MultipleAction ma2=new MultipleAction(this);
-        ma2.addAction(new TextFeedbackAction(this,"I don't have anything to ask right now. Keep up the good work!"));
-        ChangePictureAction cpa2=new ChangePictureAction(this);
-        cpa2.setPicKey("3");
-        ma2.addAction(cpa2);
         
-        Mapping m2=new Mapping();
-        m2.setPercept(t1);
-        m2.setAction(ma2);
-        this.addMapping(m2);
+        /* LESSON 11 **********************************************************/
+        CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
+        
+        
+        /* LESSON 12/13 *******************************************************/
+        CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
+        
+        
+        /* LESSON 14 **********************************************************/
+        CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
+        
+        
+        /* LESSON 15 **********************************************************/
+        CurrentLessonPercept clp15=new CurrentLessonPercept(this,"15");
+        
+        
+        /* LESSON 16 **********************************************************/
+        CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
+        
+        
+        /* LESSON 17 **********************************************************/
+        CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
+        
+        
+        /* LESSON 18/19 *******************************************************/
+        CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
+        
+        
+        /* LESSON 20 **********************************************************/
+        CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
+        
+        
+        /* LESSON 21 **********************************************************/
+        CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
+        
+        
+        /* LESSON 22 **********************************************************/
+        CurrentLessonPercept clp22=new CurrentLessonPercept(this,"22");
+        
+        
+        /* LESSON 23 **********************************************************/
+        CurrentLessonPercept clp23=new CurrentLessonPercept(this,"23");
+        
+        
+        /* END LESSON-SPECIFIC CONTENT ****************************************/
+        
+        TruePercept tp1=new TruePercept(this);
+        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
+        Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
+        addMapping(m1);
     }
 }

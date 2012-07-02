@@ -19,6 +19,20 @@ public class MultiplePercept extends Percept {
         super(tutor);
         myPercepts=new ArrayList<Percept>();
     }
+    public MultiplePercept(Tutor tutor,Percept percept) {
+        this(tutor);
+        this.addPercept(percept);
+    }
+    public MultiplePercept(Tutor tutor,Percept[] percepts) {
+        this(tutor);
+        for(Percept p : percepts) {
+            addPercept(p);
+        }
+    }
+    public MultiplePercept(Tutor tutor,ArrayList<Percept> percepts) {
+        this(tutor);
+        myPercepts.addAll(percepts);
+    }
     public boolean isTrue() {
         for(Percept percept : myPercepts) {
             if(!percept.isTrue()) {

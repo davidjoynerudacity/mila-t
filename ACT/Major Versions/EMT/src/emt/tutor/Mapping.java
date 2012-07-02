@@ -15,6 +15,10 @@ public class Mapping {
     public Mapping() {
         
     }
+    public Mapping(Percept percept,Action action) {
+        myAction=action;
+        myPercept=percept;
+    }
     public Action getAction() {
         return myAction;
     }

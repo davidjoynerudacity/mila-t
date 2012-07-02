@@ -25,68 +25,93 @@ public class CriticTutor extends OnDemandTutor {
     }
     
     public void initializeTutor() {
-        addImage("1", "c1.jpg");
-        addImage("2", "c2.jpg");
-        addImage("3", "c3.jpg");
+        addImage("amazed-front", "u-amazed-front.jpg");
+        addImage("amazed-side", "u-amazed-side.jpg");
+        addImage("concerned-front", "u-concerned-front.jpg");
+        addImage("concerned-side", "u-concerned-side.jpg");
+        addImage("confused-front", "u-confused-front.jpg");
+        addImage("confused-side", "u-confused-side.jpg");
+        addImage("excited-front", "u-excited-front.jpg");
+        addImage("excited-side", "u-excited-side.jpg");
+        addImage("happy-front", "u-happy-front.jpg");
+        addImage("happy-side", "u-happy-side.jpg");
+        addImage("interested-front", "u-interested-front.jpg");
+        addImage("interested-side", "u-interested-side.jpg");
+        addImage("neutral-front", "u-neutral-front.jpg");
+        addImage("neutral-side", "u-neutral-side.jpg");
         
-        ChangePictureAction cpa1=new ChangePictureAction(this);
-        cpa1.setPicKey("2");
-        ChangePictureAction cpa2=new ChangePictureAction(this);
-        cpa2.setPicKey("3");
+        ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
+        ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
+        ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
+        ChangePictureAction cpaConcernedSide=new ChangePictureAction(this,"concerned-side");
+        ChangePictureAction cpaConfusedFront=new ChangePictureAction(this,"confused-front");
+        ChangePictureAction cpaConfusedSide=new ChangePictureAction(this,"confused-side");
+        ChangePictureAction cpaExcitedFront=new ChangePictureAction(this,"excited-front");
+        ChangePictureAction cpaExcitedSide=new ChangePictureAction(this,"excited-side");
+        ChangePictureAction cpaHappyFront=new ChangePictureAction(this,"happy-front");
+        ChangePictureAction cpaHappySide=new ChangePictureAction(this,"happy-side");
+        ChangePictureAction cpaInterestedFront=new ChangePictureAction(this,"interested-front");
+        ChangePictureAction cpaInterestedSide=new ChangePictureAction(this,"interested-side");
+        ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
+        ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
         
-        MissingPropertiesPercept mpp1=new MissingPropertiesPercept(this);
-        TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you haven't added properties to all your components. Remember, a component is the physical thing in the system: the property is what it is about that thing that changes. So, for example, the physical thing 'water' might have the property 'temperature', and 'temperature' is what rises and falls.");
-        MultipleAction ma1=new MultipleAction(this);
-        ma1.addAction(cpa1);
-        ma1.addAction(tfa1);
-        Mapping m1=new Mapping();
-        m1.setPercept(mpp1);
-        m1.setAction(ma1);
+        /* LESSON 7 ***********************************************************/
+        CurrentLessonPercept clp7=new CurrentLessonPercept(this,"7");
         
-        UnevidencedEdgePercept uep1=new UnevidencedEdgePercept(this);
-        TextFeedbackAction tfa2=new TextFeedbackAction(this,"It looks like you haven't given evidence for all the connections you've drawn. A good model has some kind of evidence given for every connection it proposes. Evidence might be a observation, a known scientific theory, or a statement from an expert.");
-        MultipleAction ma2=new MultipleAction(this);
-        ma2.addAction(cpa1);
-        ma2.addAction(tfa2);
-        Mapping m2=new Mapping();
-        m2.setPercept(uep1);
-        m2.setAction(ma2);
         
-        PresentNodePercept pnp1=new PresentNodePercept(this);
-        pnp1.setNode("Nitrate");
-        pnp1.setProperty("Amount");
-        TextFeedbackAction tfa3=new TextFeedbackAction(this,"Right now you're using the word 'amount' to refer to nitrate. It would be more appropriate to use the word 'concentration'. The 'amount' of nitrate in the water would not change if the amount of water changed, but the concentration would.");
-        MultipleAction ma3=new MultipleAction(this);
-        ma3.addAction(cpa1);
-        ma3.addAction(tfa3);
-        Mapping m3=new Mapping();
-        m3.setPercept(pnp1);
-        m3.setAction(ma3);
+        /* LESSON 9 ***********************************************************/
+        CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
         
-        AbsentNodePercept anp1=new AbsentNodePercept(this);
-        anp1.setNode("Fish");
-        anp1.setProperty("Population");
-        TextFeedbackAction tfa4=new TextFeedbackAction(this,"The phenomenon you're explaining is that the fish in the lake died, so you'll probably want to represent the fish population in your model. This can be done with a component named 'Fish' and a property named 'Population'.");
-        MultipleAction ma4=new MultipleAction(this);
-        ma4.addAction(cpa1);
-        ma4.addAction(tfa4);
-        Mapping m4=new Mapping();
-        m4.setPercept(anp1);
-        m4.setAction(ma4);
+        
+        /* LESSON 11 **********************************************************/
+        CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
+        
+        
+        /* LESSON 12/13 *******************************************************/
+        CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
+        
+        
+        /* LESSON 14 **********************************************************/
+        CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
+        
+        
+        /* LESSON 15 **********************************************************/
+        CurrentLessonPercept clp15=new CurrentLessonPercept(this,"15");
+        
+        
+        /* LESSON 16 **********************************************************/
+        CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
+        
+        
+        /* LESSON 17 **********************************************************/
+        CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
+        
+        
+        /* LESSON 18/19 *******************************************************/
+        CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
+        
+        
+        /* LESSON 20 **********************************************************/
+        CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
+        
+        
+        /* LESSON 21 **********************************************************/
+        CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
+        
+        
+        /* LESSON 22 **********************************************************/
+        CurrentLessonPercept clp22=new CurrentLessonPercept(this,"22");
+        
+        
+        /* LESSON 23 **********************************************************/
+        CurrentLessonPercept clp23=new CurrentLessonPercept(this,"23");
+        
+        
+        /* END LESSON-SPECIFIC CONTENT ****************************************/
         
         TruePercept tp1=new TruePercept(this);
-        TextFeedbackAction tfa5=new TextFeedbackAction(this,"Everything looks good to me!");
-        MultipleAction ma5=new MultipleAction(this);
-        ma5.addAction(cpa2);
-        ma5.addAction(tfa5);
-        Mapping m5=new Mapping();
-        m5.setPercept(tp1);
-        m5.setAction(ma5);
-        
-        this.addMapping(m4);
-        this.addMapping(m3);
-        this.addMapping(m1);
-        this.addMapping(m2);
-        this.addMapping(m5);
+        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
+        Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
+        addMapping(m1);
     }
 }
