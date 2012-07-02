@@ -24,7 +24,10 @@ public class CurrentLessonPercept extends Percept {
         super(myTutor);
         LESSONCHECKER.startChecking();
     }
-    
+    public CurrentLessonPercept(Tutor myTutor,String lesson) {
+        this(myTutor);
+        this.myLesson=lesson;
+    }
     public void setLesson(String lesson) {
         myLesson=lesson;
     }

@@ -108,7 +108,7 @@ public class Tutor {
     }
     public void setPanel(TutorPanel panel) {
         myPanel=panel;
-        switchImage("1");
+        switchImage("neutral-side");
     }
     public String toString() {
         return myName;
