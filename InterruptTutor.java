@@ -38,6 +38,9 @@ public class InterruptTutor extends Tutor implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent e) {
-        super.checkMappings();
+        if(!super.isVisible()) {
+            System.out.println("Checking mappings for " + this.getName());
+            super.checkMappings();
+        }
     }
 }

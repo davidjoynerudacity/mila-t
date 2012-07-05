@@ -11,6 +11,7 @@
 package emt.tutor;
 
 import emt.tutor.actions.FeedbackPromptAction;
+import emt.tutor.actions.TextFeedbackAction;
 import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.PrintWriter;
@@ -114,7 +115,8 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         saveFeedback();
-        myContentPanel.giveTextFeedback("Thanks for your response! You can close me now -- I'll let you know if I have any more questions.");
+        myContentPanel.giveTextFeedback(new TextFeedbackAction(myFPA.getTutor(),"Thanks for your response! You can close me now -- I'll let you know if I have any more questions."));
+        FeedbackTextArea.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

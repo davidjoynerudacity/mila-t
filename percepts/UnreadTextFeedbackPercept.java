@@ -18,7 +18,10 @@ public class UnreadTextFeedbackPercept extends Percept {
     public UnreadTextFeedbackPercept(Tutor myTutor) {
         super(myTutor);
     }
-    
+    public UnreadTextFeedbackPercept(Tutor myTutor,TextFeedbackAction tfa) {
+        super(myTutor);
+        myTFA=tfa;
+    }
     public void setTextFeedbackAction(TextFeedbackAction tfa) {
         myTFA=tfa;
     }

@@ -14,6 +14,7 @@ import emt.tutor.Tutor;
 public class TextFeedbackAction extends Action {
     private String myFeedback;
     private boolean isRead=false;
+    private Action myNextAction;
     
     public TextFeedbackAction(Tutor myTutor) {
         super(myTutor);
@@ -30,6 +31,12 @@ public class TextFeedbackAction extends Action {
     }
     public void setFeedback(String feedback) {
         myFeedback=feedback;
+    }
+    public Action getNextAction() {
+        return myNextAction;
+    }
+    public void setNextAction(Action action) {
+        myNextAction=action;
     }
     
     public boolean getIsRead() {

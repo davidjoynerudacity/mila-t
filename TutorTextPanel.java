@@ -10,12 +10,15 @@
  */
 package emt.tutor;
 
+import emt.tutor.actions.TextFeedbackAction;
+
 /**
  *
  * @author David
  */
 public class TutorTextPanel extends javax.swing.JPanel {
     private TutorContentPanel myContentPanel;
+    private TextFeedbackAction myTFA;
     
     /** Creates new form TutorTextPanel */
     public TutorTextPanel(TutorContentPanel contentPanel) {
@@ -23,8 +26,14 @@ public class TutorTextPanel extends javax.swing.JPanel {
         myContentPanel=contentPanel;
     }
     
-    public void giveTextFeedback(String feedback) {
-        this.tutorTextLabel.setText("<html><p>" + feedback + "</p></html>");
+    public void giveTextFeedback(TextFeedbackAction tfa) {
+        this.tutorTextLabel.setText("<html><p>" + tfa.getFeedback() + "</p></html>");
+        myTFA=tfa;
+        if(tfa.getNextAction()==null) {
+            nextButton.setVisible(false);
+        } else {
+            nextButton.setVisible(true);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -37,33 +46,36 @@ public class TutorTextPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         tutorTextLabel = new javax.swing.JLabel();
+        nextButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorTextPanel.class);
         tutorTextLabel.setFont(resourceMap.getFont("tutorTextLabel.font")); // NOI18N
         tutorTextLabel.setText(resourceMap.getString("tutorTextLabel.text")); // NOI18N
         tutorTextLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         tutorTextLabel.setName("tutorTextLabel"); // NOI18N
+        add(tutorTextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 520, 130));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tutorTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tutorTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        nextButton.setText(resourceMap.getString("nextButton.text")); // NOI18N
+        nextButton.setName("nextButton"); // NOI18N
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
+        add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        if(myTFA.getNextAction()!=null) {
+            myTFA.getNextAction().doAction();
+        }
+    }//GEN-LAST:event_nextButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton nextButton;
     private javax.swing.JLabel tutorTextLabel;
     // End of variables declaration//GEN-END:variables
 }

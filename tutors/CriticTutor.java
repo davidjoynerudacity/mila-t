@@ -57,7 +57,42 @@ public class CriticTutor extends OnDemandTutor {
         
         /* LESSON 7 ***********************************************************/
         CurrentLessonPercept clp7=new CurrentLessonPercept(this,"7");
+        NodeCountPercept ncp0=new NodeCountPercept(this,0);
+        NodeCountPercept ncp1=new NodeCountPercept(this,1);
+        NodeCountPercept ncp2=new NodeCountPercept(this,2,'>');
+        NodeCountPercept ncp3=new NodeCountPercept(this,4,'<');
+        ConnectionCountPercept ccp0=new ConnectionCountPercept(this,0);
+        EvidencedConnectionCountPercept eccp0=new EvidencedConnectionCountPercept(this,0);
+        ConnectionCountPercept ccp2=new ConnectionCountPercept(this,2,'<');
+        IsolatedNodePercept inp1=new IsolatedNodePercept(this);
+        UnevidencedEdgePercept uep1=new UnevidencedEdgePercept(this);
         
+        MultipleAction ma1=new MultipleAction(this,new Action[]{cpaConcernedFront,new TextFeedbackAction(this,"For today, our goal is to make a simple model to get used to using MILA. To continue, you'll need to add at least one component to your model. Ask Gabriel if you need help with adding components.")});
+        MultipleAction ma2=new MultipleAction(this,new Action[]{cpaConcernedFront,new TextFeedbackAction(this,"You've added a component, but there's nothing you can do with it by itself. To continue, you'll need to add another.")});
+        MultipleAction ma3=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You've added multiple components, so now you'll need to connect them together. Ask Gabriel if you need to know how to draw a connection.")});
+        MultipleAction ma4=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"Now you've got multiple components and at least one connection. In order for that connection to be useful, though, you need to give evidence for why you think it's true. If you need help adding evidence, ask Gabriel.")});
+        MultipleAction ma5=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Good! It looks like you've added multiple components and at least one evidenced connection. A good model for today will need at least 3 components, though, so what else do you think is significant to this system?")});
+        MultipleAction ma6=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"You have several components, but right now only one connection. What other connections can you draw?")});
+        MultipleAction ma7=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Your model satisfies the goals for this lesson, but there are still some improvements that can be made. It looks like there are components that are not connected to any other components. In a good model, every component is connected in some way. If you are not yet sure how this component interacts, though, it's fine to leave it unconnected for now.")});
+        MultipleAction ma8=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Well done! Your model is satisfactory for this lesson's goals. If you're interested, though, there are still improvements to be made. It looks like you still have connections without evidence. In a good model, every connection will have evidence.")});
+        
+        Mapping m1=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp0}),ma1);
+        Mapping m2=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp1}),ma2);
+        Mapping m3=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp2,ccp0}),ma3);
+        Mapping m4=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp2,eccp0}),ma4);
+        Mapping m5=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp3}),ma5);
+        Mapping m6=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ccp2}),ma6);
+        Mapping m7=new Mapping(new MultiplePercept(this,new Percept[]{clp7,inp1}),ma7);
+        Mapping m8=new Mapping(new MultiplePercept(this,new Percept[]{clp7,uep1}),ma8);
+        
+        addMapping(m1);
+        addMapping(m2);
+        addMapping(m3);
+        addMapping(m4);
+        addMapping(m5);
+        addMapping(m6);
+        addMapping(m7);
+        addMapping(m8);
         
         /* LESSON 9 ***********************************************************/
         CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
@@ -110,8 +145,8 @@ public class CriticTutor extends OnDemandTutor {
         /* END LESSON-SPECIFIC CONTENT ****************************************/
         
         TruePercept tp1=new TruePercept(this);
-        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
-        Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
-        addMapping(m1);
+        MultipleAction ma0=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Nicely done! I don't have anything to say right now, your model looks good to me for this lesson.")});
+        Mapping m0=new Mapping(tp1,ma0);
+        addMapping(m0);
     }
 }

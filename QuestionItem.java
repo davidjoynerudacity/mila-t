@@ -16,8 +16,13 @@ public class QuestionItem {
         myQuestion="";
         myAction=null;
     }
-    public QuestionItem(String question,Action action) {
+    public QuestionItem(String question) {
+        this();
         myQuestion=question;
+        myAction=null;
+    }
+    public QuestionItem(String question,Action action) {
+        this(question);
         myAction=action;
     }
     

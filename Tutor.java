@@ -32,7 +32,7 @@ public class Tutor {
         myPanel=null;
         myImages=new HashMap();
         myMappings=new ArrayList<Mapping>();
-        myFrame=new TutorPopupFrame();
+        myFrame=new TutorPopupFrame(this);
         myFrame.pack();
         myFrame.setVisible(false);
         
@@ -51,16 +51,27 @@ public class Tutor {
         myFrame.setTitle(myName);
     }
     public void checkMappings() {
-        for(Mapping mapping : myMappings) {
-            Action result=mapping.check();
-            if(result!=null) {
-                result.doAction();
-                return;
+        if(myModelPanel.projectOpened()) {
+            try {
+                for(Mapping mapping : myMappings) {
+                    Action result=mapping.check();
+                    if(result!=null) {
+                        result.doAction();
+                        return;
+                    }
+                }
+            } catch(Exception ex) {
+                ex.printStackTrace();
             }
         }
     }
     public void addMapping(Mapping newMapping) {
         myMappings.add(newMapping);
+    }
+    public void addMapping(Mapping newMapping,boolean toFront) {
+        if(toFront) {
+            myMappings.add(0,newMapping);
+        }
     }
     public void wasClicked() {
         showTutor();
@@ -84,9 +95,9 @@ public class Tutor {
         }
     }
     
-    public void giveTextFeedback(String feedback) {
+    /*public void giveTextFeedback(String feedback) {
         myFrame.giveTextFeedback(feedback);
-    }
+    }*/
     public void giveTextFeedback(TextFeedbackAction tfa) {
         myFrame.giveTextFeedback(tfa);
     }
@@ -114,7 +125,14 @@ public class Tutor {
         return myName;
     }
     public void showTutor() {
-        myFrame.setVisible(!myFrame.isVisible());
+        myFrame.setTFARead();
+        myFrame.setVisible(true);
+    }
+    public void hideTutor() {
+        myFrame.setVisible(false);
+    }
+    public boolean isVisible() {
+        return myFrame.isVisible();
     }
     public void focusTutor() {
         myModelPanel.switchTutor(myName);
