@@ -9,11 +9,12 @@ import emt.tutor.*;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
 import emt.tutor.percepts.modelpercepts.*;
+import java.awt.event.ActionListener;
 /**
  *
  * @author David
  */
-public class FeedbackTutor extends InterruptTutor {
+public class FeedbackTutor extends InterruptTutor implements ActionListener {
     public FeedbackTutor() {
         super("Interviewer");
         initializeTutor();
@@ -39,8 +40,22 @@ public class FeedbackTutor extends InterruptTutor {
         addImage("interested-side", "s-interested-side.jpg");
         addImage("neutral-front", "s-neutral-front.jpg");
         addImage("neutral-side", "s-neutral-side.jpg");
+        addImage("amazed-front-bulb", "s-amazed-front.png");
+        addImage("amazed-side-bulb", "s-amazed-side.png");
+        addImage("concerned-front-bulb", "s-concerned-front.png");
+        addImage("concerned-side-bulb", "s-concerned-side.png");
+        addImage("confused-front-bulb", "s-confused-front.png");
+        addImage("confused-side-bulb", "s-confused-side.png");
+        addImage("excited-front-bulb", "s-excited-front.png");
+        addImage("excited-side-bulb", "s-excited-side.png");
+        addImage("happy-front-bulb", "s-happy-front.png");
+        addImage("happy-side-bulb", "s-happy-side.png");
+        addImage("interested-front-bulb", "s-interested-front.png");
+        addImage("interested-side-bulb", "s-interested-side.png");
+        addImage("neutral-front-bulb", "s-neutral-front.png");
+        addImage("neutral-side-bulb", "s-neutral-side.png");
     
-ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
+        ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
         ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
         ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
         ChangePictureAction cpaConcernedSide=new ChangePictureAction(this,"concerned-side");
@@ -54,60 +69,24 @@ ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
         ChangePictureAction cpaInterestedSide=new ChangePictureAction(this,"interested-side");
         ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
         ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
+        ChangePictureAction cpaAmazedFrontBulb=new ChangePictureAction(this,"amazed-front-bulb");
+        ChangePictureAction cpaAmazedSideBulb=new ChangePictureAction(this,"amazed-side-bulb");
+        ChangePictureAction cpaConcernedFrontBulb=new ChangePictureAction(this,"concerned-front-bulb");
+        ChangePictureAction cpaConcernedSideBulb=new ChangePictureAction(this,"concerned-side-bulb");
+        ChangePictureAction cpaConfusedFrontBulb=new ChangePictureAction(this,"confused-front-bulb");
+        ChangePictureAction cpaConfusedSideBulb=new ChangePictureAction(this,"confused-side-bulb");
+        ChangePictureAction cpaExcitedFrontBulb=new ChangePictureAction(this,"excited-front-bulb");
+        ChangePictureAction cpaExcitedSideBulb=new ChangePictureAction(this,"excited-side-bulb");
+        ChangePictureAction cpaHappyFrontBulb=new ChangePictureAction(this,"happy-front-bulb");
+        ChangePictureAction cpaHappySideBulb=new ChangePictureAction(this,"happy-side-bulb");
+        ChangePictureAction cpaInterestedFrontBulb=new ChangePictureAction(this,"interested-front-bulb");
+        ChangePictureAction cpaInterestedSideBulb=new ChangePictureAction(this,"interested-side-bulb");
+        ChangePictureAction cpaNeutralFrontBulb=new ChangePictureAction(this,"neutral-front-bulb");
+        ChangePictureAction cpaNeutralSideBulb=new ChangePictureAction(this,"neutral-side-bulb");
         
-        /* LESSON 7 ***********************************************************/
-        CurrentLessonPercept clp7=new CurrentLessonPercept(this,"7");
-        
-        
-        /* LESSON 9 ***********************************************************/
-        CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
-        
-        
-        /* LESSON 11 **********************************************************/
-        CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
-        
-        
-        /* LESSON 12/13 *******************************************************/
-        CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
-        
-        
-        /* LESSON 14 **********************************************************/
-        CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
-        
-        
-        /* LESSON 15 **********************************************************/
-        CurrentLessonPercept clp15=new CurrentLessonPercept(this,"15");
-        
-        
-        /* LESSON 16 **********************************************************/
-        CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
-        
-        
-        /* LESSON 17 **********************************************************/
-        CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
-        
-        
-        /* LESSON 18/19 *******************************************************/
-        CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
-        
-        
-        /* LESSON 20 **********************************************************/
-        CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
-        
-        
-        /* LESSON 21 **********************************************************/
-        CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
-        
-        
-        /* LESSON 22 **********************************************************/
-        CurrentLessonPercept clp22=new CurrentLessonPercept(this,"22");
-        
-        
-        /* LESSON 23 **********************************************************/
-        CurrentLessonPercept clp23=new CurrentLessonPercept(this,"23");
-        
-        
-        /* END LESSON-SPECIFIC CONTENT ****************************************/
+        NewQuestionPercept nqp=new NewQuestionPercept(this);
+        CreateNewQuestionAction cnqa=new CreateNewQuestionAction(this);
+        addMapping(new Mapping(nqp,cnqa));
         
         TruePercept tp1=new TruePercept(this);
         TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");

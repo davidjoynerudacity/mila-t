@@ -50,6 +50,9 @@
         <Property name="text" type="java.lang.String" resourceKey="tutorImageLabel.text"/>
         <Property name="name" type="java.lang.String" value="tutorImageLabel" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tutorImageLabelMouseClicked"/>
+      </Events>
     </Component>
     <Component class="emt.tutor.TutorContentPanel" name="tutorContentPanel1">
       <Properties>

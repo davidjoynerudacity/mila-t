@@ -53,7 +53,7 @@ public class CurrentLessonPercept extends Percept {
                 String str=in.readLine();
                 CURRENTLESSON=str;
                 in.close();
-                //System.out.println(str);
+                System.out.println(str);
             } catch(Exception ex) {}
         }
         

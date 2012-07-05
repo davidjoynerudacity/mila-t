@@ -11,6 +11,7 @@
 package emt.tutor;
 
 import emt.tutor.actions.FeedbackPromptAction;
+import emt.tutor.actions.TextFeedbackAction;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 
@@ -42,8 +43,8 @@ public class TutorContentPanel extends javax.swing.JPanel {
         ((CardLayout)this.getLayout()).show(this, "Text");
     }
     
-    public void giveTextFeedback(String feedback) {
-        myTextPanel.giveTextFeedback(feedback);
+    public void giveTextFeedback(TextFeedbackAction tfa) {
+        myTextPanel.giveTextFeedback(tfa);
         myLayout.show(this, "Text");
     }
     public void giveQuestionList(ArrayList<QuestionItem> questions, String intro) {

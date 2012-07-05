@@ -21,22 +21,27 @@ import javax.swing.ImageIcon;
  */
 public class TutorPopupFrame extends javax.swing.JFrame {
     private TextFeedbackAction myTFA;
+    private Tutor myTutor;
     
     /** Creates new form TutorPopupFrame */
     public TutorPopupFrame() {
         initComponents();
         this.setLocation(293,326);
     }
+    public TutorPopupFrame(Tutor tutor) {
+        this();
+        myTutor=tutor;
+    }
     
     public void switchImage(ImageIcon image) {
         tutorImageLabel.setIcon(image);
     }
     
-    public void giveTextFeedback(String feedback) {
+    /*public void giveTextFeedback(String feedback) {
         tutorContentPanel1.giveTextFeedback(feedback);
-    }
+    }*/
     public void giveTextFeedback(TextFeedbackAction tfa) {
-        tutorContentPanel1.giveTextFeedback(tfa.getFeedback());
+        tutorContentPanel1.giveTextFeedback(tfa);
         myTFA=tfa;
     }
     public void giveQuestionList(ArrayList<QuestionItem> questions, String intro) {
@@ -44,6 +49,11 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     }
     public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         tutorContentPanel1.giveFeedbackPrompt(prompt);
+    }
+    public void setTFARead() {
+        if(!(myTFA==null)) {
+            myTFA.setIsRead(true);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -71,6 +81,11 @@ public class TutorPopupFrame extends javax.swing.JFrame {
 
         tutorImageLabel.setText(resourceMap.getString("tutorImageLabel.text")); // NOI18N
         tutorImageLabel.setName("tutorImageLabel"); // NOI18N
+        tutorImageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tutorImageLabelMouseClicked(evt);
+            }
+        });
 
         tutorContentPanel1.setName("tutorContentPanel1"); // NOI18N
 
@@ -94,10 +109,14 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
-        if(!(myTFA==null)) {
-            myTFA.setIsRead(true);
-        }
+        setTFARead();
     }//GEN-LAST:event_formComponentHidden
+
+    private void tutorImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tutorImageLabelMouseClicked
+        if(myTutor!=null) {
+            myTutor.checkMappings();
+        }
+    }//GEN-LAST:event_tutorImageLabelMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
