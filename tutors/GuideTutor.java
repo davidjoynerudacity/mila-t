@@ -177,11 +177,41 @@ public class GuideTutor extends OnDemandTutor {
         
         /* LESSON 9 ***********************************************************/
         CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
+        QuestionListAction l9qla1=new QuestionListAction(this);
+        QuestionItem l9q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l9q1tfa1=new TextFeedbackAction(this,"For this lesson, your goal is to come up with multiple hypotheses for what might have caused the fish in Lake Clara Meer to die off.");
+            l9q1.setAction(l9q1tfa1);
+            TextFeedbackAction l9q1tfa2=new TextFeedbackAction(this,"Try to come up with at least three different hypotheses, and then create a model for each hypothesis. In each of these models, make sure you're including the fact that the Fish Population is falling, along with whatever else you're hypothesizing (for example, that Pollution Concentration was rising or that Oxygen Levels were falling).");
+            l9q1tfa1.setNextAction(l9q1tfa2);
+        QuestionItem l9q2=new QuestionItem("What should my models look like?");
+            TextFeedbackAction l9q2tfa1=new TextFeedbackAction(this,"The goal of your model is to explain why and how the fish in Lake Clara Meer all died. So, your model should include an initial event that caused the Fish Population to drop. Eventually, you'll have a long explanation for how this took place, but for now focus on the initial hypotheses.");
+            l9q2.setAction(l9q2tfa1);
+        QuestionItem l9q3=new QuestionItem("What else should I keep in mind?");
+            TextFeedbackAction l9q3tfa1=new TextFeedbackAction(this,"Try to think about how the Fish Kill problem and the Aquarium problem are similar and how they're different. Is there anything you learned with the Aquarium that you can transfer to the Fish Kill?");
+            l9q3.setAction(l9q3tfa1);
+        QuestionItem l9q4=new QuestionItem("See more questions...", day1Qs);
+        l9qla1.addQuestion(l9q1);
+        l9qla1.addQuestion(l9q2);
+        l9qla1.addQuestion(l9q3);
+        l9qla1.addQuestion(l9q4);
         
+        addMapping(new Mapping(clp9,l9qla1));
         
         /* LESSON 11 **********************************************************/
         CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
-        
+        QuestionListAction l11qla1=new QuestionListAction(this);
+        QuestionItem l11q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l11q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to add in some of the new information you've gathered into your models. You are also encouraged to create new models if you have new ideas for what might have caused the fish kill.");
+            l11q1.setAction(l11q1tfa1);
+            TextFeedbackAction l11q1tfa2=new TextFeedbackAction(this,"By the end of the lesson, try to have at least five models, each representing a different hypothesis. The models don't need to be complicated, but try also to incorporate some of what you learned at the lake into your models.");
+            l11q1tfa1.setNextAction(l11q1tfa2);
+        QuestionItem l11q2=new QuestionItem("How do I incorporate the information I've gathered into my models?");
+        //TODO
+        //TODO: QuestionItem l11q3=new QuestionItem("What is the goal for this lesson?");
+        l11qla1.addQuestion(l11q1);
+        //l11qla1.addQuestion(l11q2);
+        //l11qla1.addQuestion(l11q3);
+        l11qla1.addQuestion(l9q4);
         
         /* LESSON 12/13 *******************************************************/
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");

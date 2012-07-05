@@ -24,7 +24,7 @@ public class NewQuestionPercept extends Percept {
     public NewQuestionPercept(Tutor myTutor) {
         super(myTutor);
         myLoadedQuestions=new ArrayList<String>();
-        myLoadedQuestions.add("");
+        myLoadedQuestions.add(null);
         QUESTIONCHECKER.startChecking();
     }
     
@@ -43,7 +43,7 @@ public class NewQuestionPercept extends Percept {
         public static Timer questionTimer=new Timer(30000,new QUESTIONCHECKER());
         public static void updateCurrentQuestion() {
             try {
-                URL url=new URL("http://www.dilab.gatech.edu/emt/question.txt");
+                URL url=new URL("http://www.dilab.gatech.edu/MILA/php/question.txt");
                 BufferedReader in=new BufferedReader(new InputStreamReader(url.openStream()));
 
                 String str=in.readLine();

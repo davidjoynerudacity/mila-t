@@ -20,6 +20,15 @@ public class AbsentNodePercept extends ModelPercept {
         myNode="";
         myProperty="";
     }
+    public AbsentNodePercept(Tutor myTutor,String node) {
+        this(myTutor);
+        myNode=node;
+    }
+    public AbsentNodePercept(Tutor myTutor,String node,String property) {
+        this(myTutor);
+        myNode=node;
+        myProperty=property;
+    }
     
     public boolean isTrue() {
         if(!super.modelSelected()) { return false; }
