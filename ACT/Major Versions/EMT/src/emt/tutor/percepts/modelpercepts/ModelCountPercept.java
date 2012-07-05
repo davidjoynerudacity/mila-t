@@ -11,20 +11,20 @@ import emt.tutor.Tutor;
  *
  * @author David
  */
-public class NodeCountPercept extends ModelPercept {
-        private int mySearchCount;
+public class ModelCountPercept extends ModelPercept {
+    private int mySearchCount;
     private char mySearchType;
     
-    public NodeCountPercept(Tutor myTutor) {
+    public ModelCountPercept(Tutor myTutor) {
         super(myTutor);
         mySearchCount=0;
         mySearchType='=';
     }
-    public NodeCountPercept(Tutor myTutor,int searchCount) {
+    public ModelCountPercept(Tutor myTutor,int searchCount) {
         this(myTutor);
         mySearchCount=searchCount;
     }
-    public NodeCountPercept(Tutor myTutor,int searchCount,char searchType) {
+    public ModelCountPercept(Tutor myTutor,int searchCount,char searchType) {
         this(myTutor);
         mySearchCount=searchCount;
         mySearchType=searchType;
@@ -34,17 +34,17 @@ public class NodeCountPercept extends ModelPercept {
     public boolean isTrue() {
         if(!super.modelSelected()) { return false; }
         
-        EvexModel myModel=getModel();
+        int modelCount=getTutor().getModelCount();
         if(mySearchType=='=') {
-            if(myModel.getNodes().size()==mySearchCount) {
+            if(modelCount==mySearchCount) {
                 return true;
             }
         } else if(mySearchType=='<') {
-            if(myModel.getNodes().size()<mySearchCount) {
+            if(modelCount<mySearchCount) {
                 return true;
             }
         } else if(mySearchType=='>') {
-            if(myModel.getNodes().size()>mySearchCount) {
+            if(modelCount>mySearchCount) {
                 return true;
             }
         }

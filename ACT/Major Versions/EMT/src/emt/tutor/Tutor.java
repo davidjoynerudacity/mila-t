@@ -141,6 +141,9 @@ public class Tutor {
     public EvexModel getModel() {
         return myModelPanel.getModel();
     }
+    public int getModelCount() {
+        return myModelPanel.getModelCount();
+    }
     
     public void initializeSampleTutor() {
 //        TruePercept t1=new TruePercept(this);

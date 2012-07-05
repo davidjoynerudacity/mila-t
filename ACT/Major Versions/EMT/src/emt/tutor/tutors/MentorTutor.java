@@ -129,10 +129,15 @@ public class MentorTutor extends InterruptTutor {
         ma7.addAction(tfa7);
         tfa6.setNextAction(ma7);
         
-        MultipleAction ma8=new MultipleAction(this,new Action[]{cpaHappyFrontBulb});
-        TextFeedbackAction tfa8=new TextFeedbackAction(this,"That's all there is to it! At the start of each day, I'll appear to let you know what we'll be working on that day. For today, focus on how to make models in MILA. When you think you've constructed a good model, click Craig the Critic to have him check it. If you need help on creating models, click Gabriel the Guide.");
-        ma7.addAction(tfa7);
-        tfa6.setNextAction(ma7);
+        MultipleAction ma8=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction tfa8=new TextFeedbackAction(this,"When you're done with what one of us has to say, just click the X in the top right to hide us. You can always bring us back up by clicking on our faces to the left.");
+        ma7.addAction(tfa8);
+        tfa7.setNextAction(ma8);
+        
+        MultipleAction ma9=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction tfa9=new TextFeedbackAction(this,"That's all there is to it! At the start of each day, I'll appear to let you know what we'll be working on that day. For today, focus on how to make models in MILA. When you think you've constructed a good model, click Craig the Critic to have him check it. If you need help on creating models, click Gabriel the Guide.");
+        ma8.addAction(tfa9);
+        tfa8.setNextAction(ma9);
         
         MultiplePercept mp1=new MultiplePercept(this);
         mp1.addPercept(clp7);
@@ -143,9 +148,58 @@ public class MentorTutor extends InterruptTutor {
         /* LESSON 9 ***********************************************************/
         CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
         
+        MultipleAction l9ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction l9tfa1=new TextFeedbackAction(this,"Hey! Welcome to today's lesson. Today, your goal is going to be to come up with at least three different hypotheses for what might be causing the death of the fish in Lake Clara Meer.");
+        l9ma1.addAction(l9tfa1);
+        l9ma1.addAction(new ShowTutorAction(this)); 
+        
+        MultipleAction l9ma2=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction l9tfa2=new TextFeedbackAction(this,"Try to think of different things that you suspect might have caused the fish to die off. Then, create a model for each idea you have. You should end up with at least three models -- one for each possible cause you can think of.");
+        l9ma2.addAction(l9tfa2);
+        l9tfa1.setNextAction(l9ma2); 
+        
+        MultipleAction l9ma3=new MultipleAction(this,new Action[]{cpaConcernedFront});
+        TextFeedbackAction l9tfa3=new TextFeedbackAction(this,"Remember, you're explaining a new problem now, so you should have started a new project for this. If you're still working in your Aquarium project, go ahead and click File, select New Project, and create a new project called Fish Kill.");
+        l9ma3.addAction(l9tfa3);
+        l9tfa2.setNextAction(l9ma3); 
+        
+        MultiplePercept l9mp1=new MultiplePercept(this);
+        l9mp1.addPercept(clp9);
+        l9mp1.addPercept(new UnreadTextFeedbackPercept(this,l9tfa1));
+        addMapping(new Mapping(l9mp1,l9ma1));
         
         /* LESSON 11 **********************************************************/
         CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
+        
+        MultipleAction l11ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Hey! Welcome to today's lesson. You just got back from Lake Clara Meer, gathering informaton and exploring what could have caused the problem. Your goal now is to revise your models based on that information.");
+        l11ma1.addAction(l11tfa1);
+        l11ma1.addAction(new ShowTutorAction(this)); 
+        
+        MultipleAction l11ma2=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction l11tfa2=new TextFeedbackAction(this,"This is an important part of the process of conducting science: you had models of what you think happened, and those models told you what to look for. Now, you've gotten more information, so it's time to put that information into the model.");
+        l11ma2.addAction(l11tfa2);
+        l11tfa1.setNextAction(l11ma2); 
+        
+        MultipleAction l11ma3=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction l11tfa3=new TextFeedbackAction(this,"All of science is like this: you take what you know, and use it to figure out what information you need. Then, you obtain that information and put it into your model so that you can figure out the next thing you need.");
+        l11ma3.addAction(l11tfa3);
+        l11tfa2.setNextAction(l11ma3); 
+        
+        MultipleAction l11ma4=new MultipleAction(this,new Action[]{cpaInterestedFront});
+        TextFeedbackAction l11tfa4=new TextFeedbackAction(this,"You're doing science the way scientists do it now. Throughout the camp, try to think about how you're gathering information to better explain the Fish Kill, and then using that information to know what more you need to research.");
+        l11ma4.addAction(l11tfa4);
+        l11tfa3.setNextAction(l11ma4); 
+        
+        MultipleAction l11ma5=new MultipleAction(this,new Action[]{cpaHappyFront});
+        TextFeedbackAction l11tfa5=new TextFeedbackAction(this,"For today, try to add more information into your earlier hypotheses, and try also to come up with some new hypotheses based on what you learned at the lake. Try to have at least five hypotheses by the end of this lesson, including your three from earlier.");
+        l11ma5.addAction(l11tfa5);
+        l11tfa4.setNextAction(l11ma5); 
+        
+        MultiplePercept l11mp1=new MultiplePercept(this);
+        l11mp1.addPercept(clp11);
+        l11mp1.addPercept(new UnreadTextFeedbackPercept(this,l11tfa1));
+        addMapping(new Mapping(l11mp1,l11ma1));
         
         
         /* LESSON 12/13 *******************************************************/

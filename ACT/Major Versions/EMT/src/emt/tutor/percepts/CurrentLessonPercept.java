@@ -47,7 +47,7 @@ public class CurrentLessonPercept extends Percept {
         public static Timer lessonTimer=new Timer(60000,new LESSONCHECKER());
         public static void updateCurrentLesson() {
             try {
-                URL url=new URL("http://www.dilab.gatech.edu/emt/lesson.txt");
+                URL url=new URL("http://www.dilab.gatech.edu/MILA/php/lesson.txt");
                 BufferedReader in=new BufferedReader(new InputStreamReader(url.openStream()));
 
                 String str=in.readLine();
