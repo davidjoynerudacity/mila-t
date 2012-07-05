@@ -58,7 +58,9 @@ public class CurrentLessonPercept extends Percept {
         }
         
         public static void startChecking() {
-            updateCurrentLesson();
+            if(CURRENTLESSON=="") {
+                updateCurrentLesson();
+            }
             lessonTimer.start();
         }
         public void actionPerformed(ActionEvent e) {
