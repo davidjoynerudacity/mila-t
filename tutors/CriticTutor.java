@@ -81,14 +81,14 @@ public class CriticTutor extends OnDemandTutor {
         MultipleAction ma7=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Your model satisfies the goals for this lesson, but there are still some improvements that can be made. It looks like there are components that are not connected to any other components. In a good model, every component is connected in some way. If you are not yet sure how this component interacts, though, it's fine to leave it unconnected for now.")});
         MultipleAction ma8=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Well done! Your model is satisfactory for this lesson's goals. If you're interested, though, there are still improvements to be made. It looks like you still have connections without evidence. In a good model, every connection will have evidence.")});
         
-        Mapping m1=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp0}),ma1);
-        Mapping m2=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp1}),ma2);
-        Mapping m3=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp2,ccp0}),ma3);
-        Mapping m4=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp2,eccp0}),ma4);
-        Mapping m5=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp3}),ma5);
-        Mapping m6=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ccp2}),ma6);
-        Mapping m7=new Mapping(new MultiplePercept(this,new Percept[]{clp7,inp1}),ma7);
-        Mapping m8=new Mapping(new MultiplePercept(this,new Percept[]{clp7,uep1}),ma8);
+        Mapping m1=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp0}),ma1); //no components added yet
+        Mapping m2=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp1}),ma2); //there's only one component
+        Mapping m3=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp2,ccp0}),ma3); //there's two components, but they aren't connected yet
+        Mapping m4=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp2,eccp0}),ma4); //there's two connected components, but there's no evidence
+        Mapping m5=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ncp3}),ma5); //there's only two components
+        Mapping m6=new Mapping(new MultiplePercept(this,new Percept[]{clp7,ccp2}),ma6); //there's only one connection
+        Mapping m7=new Mapping(new MultiplePercept(this,new Percept[]{clp7,inp1}),ma7); //all good, but there's still isolated components
+        Mapping m8=new Mapping(new MultiplePercept(this,new Percept[]{clp7,uep1}),ma8); //all good, but there's still unevidenced connections
         
         addMapping(m1);
         addMapping(m2);
@@ -114,13 +114,13 @@ public class CriticTutor extends OnDemandTutor {
         MultipleAction l9ma6=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to justify all our connections with evidence, but since we haven't done any real research yet, you're right to think that none of them should have evidence right now.")});
         MultipleAction l9ma7=new MultipleAction(this,new Action[]{cpaConcernedFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. It looks like you've already put some evidence in, too. That's excellent, but remember, we haven't done any real research or investigation yet, so you might not actually have evidence yet and that's okay. Just make sure to only put strong evidence into your model.")});
         
-        Mapping l9m1=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9mcp1}),l9ma1);
-        Mapping l9m2=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9anp1}),l9ma2);
-        Mapping l9m3=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9ncp1}),l9ma3);
-        Mapping l9m4=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9ccp1}),l9ma4);
-        Mapping l9m5=new Mapping(new MultiplePercept(this,new Percept[]{clp9,inp1}),l9ma5);
-        Mapping l9m6=new Mapping(new MultiplePercept(this,new Percept[]{clp9,uep1}),l9ma6);
-        Mapping l9m7=new Mapping(new MultiplePercept(this,new Percept[]{clp9}),l9ma7);
+        Mapping l9m1=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9mcp1}),l9ma1); //There are currently less than three hypotheses/models
+        Mapping l9m2=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9anp1}),l9ma2); //There's no Fish Population component in the current model
+        Mapping l9m3=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9ncp1}),l9ma3); //There's only one component
+        Mapping l9m4=new Mapping(new MultiplePercept(this,new Percept[]{clp9,l9ccp1}),l9ma4); //The components aren't connected
+        Mapping l9m5=new Mapping(new MultiplePercept(this,new Percept[]{clp9,inp1}),l9ma5); //all good, but there's also unconnected components
+        Mapping l9m6=new Mapping(new MultiplePercept(this,new Percept[]{clp9,uep1}),l9ma6); //all good, but there's also unevidenced connections
+        Mapping l9m7=new Mapping(new MultiplePercept(this,new Percept[]{clp9}),l9ma7); //all good, but there's evidenced connections, which might be odd
         
         addMapping(l9m1);
         addMapping(l9m2);
@@ -132,7 +132,37 @@ public class CriticTutor extends OnDemandTutor {
         
         /* LESSON 11 **********************************************************/
         CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
+        ModelCountPercept l11mcp1=new ModelCountPercept(this,5,'<');
+        AbsentNodePercept l11anp1=new AbsentNodePercept(this,"Fish","Population");
+        NodeCountPercept l11ncp1=new NodeCountPercept(this,2,'<');
+        ConnectionCountPercept l11ccp1=new ConnectionCountPercept(this,0);
+        NodeCountPercept l11ncp2=new NodeCountPercept(this,3,'<');
         
+        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Last time, you came up with at least three hypotheses for what might be causing the fish kill. Today, with the information you gained at the lake, try to come up with at least two more. In the end, you should have at least five hypotheses, each with a model.");
+        l11tfa1.setNextAction(new TextFeedbackAction(this,"When doing science, it's always good to start off with lots of possible explanations for what you're trying to explain. In the future, you'll be able to narrow things down more and focus on the hypotheses you think are more plausible."));
+        MultipleAction l11ma1=new MultipleAction(this,new Action[]{cpaConfusedFront,l11tfa1});
+        MultipleAction l11ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a property called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
+        MultipleAction l11ma3=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"Good! You've got a fish population component, but it looks like you haven't put anything else in this model yet. Try to create a component showing what you think is causing the fish kill.")});
+        MultipleAction l11ma4=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"It looks like you have more than one component in this model, but they're not yet connected. How are they connected? Which is the cause and which is the effect?")});
+        MultipleAction l11ma5=new MultipleAction(this,new Action[]{cpaInterestedFront, new TextFeedbackAction(this,"Good! You've got your basic model down showing the link between your cause and the fish kill. Our next step is going to be to develop these models further. How does your hypothesized cause lead to the fish dying? Try to have at least one or two models with three or more components by the end of the lesson.")});
+        MultipleAction l11ma6=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to avoid unconnected components in our models, but for now it's okay to have some of those like you have here.")});
+        MultipleAction l11ma7=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to justify all our connections with evidence, but since we haven't done any real research yet, you're right to think that none of them should have evidence right now.")});
+        
+        Mapping l11m1=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma1); //fewer than five models/hypotheses
+        Mapping l11m2=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11anp1}),l11ma2); //no fish pop component
+        Mapping l11m3=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11ncp1}),l11ma3); //only one component
+        Mapping l11m4=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11ccp1}),l11ma4); //nothing connected yet
+        Mapping l11m5=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma5); //fewer than three components
+        Mapping l11m6=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma6); //unconnected components
+        Mapping l11m7=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma7); //unevidenced connections
+        
+        addMapping(l11m1);
+        addMapping(l11m2);
+        addMapping(l11m3);
+        addMapping(l11m4);
+        addMapping(l11m5);
+        addMapping(l11m6);
+        addMapping(l11m7);
         
         /* LESSON 12/13 *******************************************************/
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
@@ -177,7 +207,7 @@ public class CriticTutor extends OnDemandTutor {
         /* END LESSON-SPECIFIC CONTENT ****************************************/
         
         TruePercept tp1=new TruePercept(this);
-        MultipleAction ma0=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Nicely done! I don't have anything to say right now, your model looks good to me for this lesson.")});
+        MultipleAction ma0=new MultipleAction(this,new Action[]{cpaExcitedFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too.")});
         Mapping m0=new Mapping(tp1,ma0);
         addMapping(m0);
     }
