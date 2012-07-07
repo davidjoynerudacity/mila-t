@@ -101,12 +101,12 @@ public class CriticTutor extends OnDemandTutor {
         
         /* LESSON 9 ***********************************************************/
         CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
-        ModelCountPercept l9mcp1=new ModelCountPercept(this,3,'<');
+        ModelCountPercept l9mcp1=new ModelCountPercept(this,2,'<');
         AbsentNodePercept l9anp1=new AbsentNodePercept(this,"Fish","Population");
         NodeCountPercept l9ncp1=new NodeCountPercept(this,2,'<');
         ConnectionCountPercept l9ccp1=new ConnectionCountPercept(this,0);
         
-        MultipleAction l9ma1=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"Your goal for today is to come up with at least three hypotheses for what's causing the fish to die. Each hypothesis should get its own model, but it looks like right now you have less than three models. What other things might be causing the fish to die off?")});
+        MultipleAction l9ma1=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"Your goal for today is to come up with at least two hypotheses for what's causing the fish to die. Each hypothesis should get its own model, but it looks like right now you have less than three models. What other things might be causing the fish to die off?")});
         MultipleAction l9ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a property called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
         MultipleAction l9ma3=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"Good! You've got a fish population component, but it looks like you haven't put anything else in this model yet. Try to create a component showing what you think is causing the fish kill.")});
         MultipleAction l9ma4=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"It looks like you have more than one component in this model, but they're not yet connected. How are they connected? Which is the cause and which is the effect?")});
@@ -132,13 +132,13 @@ public class CriticTutor extends OnDemandTutor {
         
         /* LESSON 11 **********************************************************/
         CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
-        ModelCountPercept l11mcp1=new ModelCountPercept(this,5,'<');
+        ModelCountPercept l11mcp1=new ModelCountPercept(this,4,'<');
         AbsentNodePercept l11anp1=new AbsentNodePercept(this,"Fish","Population");
         NodeCountPercept l11ncp1=new NodeCountPercept(this,2,'<');
         ConnectionCountPercept l11ccp1=new ConnectionCountPercept(this,0);
         NodeCountPercept l11ncp2=new NodeCountPercept(this,3,'<');
         
-        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Last time, you came up with at least three hypotheses for what might be causing the fish kill. Today, with the information you gained at the lake, try to come up with at least two more. In the end, you should have at least five hypotheses, each with a model.");
+        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Last time, you came up with at least two hypotheses for what might be causing the fish kill. Today, with the information you gained at the lake, try to come up with at least two more. In the end, you should have at least four hypotheses, each with a model.");
         l11tfa1.setNextAction(new TextFeedbackAction(this,"When doing science, it's always good to start off with lots of possible explanations for what you're trying to explain. In the future, you'll be able to narrow things down more and focus on the hypotheses you think are more plausible."));
         MultipleAction l11ma1=new MultipleAction(this,new Action[]{cpaConfusedFront,l11tfa1});
         MultipleAction l11ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a property called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
@@ -152,9 +152,9 @@ public class CriticTutor extends OnDemandTutor {
         Mapping l11m2=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11anp1}),l11ma2); //no fish pop component
         Mapping l11m3=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11ncp1}),l11ma3); //only one component
         Mapping l11m4=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11ccp1}),l11ma4); //nothing connected yet
-        Mapping l11m5=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma5); //fewer than three components
-        Mapping l11m6=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma6); //unconnected components
-        Mapping l11m7=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11mcp1}),l11ma7); //unevidenced connections
+        Mapping l11m5=new Mapping(new MultiplePercept(this,new Percept[]{clp11,l11ncp2}),l11ma5); //fewer than three components
+        Mapping l11m6=new Mapping(new MultiplePercept(this,new Percept[]{clp11,inp1}),l11ma6); //unconnected components
+        Mapping l11m7=new Mapping(new MultiplePercept(this,new Percept[]{clp11,uep1}),l11ma7); //unevidenced connections
         
         addMapping(l11m1);
         addMapping(l11m2);
@@ -167,9 +167,26 @@ public class CriticTutor extends OnDemandTutor {
         /* LESSON 12/13 *******************************************************/
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
         
+        TextFeedbackAction l12tfa1=new TextFeedbackAction(this,"Today, you're learning about the acid-base pH scale. You won't be working with your models much during this lesson, though, so I don't really have anything to tell you.");
+        MultipleAction l12ma1=new MultipleAction(this,new Action[]{cpaHappyFront,l12tfa1});
+        TextFeedbackAction l12tfa2=new TextFeedbackAction(this,"Keep in mind, though, that invisible interactions, like those that go on with acids and bases, can lead to things at the visible level. Even though you might not be able to tell whether water is acidic, for example, the acidity can kill living creatures like fish.");
+        l12tfa1.setNextAction(new MultipleAction(this,new Action[]{cpaInterestedFront,l12tfa2}));
+        TextFeedbackAction l12tfa3=new TextFeedbackAction(this,"While you learn about acids and bases, try to think of the ways they could be impacting the fish in the lake.");
+        l12tfa2.setNextAction(l12tfa3); 
+        
+        Mapping l12m1=new Mapping(clp12,l12ma1);
+        
+        addMapping(l12m1);
         
         /* LESSON 14 **********************************************************/
         CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
+        
+        TextFeedbackAction l14tfa1=new TextFeedbackAction(this,"Today, you'll be learning how to use NetLogo simulations. You won't be modifying your models much, but try to keep in mind how the simulations might be used to further inform your models as you use them.");
+        MultipleAction l14ma1=new MultipleAction(this,new Action[]{cpaHappyFront,l14tfa1});
+        
+        Mapping l14m1=new Mapping(clp12,l14ma1);
+        
+        addMapping(l14m1);
         
         
         /* LESSON 15 **********************************************************/
@@ -180,12 +197,12 @@ public class CriticTutor extends OnDemandTutor {
         CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
         
         
-        /* LESSON 17 **********************************************************/
-        CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
-        
-        
-        /* LESSON 18/19 *******************************************************/
+        /* LESSON 18 **********************************************************/
         CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
+        
+        
+        /* LESSON 19 *******************************************************/
+        CurrentLessonPercept clp19=new CurrentLessonPercept(this,"19");
         
         
         /* LESSON 20 **********************************************************/
@@ -194,10 +211,6 @@ public class CriticTutor extends OnDemandTutor {
         
         /* LESSON 21 **********************************************************/
         CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
-        
-        
-        /* LESSON 22 **********************************************************/
-        CurrentLessonPercept clp22=new CurrentLessonPercept(this,"22");
         
         
         /* LESSON 23 **********************************************************/

@@ -206,51 +206,338 @@ public class GuideTutor extends OnDemandTutor {
             TextFeedbackAction l11q1tfa2=new TextFeedbackAction(this,"By the end of the lesson, try to have at least five models, each representing a different hypothesis. The models don't need to be complicated, but try also to incorporate some of what you learned at the lake into your models.");
             l11q1tfa1.setNextAction(l11q1tfa2);
         QuestionItem l11q2=new QuestionItem("How do I incorporate the information I've gathered into my models?");
-        //TODO
-        //TODO: QuestionItem l11q3=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l11q2tfa1=new TextFeedbackAction(this,"In science, scientists go out and find new information to either support or fill in their models. There are lots of ways you can add the information you've learned into your model.");
+            l11q2.setAction(l11q2tfa1);
+            TextFeedbackAction l11q2tfa2=new TextFeedbackAction(this,"The information you gathered might give evidence to some of the connections you've already made. Or, it might also let you know how a connection you've made occurs. You might know that the rise in levels of a certain chemical kills fish, but how does it do that?");
+            l11q2tfa1.setNextAction(l11q2tfa2);
+            TextFeedbackAction l11q2tfa3=new TextFeedbackAction(this,"Or, the information you gathered might reflect on the model as a whole. You might have gathered data that shows that some of the events you mention in your model really did happen around that time, which would suggest your model could be true.");
+            l11q2tfa2.setNextAction(l11q2tfa3);
+            TextFeedbackAction l11q2tfa4=new TextFeedbackAction(this,"One of the most important parts of the scientific process is also using information you gathered to decide one of your hypotheses is wrong. Being wrong in science is not a bad thing: a good scientist will make lots of hypotheses and decide almost all of them are false. This is good!");
+            l11q2tfa3.setNextAction(l11q2tfa4);
+            TextFeedbackAction l11q2tfa5=new TextFeedbackAction(this,"It's probably too early to be dismissing any of your hypotheses now, but keep that in mind as you go through the camp. When you think you've gathered enough information to decide a hypothesis isn't worth pursuing, click Dismiss to dismiss it. You can still view it, but it will just be marked as dismissed.");
+            l11q2tfa4.setNextAction(l11q2tfa5);
+        QuestionItem l11q3=new QuestionItem("How do I use more than one model?");
+            TextFeedbackAction l11q3tfa1=new TextFeedbackAction(this,"In MILA, each model represents a hypothesis for what might be causing the problem you're investigating.");
+            l11q3.setAction(l11q3tfa1);
+            TextFeedbackAction l11q3tfa2=new TextFeedbackAction(this,"As you investigate, look for information that confirms or clarifies your model. Use your model to figure out what evidence you need to gather, or what problems you need to do a better job explaining.");
+            l11q3tfa1.setNextAction(l11q3tfa2);
+            TextFeedbackAction l11q3tfa3=new TextFeedbackAction(this,"Sometimes, while investigating, you might come up with all-new hypotheses. That's great! You can create new models for new hypotheses at any time. Scientists do that all the time: they'll investigate one hypothesis, but come up with a different one at the same time.");
+            l11q3tfa2.setNextAction(l11q3tfa3);
+            TextFeedbackAction l11q3tfa4=new TextFeedbackAction(this,"As you investigate, you might also start to notice that some of your hypotheses aren't really separate. You might notice that two causes you hypothesized are botht true and interact with each other. If that's the case, copy some of the things from one model into another to merge them together.");
+            l11q3tfa3.setNextAction(l11q3tfa4);
         l11qla1.addQuestion(l11q1);
-        //l11qla1.addQuestion(l11q2);
-        //l11qla1.addQuestion(l11q3);
+        l11qla1.addQuestion(l11q2);
+        l11qla1.addQuestion(l11q3);
         l11qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp11,l11qla1));
         
         /* LESSON 12/13 *******************************************************/
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
         
+        QuestionListAction l12qla1=new QuestionListAction(this);
+        QuestionItem l12q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l12q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to learn about how acids and bases work.");
+            l12q1.setAction(l12q1tfa1);
+            TextFeedbackAction l12q1tfa2=new TextFeedbackAction(this,"Understanding how acids and bases work, however, is only part of the goal. Try to also figure out if acids and bases could have contributed to the fish dying off in the lake. If they might have, what could have caused the levels of acids and bases to change?");
+            l12q1tfa1.setNextAction(l12q1tfa2);
+        QuestionItem l12q2=new QuestionItem("What is the pH scale and how does it work?");
+            TextFeedbackAction l12q2tfa1=new TextFeedbackAction(this,"The pH scale is a number scale from 1 to 14 to measure how acidic or basic a liquid is. A low score on the pH scale means a liquid is acidic, while a high score means it is very basic.");
+            l12q2.setAction(l12q2tfa1);
+            TextFeedbackAction l12q2tfa2=new TextFeedbackAction(this,"Acids and bases interact in lots of ways, but most importantly, when a liquid is very acidic or very basic, it can be difficult for life to thrive. In an aquarium, for example, you must carefully monitor the pH of the water to ensure the fish stay healthy and live a long time.");
+            l12q2tfa1.setNextAction(l12q2tfa2);
+        QuestionItem l12q3=new QuestionItem("What are some common acids and bases?");
+            TextFeedbackAction l12q3tfa1=new TextFeedbackAction(this,"Lots of common substance are acids and bases. Soda and fruit juices are common acids, while chemicals like ammonia are very basic.");
+            l12q3.setAction(l12q3tfa1);
+            TextFeedbackAction l12q3tfa2=new TextFeedbackAction(this,"Ammonia is actually one of the chemicals in the waste that fish give off. If you introduce lots of fish into an aquarium too fast, their waste will quickly poison them. Could this have something to do with the fish kill in the Lake?");
+            l12q3tfa1.setNextAction(l12q3tfa2);
+            TextFeedbackAction l12q3tfa3=new TextFeedbackAction(this,"If ammonia is poisonous to fish, how do you think fish can live in the same water for long periods of time without being poisoned by the ammonia?");
+            l12q3tfa2.setNextAction(l12q3tfa3);
+        l12qla1.addQuestion(l12q1);
+        l12qla1.addQuestion(l12q2);
+        l12qla1.addQuestion(l12q3);
+        l12qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp12,l12qla1));
         
         /* LESSON 14 **********************************************************/
         CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
         
+        QuestionListAction l14qla1=new QuestionListAction(this);
+        QuestionItem l14q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l14q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to learn how to use NetLogo simulations, and to learn how scientists use simulations in real science.");
+            l14q1.setAction(l14q1tfa1);
+            TextFeedbackAction l14q1tfa2=new TextFeedbackAction(this,"As you use the simulations, try to think of ways you could test your models with the simulations. If the simulations show that part of your model is true, you can use the simulation's results as evidence for your model.");
+            l14q1tfa1.setNextAction(l14q1tfa2);
+        QuestionItem l14q2=new QuestionItem("How do I use NetLogo simulations?");
+            QuestionListAction l14qla2=new QuestionListAction(this);
+            l14q2.setAction(l14qla2);
+            QuestionItem l14q21=new QuestionItem("How do I open a NetLogo simulation?");
+                l14q21.setAction(new TextFeedbackAction(this,"To open a NetLogo simulation, click the Use Simulation button on the left. Then, choose a simulation from the box that pops up and click OK. The NetLogo simulation will open, and you're good to go!"));
+            QuestionItem l14q22=new QuestionItem("How do I use a NetLogo simulation?");
+                TextFeedbackAction l14q22tfa1=new TextFeedbackAction(this,"On the left side of the simulation, you'll see a bunch of sliders. You can use these to change the starting conditions of the simulation. Before running a simulation, drag these to where you want them to start.");
+                l14q22.setAction(l14q22tfa1);
+                TextFeedbackAction l14q22tfa2=new TextFeedbackAction(this,"Once you've set the variables, click Setup. This applies those changes to the simulation window in the middle. Make sure to remember to click Setup before the next step!");
+                l14q22tfa1.setNextAction(l14q22tfa2);
+                TextFeedbackAction l14q22tfa3=new TextFeedbackAction(this,"Once you've clicked Setup, click Go to run the simulation. You'll see the middle window changing. You can drag the slider across the top back and forth to speed things up or slow them down.");
+                l14q22tfa2.setNextAction(l14q22tfa3);
+            QuestionItem l14q23=new QuestionItem("How do I get data out of a NetLogo simulation?");
+                TextFeedbackAction l14q23tfa1=new TextFeedbackAction(this,"As the simulation runs, you can monitor the status of things on the right. You can watch as populations of different living organisms grow and shrink, and as concentrations of different chemicals rise and fall. Try to see if you can figure out what is causing what to change.");
+                l14q23.setAction(l14q23tfa1);
+                TextFeedbackAction l14q23tfa2=new TextFeedbackAction(this,"If the simulation gets to a point where something significant in it completely dies off (the fish, for example), it will automatically stop. When this happens, see if you can use the graphs to figure out what made the organism die.");
+                l14q23tfa1.setNextAction(l14q23tfa2);
+            QuestionItem l14q24=new QuestionItem("How can I be sure the conclusions I get in the simulations are true?");
+                TextFeedbackAction l14q24tfa1=new TextFeedbackAction(this,"Good question! The essence of scientific rigor is repeatability. Observing something happening once could just be a random event, but observing something happening over and over again must be something more.");
+                l14q24.setAction(l14q24tfa1);
+                TextFeedbackAction l14q24tfa2=new TextFeedbackAction(this,"So, if you see something interesting happening in the simulation, try to recreate it again. If you can make the same thing happen over and over, you have a good case for that being a real event.");
+                l14q24tfa1.setNextAction(l14q24tfa2);
+            l14qla2.addQuestion(l14q21);
+            l14qla2.addQuestion(l14q22);
+            l14qla2.addQuestion(l14q23);
+            l14qla2.addQuestion(l14q24);
+        QuestionItem l14q3=new QuestionItem("How do scientists use simulations in research?");
+            TextFeedbackAction l14q3tfa1=new TextFeedbackAction(this,"Simulations are used in a lot of different ways in science. First of all, scientists sometimes use simulations to try to figure out what happened in the past. If you can recreate what happened in the lake using the simulation, then it's possible that what you did to recreate the fish kill is what actually happened in the lake.");
+            l14q3.setAction(l14q3tfa1);
+            TextFeedbackAction l14q3tfa2=new TextFeedbackAction(this,"Scientists also use simulations to confirm their hypotheses. You can use a simulation to see if your model accurately predicts what happens in the simulation. If you say that rising ammonia causes fish populations to rise, then observe the opposite happening in the simulation, you know that your model is flawed.");
+            l14q3tfa1.setNextAction(l14q3tfa2);
+            TextFeedbackAction l14q3tfa3=new TextFeedbackAction(this,"Sometimes, scientists simulate their models, and sometimes, scientists use simulations as stand-ins for real systems that allow them to experiment. If you think, for example, that ammonia and fish populations are related, you could run a simulation several times and change the ammonia level to see what impact it has.");
+            l14q3tfa2.setNextAction(l14q3tfa3);
+            TextFeedbackAction l14q3tfa4=new TextFeedbackAction(this,"Try to think of what you would have to observe in the simulations to make you certain that your model is correct. Then, try to make that happen!");
+            l14q3tfa3.setNextAction(l14q3tfa4);
+        l14qla1.addQuestion(l14q1);
+        l14qla1.addQuestion(l14q2);
+        l14qla1.addQuestion(l14q3);
+        l14qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp14,l14qla1));
         
         /* LESSON 15 **********************************************************/
         CurrentLessonPercept clp15=new CurrentLessonPercept(this,"15");
         
+        QuestionListAction l15qla1=new QuestionListAction(this);
+        QuestionItem l15q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l15q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to explore the different food sources available to fish, and figure out if food might have played a role in the fish kill.");
+            l15q1.setAction(l15q1tfa1);
+            TextFeedbackAction l15q1tfa2=new TextFeedbackAction(this,"As you learn about the role of food, think about how a change in the food supply might have affected the fish population. Could it have killed all the fish?");
+            l15q1tfa1.setNextAction(l15q1tfa2);
+            TextFeedbackAction l15q1tfa3=new TextFeedbackAction(this,"If you don't already have any hypotheses that deal with food, try to make one or two. If you've thought about that before, see if the information you learn in this lesson could help make your model better.");
+            l15q1tfa2.setNextAction(l15q1tfa3);
+        QuestionItem l15q2=new QuestionItem("Why is food so important in a system?");
+            TextFeedbackAction l15q2tfa1=new TextFeedbackAction(this,"Like Mercer mentioned, every living thing both eats and is eaten. Fish in the lake might eat plants, algae, and other fish, but those things themselves also eat other things.");
+            l15q2.setAction(l15q2tfa1);
+            TextFeedbackAction l15q2tfa2=new TextFeedbackAction(this,"Even though plants don't have mouths, they still eat: they \"eat\" sunlight, nutrients from the soil, and carbon dioxide.");
+            l15q2tfa1.setNextAction(l15q2tfa2);
+            TextFeedbackAction l15q2tfa3=new TextFeedbackAction(this,"What that means is that anything that impacts one part of the food chain impacts the entire system. If fish eat plants and something kills the plants, that also kills the fish!");
+            l15q2tfa2.setNextAction(l15q2tfa3);
+            TextFeedbackAction l15q2tfa4=new TextFeedbackAction(this,"Understanding how the parts of a system interact and affect each other is one of the most complicated ideas in science. Everything from climate change to species extincton, and even unrelated fields like economics or politics, are examples of interacting systems.");
+            l15q2tfa3.setNextAction(l15q2tfa4);
+            TextFeedbackAction l15q2tfa5=new TextFeedbackAction(this,"Try to think of all the different ways a change in food source could impact the lake. Now you're thinking in systems!");
+            l15q2tfa4.setNextAction(l15q2tfa5);
+        QuestionItem l15q3=new QuestionItem("How do I say 'fish eat food' in a MILA model?");
+            TextFeedbackAction l15q3tfa1=new TextFeedbackAction(this,"Remember, MILA models describe what happened. They aren't meant to describe all the different relationships in the system -- they're meant to describe how a change in one thing led to a change in another thing.");
+            l15q3.setAction(l15q3tfa1);
+            TextFeedbackAction l15q3tfa2=new TextFeedbackAction(this,"So, think about what the impact of fish eating food actually was in this system. Did a decline in the food quantity lead to a decline in fish populations? If that's the case, you could model it by showing a drop in Food Quantity causing a drop in Fish Population. Remember, though, that it's good to be more specific than \"food\" when referring to what fish eat.");
+            l15q3tfa1.setNextAction(l15q3tfa2);
+        l15qla1.addQuestion(l15q1);
+        l15qla1.addQuestion(l15q2);
+        l15qla1.addQuestion(l15q3);
+        l15qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp15,l15qla1));
         
         /* LESSON 16 **********************************************************/
         CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
         
+        QuestionListAction l16qla1=new QuestionListAction(this);
+        QuestionItem l16q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l16q1tfa1=new TextFeedbackAction(this,"");
+            l16q1.setAction(l16q1tfa1);
+            TextFeedbackAction l16q1tfa2=new TextFeedbackAction(this,"");
+            l16q1tfa1.setNextAction(l16q1tfa2);
+        QuestionItem l16q2=new QuestionItem("");
+            TextFeedbackAction l16q2tfa1=new TextFeedbackAction(this,"");
+            l16q2.setAction(l16q2tfa1);
+            TextFeedbackAction l16q2tfa2=new TextFeedbackAction(this,"");
+            l16q2tfa1.setNextAction(l16q2tfa2);
+        QuestionItem l16q3=new QuestionItem("");
+            TextFeedbackAction l16q3tfa1=new TextFeedbackAction(this,"");
+            l16q3.setAction(l16q3tfa1);
+            TextFeedbackAction l16q3tfa2=new TextFeedbackAction(this,"");
+            l16q3tfa1.setNextAction(l16q3tfa2);
+        
+        l16qla1.addQuestion(l16q1);
+        l16qla1.addQuestion(l16q2);
+        l16qla1.addQuestion(l16q3);
+        l16qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp16,l16qla1));
         
         /* LESSON 17 **********************************************************/
         CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
         
+        QuestionListAction l17qla1=new QuestionListAction(this);
+        QuestionItem l17q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l17q1tfa1=new TextFeedbackAction(this,"");
+            l17q1.setAction(l17q1tfa1);
+            TextFeedbackAction l17q1tfa2=new TextFeedbackAction(this,"");
+            l17q1tfa1.setNextAction(l17q1tfa2);
+        QuestionItem l17q2=new QuestionItem("");
+            TextFeedbackAction l17q2tfa1=new TextFeedbackAction(this,"");
+            l17q2.setAction(l17q2tfa1);
+            TextFeedbackAction l17q2tfa2=new TextFeedbackAction(this,"");
+            l17q2tfa1.setNextAction(l17q2tfa2);
+        QuestionItem l17q3=new QuestionItem("");
+            TextFeedbackAction l17q3tfa1=new TextFeedbackAction(this,"");
+            l17q3.setAction(l17q3tfa1);
+            TextFeedbackAction l17q3tfa2=new TextFeedbackAction(this,"");
+            l17q3tfa1.setNextAction(l17q3tfa2);
         
-        /* LESSON 18/19 *******************************************************/
+        l17qla1.addQuestion(l17q1);
+        l17qla1.addQuestion(l17q2);
+        l17qla1.addQuestion(l17q3);
+        l17qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp17,l17qla1));
+        
+        
+        /* LESSON 18 **********************************************************/
         CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
+        
+        QuestionListAction l18qla1=new QuestionListAction(this);
+        QuestionItem l18q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l18q1tfa1=new TextFeedbackAction(this,"");
+            l18q1.setAction(l18q1tfa1);
+            TextFeedbackAction l18q1tfa2=new TextFeedbackAction(this,"");
+            l18q1tfa1.setNextAction(l18q1tfa2);
+        QuestionItem l18q2=new QuestionItem("");
+            TextFeedbackAction l18q2tfa1=new TextFeedbackAction(this,"");
+            l18q2.setAction(l18q2tfa1);
+            TextFeedbackAction l18q2tfa2=new TextFeedbackAction(this,"");
+            l18q2tfa1.setNextAction(l18q2tfa2);
+        QuestionItem l18q3=new QuestionItem("");
+            TextFeedbackAction l18q3tfa1=new TextFeedbackAction(this,"");
+            l18q3.setAction(l18q3tfa1);
+            TextFeedbackAction l18q3tfa2=new TextFeedbackAction(this,"");
+            l18q3tfa1.setNextAction(l18q3tfa2);
+        
+        l18qla1.addQuestion(l18q1);
+        l18qla1.addQuestion(l18q2);
+        l18qla1.addQuestion(l18q3);
+        l18qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp18,l18qla1));
+        
+        
+        /* LESSON 19 **********************************************************/
+        CurrentLessonPercept clp19=new CurrentLessonPercept(this,"19");
+        
+        QuestionListAction l19qla1=new QuestionListAction(this);
+        QuestionItem l19q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l19q1tfa1=new TextFeedbackAction(this,"");
+            l19q1.setAction(l19q1tfa1);
+            TextFeedbackAction l19q1tfa2=new TextFeedbackAction(this,"");
+            l19q1tfa1.setNextAction(l19q1tfa2);
+        QuestionItem l19q2=new QuestionItem("");
+            TextFeedbackAction l19q2tfa1=new TextFeedbackAction(this,"");
+            l19q2.setAction(l19q2tfa1);
+            TextFeedbackAction l19q2tfa2=new TextFeedbackAction(this,"");
+            l19q2tfa1.setNextAction(l19q2tfa2);
+        QuestionItem l19q3=new QuestionItem("");
+            TextFeedbackAction l19q3tfa1=new TextFeedbackAction(this,"");
+            l19q3.setAction(l19q3tfa1);
+            TextFeedbackAction l19q3tfa2=new TextFeedbackAction(this,"");
+            l19q3tfa1.setNextAction(l19q3tfa2);
+        
+        l19qla1.addQuestion(l19q1);
+        l19qla1.addQuestion(l19q2);
+        l19qla1.addQuestion(l19q3);
+        l19qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp19,l19qla1));
         
         
         /* LESSON 20 **********************************************************/
         CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
         
+        QuestionListAction l20qla1=new QuestionListAction(this);
+        QuestionItem l20q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l20q1tfa1=new TextFeedbackAction(this,"");
+            l20q1.setAction(l20q1tfa1);
+            TextFeedbackAction l20q1tfa2=new TextFeedbackAction(this,"");
+            l20q1tfa1.setNextAction(l20q1tfa2);
+        QuestionItem l20q2=new QuestionItem("");
+            TextFeedbackAction l20q2tfa1=new TextFeedbackAction(this,"");
+            l20q2.setAction(l20q2tfa1);
+            TextFeedbackAction l20q2tfa2=new TextFeedbackAction(this,"");
+            l20q2tfa1.setNextAction(l20q2tfa2);
+        QuestionItem l20q3=new QuestionItem("");
+            TextFeedbackAction l20q3tfa1=new TextFeedbackAction(this,"");
+            l20q3.setAction(l20q3tfa1);
+            TextFeedbackAction l20q3tfa2=new TextFeedbackAction(this,"");
+            l20q3tfa1.setNextAction(l20q3tfa2);
+        
+        l20qla1.addQuestion(l20q1);
+        l20qla1.addQuestion(l20q2);
+        l20qla1.addQuestion(l20q3);
+        l20qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp20,l20qla1));
+        
         
         /* LESSON 21 **********************************************************/
         CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
         
+        QuestionListAction l21qla1=new QuestionListAction(this);
+        QuestionItem l21q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l21q1tfa1=new TextFeedbackAction(this,"");
+            l21q1.setAction(l21q1tfa1);
+            TextFeedbackAction l21q1tfa2=new TextFeedbackAction(this,"");
+            l21q1tfa1.setNextAction(l21q1tfa2);
+        QuestionItem l21q2=new QuestionItem("");
+            TextFeedbackAction l21q2tfa1=new TextFeedbackAction(this,"");
+            l21q2.setAction(l21q2tfa1);
+            TextFeedbackAction l21q2tfa2=new TextFeedbackAction(this,"");
+            l21q2tfa1.setNextAction(l21q2tfa2);
+        QuestionItem l21q3=new QuestionItem("");
+            TextFeedbackAction l21q3tfa1=new TextFeedbackAction(this,"");
+            l21q3.setAction(l21q3tfa1);
+            TextFeedbackAction l21q3tfa2=new TextFeedbackAction(this,"");
+            l21q3tfa1.setNextAction(l21q3tfa2);
         
-        /* LESSON 22 **********************************************************/
-        CurrentLessonPercept clp22=new CurrentLessonPercept(this,"22");
+        l21qla1.addQuestion(l21q1);
+        l21qla1.addQuestion(l21q2);
+        l21qla1.addQuestion(l21q3);
+        l21qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp21,l21qla1));
         
         
         /* LESSON 23 **********************************************************/
         CurrentLessonPercept clp23=new CurrentLessonPercept(this,"23");
+        
+        QuestionListAction l23qla1=new QuestionListAction(this);
+        QuestionItem l23q1=new QuestionItem("What is the goal for this lesson?");
+            TextFeedbackAction l23q1tfa1=new TextFeedbackAction(this,"");
+            l23q1.setAction(l23q1tfa1);
+            TextFeedbackAction l23q1tfa2=new TextFeedbackAction(this,"");
+            l23q1tfa1.setNextAction(l23q1tfa2);
+        QuestionItem l23q2=new QuestionItem("");
+            TextFeedbackAction l23q2tfa1=new TextFeedbackAction(this,"");
+            l23q2.setAction(l23q2tfa1);
+            TextFeedbackAction l23q2tfa2=new TextFeedbackAction(this,"");
+            l23q2tfa1.setNextAction(l23q2tfa2);
+        QuestionItem l23q3=new QuestionItem("");
+            TextFeedbackAction l23q3tfa1=new TextFeedbackAction(this,"");
+            l23q3.setAction(l23q3tfa1);
+            TextFeedbackAction l23q3tfa2=new TextFeedbackAction(this,"");
+            l23q3tfa1.setNextAction(l23q3tfa2);
+        
+        l23qla1.addQuestion(l23q1);
+        l23qla1.addQuestion(l23q2);
+        l23qla1.addQuestion(l23q3);
+        l23qla1.addQuestion(l9q4);
+        
+        addMapping(new Mapping(clp23,l23qla1));
         
         
         /* END LESSON-SPECIFIC CONTENT ****************************************/
