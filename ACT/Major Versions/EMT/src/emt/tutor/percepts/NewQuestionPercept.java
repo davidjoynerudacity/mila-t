@@ -39,7 +39,7 @@ public class NewQuestionPercept extends Percept {
     }
     
     public static class QUESTIONCHECKER implements ActionListener {
-        public static String CURRENTQUESTION="";
+        public static String CURRENTQUESTION=null;
         public static Timer questionTimer=new Timer(30000,new QUESTIONCHECKER());
         public static void updateCurrentQuestion() {
             try {

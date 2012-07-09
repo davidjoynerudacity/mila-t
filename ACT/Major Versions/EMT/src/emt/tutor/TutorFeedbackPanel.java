@@ -10,7 +10,9 @@
  */
 package emt.tutor;
 
+import emt.tutor.actions.ChangePictureAction;
 import emt.tutor.actions.FeedbackPromptAction;
+import emt.tutor.actions.MultipleAction;
 import emt.tutor.actions.TextFeedbackAction;
 import java.beans.XMLEncoder;
 import java.io.File;
@@ -115,7 +117,7 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         saveFeedback();
-        myContentPanel.giveTextFeedback(new TextFeedbackAction(myFPA.getTutor(),"Thanks for your response! You can close me now -- I'll let you know if I have any more questions."));
+        new MultipleAction(myFPA.getTutor(),new Action[]{new ChangePictureAction(myFPA.getTutor(),"happy-front"),new TextFeedbackAction(myFPA.getTutor(),"Thanks for your response! You can close me now -- I'll let you know if I have any more questions.")}).doAction();
         FeedbackTextArea.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
