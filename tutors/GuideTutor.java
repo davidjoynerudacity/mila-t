@@ -350,24 +350,18 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l16qla1=new QuestionListAction(this);
         QuestionItem l16q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l16q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l16q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to understand how real data and simulations can both help a scientist research a problem or phenomenon.");
             l16q1.setAction(l16q1tfa1);
-            TextFeedbackAction l16q1tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l16q1tfa2=new TextFeedbackAction(this,"While you use the lake samples as well as the NetLogo simulations, consider what the strengths of each kind of data are. How does the real sample help? What does the simulation give us that the water sample doesn't?");
             l16q1tfa1.setNextAction(l16q1tfa2);
-        QuestionItem l16q2=new QuestionItem("");
-            TextFeedbackAction l16q2tfa1=new TextFeedbackAction(this,"");
+        QuestionItem l16q2=new QuestionItem("How do scientists use real data like the lake water samples?");
+            TextFeedbackAction l16q2tfa1=new TextFeedbackAction(this,"Science is all about an ongoing process of modeling your understanding, and then using that model to guide further research. Scientists would analyze the water samples, incorporate that information into their models, and then use those models to figure out what to do next.");
             l16q2.setAction(l16q2tfa1);
-            TextFeedbackAction l16q2tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l16q2tfa2=new TextFeedbackAction(this,"As you analyze the water, ask yourself: does this information help make my model bigger? Does it suggest more components or connections? Does it prove some connections I've already drawn are true? Does it suggest my model is inaccurate?");
             l16q2tfa1.setNextAction(l16q2tfa2);
-        QuestionItem l16q3=new QuestionItem("");
-            TextFeedbackAction l16q3tfa1=new TextFeedbackAction(this,"");
-            l16q3.setAction(l16q3tfa1);
-            TextFeedbackAction l16q3tfa2=new TextFeedbackAction(this,"");
-            l16q3tfa1.setNextAction(l16q3tfa2);
-        
         l16qla1.addQuestion(l16q1);
         l16qla1.addQuestion(l16q2);
-        l16qla1.addQuestion(l16q3);
+        l16qla1.addQuestion(l14q3);
         l16qla1.addQuestion(l9q4);
         
         addMapping(new Mapping(clp16,l16qla1));
@@ -377,24 +371,20 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l17qla1=new QuestionListAction(this);
         QuestionItem l17q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l17q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l17q1tfa1=new TextFeedbackAction(this,"Your goal for this lesson is to use the AQWA simulation to learn more about how pollution might have affected the lake.");
             l17q1.setAction(l17q1tfa1);
-            TextFeedbackAction l17q1tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l17q1tfa2=new TextFeedbackAction(this,"While you use the simulation, try to look for information that shows your hypotheses are correct, or gives you more information that you can use to make your models bigger and more powerful.");
             l17q1tfa1.setNextAction(l17q1tfa2);
-        QuestionItem l17q2=new QuestionItem("");
-            TextFeedbackAction l17q2tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l17q1tfa3=new TextFeedbackAction(this,"Remember, you can use your Notebook to take notes on the simulation as you go. Later, you can use these notes to put more refined ideas into your models.");
+            l17q1tfa2.setNextAction(l17q1tfa3);
+        QuestionItem l17q2=new QuestionItem("How might pollution have affected the lake?");
+            TextFeedbackAction l17q2tfa1=new TextFeedbackAction(this,"In biology, pollution is interesting because it has both a direct effect and an indirect effect. Polution can directly affect organisms by poisoning them, but it can also affect organisms my poisoning their food supply.");
             l17q2.setAction(l17q2tfa1);
-            TextFeedbackAction l17q2tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l17q2tfa2=new TextFeedbackAction(this,"Because of this, pollution can have both very clear and very unclear effects on the environment and the ecological systems it comes in contact with. We can never fully understand the damage pollution does.");
             l17q2tfa1.setNextAction(l17q2tfa2);
-        QuestionItem l17q3=new QuestionItem("");
-            TextFeedbackAction l17q3tfa1=new TextFeedbackAction(this,"");
-            l17q3.setAction(l17q3tfa1);
-            TextFeedbackAction l17q3tfa2=new TextFeedbackAction(this,"");
-            l17q3tfa1.setNextAction(l17q3tfa2);
-        
         l17qla1.addQuestion(l17q1);
         l17qla1.addQuestion(l17q2);
-        l17qla1.addQuestion(l17q3);
+        l17qla1.addQuestion(l14q3);
         l17qla1.addQuestion(l9q4);
         
         addMapping(new Mapping(clp17,l17qla1));
@@ -405,20 +395,24 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l18qla1=new QuestionListAction(this);
         QuestionItem l18q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l18q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l18q1tfa1=new TextFeedbackAction(this,"The goal for this lesson is to understand how oxygen depletion and bacteria can impact the system.");
             l18q1.setAction(l18q1tfa1);
-            TextFeedbackAction l18q1tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l18q1tfa2=new TextFeedbackAction(this,"Remember, oxygen and bacteria are two invisible components of the system that can still have enormous visible effects. Changes in the concentration of either could wreak havoc on fish populations.");
             l18q1tfa1.setNextAction(l18q1tfa2);
-        QuestionItem l18q2=new QuestionItem("");
-            TextFeedbackAction l18q2tfa1=new TextFeedbackAction(this,"");
+        QuestionItem l18q2=new QuestionItem("How do scientists figure out how invisible chemicals work?");
+            TextFeedbackAction l18q2tfa1=new TextFeedbackAction(this,"A key part of science is modeling the effects of things we can't see, just like you're doing now! The trick is to use what we can test and use that to infer things about what we cannot see.");
             l18q2.setAction(l18q2tfa1);
-            TextFeedbackAction l18q2tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l18q2tfa2=new TextFeedbackAction(this,"For example, we cannot directly see oxygen, but we can test for its concentration using technological sensors. Then, we can monitor its change over time, and also watch how the system changes as the oxygen level changes.");
             l18q2tfa1.setNextAction(l18q2tfa2);
-        QuestionItem l18q3=new QuestionItem("");
-            TextFeedbackAction l18q3tfa1=new TextFeedbackAction(this,"");
-            l18q3.setAction(l18q3tfa1);
-            TextFeedbackAction l18q3tfa2=new TextFeedbackAction(this,"");
-            l18q3tfa1.setNextAction(l18q3tfa2);
+            TextFeedbackAction l18q2tfa3=new TextFeedbackAction(this,"Remember as always, science is all about rigor and repeated experiments. Noticing that fish die when oxygen levels drop once is not enough to claim that the oxygen levels killed the fish. We have to observe things happening over and over to be sure that they're true.");
+            l18q2tfa2.setNextAction(l18q2tfa3);
+        QuestionItem l18q3=new QuestionItem("Aren't bacteria bad?");
+            TextFeedbackAction l18q3tfa1=new TextFeedbackAction(this,"Bacteria gets a bad rap! Although most of the bacteria we hear about are harmful to us, a lot of bacteria are beneficial. Your body is filled with millions of bacteria right now that help you breathe air and digest food!");
+            l18q2.setAction(l18q2tfa1);
+            TextFeedbackAction l18q3tfa2=new TextFeedbackAction(this,"The same is true in systems: there exist bacteria that serve help ecological systems behave normally. For example, there exist bacteria called nitrosomonas that eat ammonia and produce nitrite. Ammonia is very poisonous to fish, while nitrite is less harmful -- so, these bacteria help the fish stay healthy by removing poisonous materials!");
+            l18q2tfa1.setNextAction(l18q2tfa2);
+            TextFeedbackAction l18q3tfa3=new TextFeedbackAction(this,"It's important to remember, though, that the bacteria \"helping\" the fish is only our interpretation. As far as the bacteria know, they're just having a good meal on some yummy ammonia. They don't set out to help the fish, but the system forms itself in such a way that the bacteria's presence helps keeps the fish healthy.");
+            l18q2tfa2.setNextAction(l18q2tfa3);
         
         l18qla1.addQuestion(l18q1);
         l18qla1.addQuestion(l18q2);
@@ -433,24 +427,23 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l19qla1=new QuestionListAction(this);
         QuestionItem l19q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l19q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l19q1tfa1=new TextFeedbackAction(this,"The goal for this lesson is to start to make final progress toward coming up with a good, solid explanation for why the fish in Lake Clara Meer died. Your goal is also to start ruling out some of the hypotheses that don't seem to be true or are difficult to research further.");
             l19q1.setAction(l19q1tfa1);
-            TextFeedbackAction l19q1tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l19q1tfa2=new TextFeedbackAction(this,"You've learned all the important skills in the scientific process: data gathering, using simulations, consulting sources, and creating models and hypotheses. Now, it's time to put those skills to the test.");
             l19q1tfa1.setNextAction(l19q1tfa2);
-        QuestionItem l19q2=new QuestionItem("");
-            TextFeedbackAction l19q2tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l19q1tfa3=new TextFeedbackAction(this,"Try to focus on making your models really solid. A good model of these systems will have several components and several connections, each justified with evidence. If you can't go much further with a model, it might be time to dismiss it and focus on your others.");
+            l19q1tfa2.setNextAction(l19q1tfa3);
+        QuestionItem l19q2=new QuestionItem("How do I know if my model is good?");
+            TextFeedbackAction l19q2tfa1=new TextFeedbackAction(this,"In science, there are no right or wrong answers. Scientists try to come up with the best explanations they can of how the world works, and then they defend those explanations with evidence and reasoning.");
             l19q2.setAction(l19q2tfa1);
-            TextFeedbackAction l19q2tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l19q2tfa2=new TextFeedbackAction(this,"So, your model is only as good as your argument for it! If you have a large, thorough explanation with lots of evidence, chances are your model is pretty good.");
             l19q2tfa1.setNextAction(l19q2tfa2);
-        QuestionItem l19q3=new QuestionItem("");
-            TextFeedbackAction l19q3tfa1=new TextFeedbackAction(this,"");
-            l19q3.setAction(l19q3tfa1);
-            TextFeedbackAction l19q3tfa2=new TextFeedbackAction(this,"");
-            l19q3tfa1.setNextAction(l19q3tfa2);
+            TextFeedbackAction l19q2tfa3=new TextFeedbackAction(this,"Remember, arguing in science is good! Arguing is what lets us make sure our ideas are very strong. Try to argue against your models and see what other people might have to say.");
+            l19q2tfa2.setNextAction(l19q2tfa3);
         
         l19qla1.addQuestion(l19q1);
         l19qla1.addQuestion(l19q2);
-        l19qla1.addQuestion(l19q3);
+        l19qla1.addQuestion(l18q2);
         l19qla1.addQuestion(l9q4);
         
         addMapping(new Mapping(clp19,l19qla1));

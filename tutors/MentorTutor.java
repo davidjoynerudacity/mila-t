@@ -279,7 +279,7 @@ public class MentorTutor extends InterruptTutor {
         l15tfa3.setNextAction(l15ma4); 
         
         MultiplePercept l15mp1=new MultiplePercept(this);
-        l15mp1.addPercept(clp14);
+        l15mp1.addPercept(clp15);
         l15mp1.addPercept(new UnreadTextFeedbackPercept(this,l15tfa1));
         addMapping(new Mapping(l15mp1,l15ma1));
         
@@ -407,7 +407,7 @@ public class MentorTutor extends InterruptTutor {
         l19tfa5.setNextAction(l19ma6); 
         
         MultiplePercept l19mp1=new MultiplePercept(this);
-        l19mp1.addPercept(clp14);
+        l19mp1.addPercept(clp19);
         l19mp1.addPercept(new UnreadTextFeedbackPercept(this,l19tfa1));
         addMapping(new Mapping(l19mp1,l19ma1));
         
