@@ -247,7 +247,7 @@ public class GuideTutor extends OnDemandTutor {
             TextFeedbackAction l12q2tfa2=new TextFeedbackAction(this,"Acids and bases interact in lots of ways, but most importantly, when a liquid is very acidic or very basic, it can be difficult for life to thrive. In an aquarium, for example, you must carefully monitor the pH of the water to ensure the fish stay healthy and live a long time.");
             l12q2tfa1.setNextAction(l12q2tfa2);
         QuestionItem l12q3=new QuestionItem("What are some common acids and bases?");
-            TextFeedbackAction l12q3tfa1=new TextFeedbackAction(this,"Lots of common substance are acids and bases. Soda and fruit juices are common acids, while chemicals like ammonia are very basic.");
+            TextFeedbackAction l12q3tfa1=new TextFeedbackAction(this,"Lots of common substances are acids and bases. Soda and fruit juices are common acids, while chemicals like ammonia are very basic.");
             l12q3.setAction(l12q3tfa1);
             TextFeedbackAction l12q3tfa2=new TextFeedbackAction(this,"Ammonia is actually one of the chemicals in the waste that fish give off. If you introduce lots of fish into an aquarium too fast, their waste will quickly poison them. Could this have something to do with the fish kill in the Lake?");
             l12q3tfa1.setNextAction(l12q3tfa2);
@@ -329,7 +329,7 @@ public class GuideTutor extends OnDemandTutor {
             l15q2tfa1.setNextAction(l15q2tfa2);
             TextFeedbackAction l15q2tfa3=new TextFeedbackAction(this,"What that means is that anything that impacts one part of the food chain impacts the entire system. If fish eat plants and something kills the plants, that also kills the fish!");
             l15q2tfa2.setNextAction(l15q2tfa3);
-            TextFeedbackAction l15q2tfa4=new TextFeedbackAction(this,"Understanding how the parts of a system interact and affect each other is one of the most complicated ideas in science. Everything from climate change to species extincton, and even unrelated fields like economics or politics, are examples of interacting systems.");
+            TextFeedbackAction l15q2tfa4=new TextFeedbackAction(this,"Understanding how the parts of a system interact and affect each other is one of the most complicated ideas in science. Everything from climate change to species extinction, and even unrelated fields like economics or politics, are examples of interacting systems.");
             l15q2tfa3.setNextAction(l15q2tfa4);
             TextFeedbackAction l15q2tfa5=new TextFeedbackAction(this,"Try to think of all the different ways a change in food source could impact the lake. Now you're thinking in systems!");
             l15q2tfa4.setNextAction(l15q2tfa5);
@@ -378,7 +378,7 @@ public class GuideTutor extends OnDemandTutor {
             TextFeedbackAction l17q1tfa3=new TextFeedbackAction(this,"Remember, you can use your Notebook to take notes on the simulation as you go. Later, you can use these notes to put more refined ideas into your models.");
             l17q1tfa2.setNextAction(l17q1tfa3);
         QuestionItem l17q2=new QuestionItem("How might pollution have affected the lake?");
-            TextFeedbackAction l17q2tfa1=new TextFeedbackAction(this,"In biology, pollution is interesting because it has both a direct effect and an indirect effect. Polution can directly affect organisms by poisoning them, but it can also affect organisms my poisoning their food supply.");
+            TextFeedbackAction l17q2tfa1=new TextFeedbackAction(this,"In biology, pollution is interesting because it has both a direct effect and an indirect effect. Pollution can directly affect organisms by poisoning them, but it can also affect organisms my poisoning their food supply.");
             l17q2.setAction(l17q2tfa1);
             TextFeedbackAction l17q2tfa2=new TextFeedbackAction(this,"Because of this, pollution can have both very clear and very unclear effects on the environment and the ecological systems it comes in contact with. We can never fully understand the damage pollution does.");
             l17q2tfa1.setNextAction(l17q2tfa2);
@@ -454,19 +454,21 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l20qla1=new QuestionListAction(this);
         QuestionItem l20q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l20q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l20q1tfa1=new TextFeedbackAction(this,"For this lesson, your goal is to make your scientific claims and arguments even better.");
             l20q1.setAction(l20q1tfa1);
-            TextFeedbackAction l20q1tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l20q1tfa2=new TextFeedbackAction(this,"Up until now, you've been finding evidence for your models and hypotheses. Today, try to make sure everything that you're claiming is very, very solid.");
             l20q1tfa1.setNextAction(l20q1tfa2);
-        QuestionItem l20q2=new QuestionItem("");
-            TextFeedbackAction l20q2tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l20q1tfa3=new TextFeedbackAction(this,"Remember, in science, argumentation is good! Argue against your models and see where their weaknesses are, and see if that can help you make them more solid.");
+            l20q1tfa2.setNextAction(l20q1tfa3);
+        QuestionItem l20q2=new QuestionItem("How do scientists make arguments?");
+            TextFeedbackAction l20q2tfa1=new TextFeedbackAction(this,"In science, arguing is good! It's only because we argue that we figure things out. Imagine a world in which scientists always accepted the very first thing that was proposed. We'd still think the sun revolved around the earth!");
             l20q2.setAction(l20q2tfa1);
-            TextFeedbackAction l20q2tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l20q2tfa2=new TextFeedbackAction(this,"So, when scientists argue, they present their evidence. They say, \"This explanation is right because all of this evidence supports it.\" So, in making your models and explanations, make sure you're defending them with lots of good evidence.");
             l20q2tfa1.setNextAction(l20q2tfa2);
-        QuestionItem l20q3=new QuestionItem("");
-            TextFeedbackAction l20q3tfa1=new TextFeedbackAction(this,"");
+        QuestionItem l20q3=new QuestionItem("What is good evidence?");
+            TextFeedbackAction l20q3tfa1=new TextFeedbackAction(this,"There's lots of different kinds of evidence, and some is better than others. The best kind of data is always actual observations. Actual observations show that there is something in the real world that supports your explanation.");
             l20q3.setAction(l20q3tfa1);
-            TextFeedbackAction l20q3tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l20q3tfa2=new TextFeedbackAction(this,"Other kinds of evidence include information from experts, established scientific theories, and logical explanations. Try to use real data and observations as much as possible, along with established scientific theories.");
             l20q3tfa1.setNextAction(l20q3tfa2);
         
         l20qla1.addQuestion(l20q1);
@@ -482,19 +484,19 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l21qla1=new QuestionListAction(this);
         QuestionItem l21q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l21q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l21q1tfa1=new TextFeedbackAction(this,"We're coming down to the end! Today should be the day you really reach a consensus on what models you think are strong enough to present.");
             l21q1.setAction(l21q1tfa1);
-            TextFeedbackAction l21q1tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l21q1tfa2=new TextFeedbackAction(this,"Tomorrow, you'll be getting your presentation ready to show our visitors your explanations of the fish kill. You'll be showing them your models, so try to choose which models you have you really want to present.");
             l21q1tfa1.setNextAction(l21q1tfa2);
-        QuestionItem l21q2=new QuestionItem("");
-            TextFeedbackAction l21q2tfa1=new TextFeedbackAction(this,"");
+        QuestionItem l21q2=new QuestionItem("What does consensus mean in science?");
+            TextFeedbackAction l21q2tfa1=new TextFeedbackAction(this,"'Consensus' means agreement. We've said before that in science there is no 'right' or 'wrong', so how do we know things like gravity and photosynthesis exist? The answer is that scientists, thanks to lots of data, have come to a consensus that these are true.");
             l21q2.setAction(l21q2tfa1);
-            TextFeedbackAction l21q2tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l21q2tfa2=new TextFeedbackAction(this,"'Consensus' doesn't have to mean only one explanation. Scientists can come to consensus that some explanations are good and some are bad, and focus on the good ones. Try to come to a consensus in your group about which models are strong enough to present.");
             l21q2tfa1.setNextAction(l21q2tfa2);
-        QuestionItem l21q3=new QuestionItem("");
-            TextFeedbackAction l21q3tfa1=new TextFeedbackAction(this,"");
+        QuestionItem l21q3=new QuestionItem("How do we know which of our models are best?");
+            TextFeedbackAction l21q3tfa1=new TextFeedbackAction(this,"A good model has several features. The best models will have as much evidence as possible -- ideally, everything in your model should have evidence supporting it.");
             l21q3.setAction(l21q3tfa1);
-            TextFeedbackAction l21q3tfa2=new TextFeedbackAction(this,"");
+            TextFeedbackAction l21q3tfa2=new TextFeedbackAction(this,"A good model should also be complex and large enough to explain a complex phenomenon. The fish kill is a complicated problem, so you should have several components in your model to explain it.");
             l21q3tfa1.setNextAction(l21q3tfa2);
         
         l21qla1.addQuestion(l21q1);
@@ -510,24 +512,15 @@ public class GuideTutor extends OnDemandTutor {
         
         QuestionListAction l23qla1=new QuestionListAction(this);
         QuestionItem l23q1=new QuestionItem("What is the goal for this lesson?");
-            TextFeedbackAction l23q1tfa1=new TextFeedbackAction(this,"");
+            TextFeedbackAction l23q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to make your presentation for our visitors. Try to decide what three models (or fewer) that you want to present tomorrow.");
             l23q1.setAction(l23q1tfa1);
-            TextFeedbackAction l23q1tfa2=new TextFeedbackAction(this,"");
-            l23q1tfa1.setNextAction(l23q1tfa2);
-        QuestionItem l23q2=new QuestionItem("");
-            TextFeedbackAction l23q2tfa1=new TextFeedbackAction(this,"");
+        QuestionItem l23q2=new QuestionItem("How do I put my models on a poster?");
+            TextFeedbackAction l23q2tfa1=new TextFeedbackAction(this,"To put a model on a poster, you'll need to make it an image. Click the Save Model as Image button, then ask one of your teachers for help printing it.");
             l23q2.setAction(l23q2tfa1);
-            TextFeedbackAction l23q2tfa2=new TextFeedbackAction(this,"");
-            l23q2tfa1.setNextAction(l23q2tfa2);
-        QuestionItem l23q3=new QuestionItem("");
-            TextFeedbackAction l23q3tfa1=new TextFeedbackAction(this,"");
-            l23q3.setAction(l23q3tfa1);
-            TextFeedbackAction l23q3tfa2=new TextFeedbackAction(this,"");
-            l23q3tfa1.setNextAction(l23q3tfa2);
         
         l23qla1.addQuestion(l23q1);
         l23qla1.addQuestion(l23q2);
-        l23qla1.addQuestion(l23q3);
+        l23qla1.addQuestion(l21q3);
         l23qla1.addQuestion(l9q4);
         
         addMapping(new Mapping(clp23,l23qla1));
@@ -537,7 +530,6 @@ public class GuideTutor extends OnDemandTutor {
         
         TruePercept tp1=new TruePercept(this);
         TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
-        tfa1.setNextAction(new TextFeedbackAction(this,"I still don't have anything to say."));
         Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
         addMapping(m1);
         

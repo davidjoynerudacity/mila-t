@@ -131,12 +131,12 @@ public class MentorTutor extends InterruptTutor {
         
         MultipleAction ma8=new MultipleAction(this,new Action[]{cpaHappyFront});
         TextFeedbackAction tfa8=new TextFeedbackAction(this,"When you're done with what one of us has to say, just click the X in the top right to hide us. You can always bring us back up by clicking on our faces to the left.");
-        ma7.addAction(tfa8);
+        ma8.addAction(tfa8);
         tfa7.setNextAction(ma8);
         
         MultipleAction ma9=new MultipleAction(this,new Action[]{cpaHappyFront});
         TextFeedbackAction tfa9=new TextFeedbackAction(this,"That's all there is to it! At the start of each day, I'll appear to let you know what we'll be working on that day. For today, focus on how to make models in MILA. When you think you've constructed a good model, click Craig the Critic to have him check it. If you need help on creating models, click Gabriel the Guide.");
-        ma8.addAction(tfa9);
+        ma9.addAction(tfa9);
         tfa8.setNextAction(ma9);
         
         MultiplePercept mp1=new MultiplePercept(this);
@@ -310,7 +310,7 @@ public class MentorTutor extends InterruptTutor {
         l16tfa2.setNextAction(l16ma3); 
         
         MultipleAction l16ma4=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l16tfa4=new TextFeedbackAction(this,"Remember also that you an use simulations to try to test out your models. If you observe something in the simulations that shows your models are true, note it as evidence -- if you notice something that suggests a model is false, don't be afraid to research further and dismiss it if necessary.");
+        TextFeedbackAction l16tfa4=new TextFeedbackAction(this,"Remember also that you can use simulations to try to test out your models. If you observe something in the simulations that shows your models are true, note it as evidence -- if you notice something that suggests a model is false, don't be afraid to research further and dismiss it if necessary.");
         l16ma4.addAction(l16tfa4);
         l16tfa3.setNextAction(l16ma4); 
         
@@ -440,7 +440,7 @@ public class MentorTutor extends InterruptTutor {
         CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
         
         MultipleAction l21ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction l21tfa1=new TextFeedbackAction(this,"We're getting near the end! It's time to really narrow down our models to a small set that we're very confident about.");
+        TextFeedbackAction l21tfa1=new TextFeedbackAction(this,"We're getting near the end! It's time to really narrow down our models to a small set that we're very confident about. Try to narrow it down to three models or less that you want to show our visitors.");
         l21ma1.addAction(l21tfa1);
         l21ma1.addAction(new ShowTutorAction(this)); 
         
