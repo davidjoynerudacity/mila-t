@@ -30,9 +30,11 @@ public class TutorTextPanel extends javax.swing.JPanel {
         this.tutorTextLabel.setText("<html><p>" + tfa.getFeedback() + "</p></html>");
         myTFA=tfa;
         if(tfa.getNextAction()==null) {
-            nextButton.setVisible(false);
+            //nextButton.setVisible(false);
+            nextButton.setText("Hide");
         } else {
-            nextButton.setVisible(true);
+            //nextButton.setVisible(true);
+            nextButton.setText("Next");
         }
     }
 
@@ -71,6 +73,8 @@ public class TutorTextPanel extends javax.swing.JPanel {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         if(myTFA.getNextAction()!=null) {
             myTFA.getNextAction().doAction();
+        } else {
+            myContentPanel.hideTutor();
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 

@@ -27,6 +27,7 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     public TutorPopupFrame() {
         initComponents();
         this.setLocation(293,326);
+        tutorContentPanel1.setFrame(this);
     }
     public TutorPopupFrame(Tutor tutor) {
         this();

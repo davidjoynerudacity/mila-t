@@ -206,19 +206,8 @@ public class MentorTutor extends InterruptTutor {
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
         
         MultipleAction l12ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction l12tfa1=new TextFeedbackAction(this,"It's time to learn about acids and bases. The terms 'acid' and 'base' refer to something about the invisible chemical makeup of nearly every liquid substance there is.");
+        TextFeedbackAction l12tfa1=new TextFeedbackAction(this,"Today you learned about acids and bases. Could that have had something to do with why the fish died? Try to think of ways these things might have impacted the lake.");
         l12ma1.addAction(l12tfa1);
-        l12ma1.addAction(new ShowTutorAction(this)); 
-        
-        MultipleAction l12ma2=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l12tfa2=new TextFeedbackAction(this,"Lots of today's lesson will be about actually measuring acids and bases, but while you go through these exercises, also think about how acids and bases might have been relevant in the lake.");
-        l12ma2.addAction(l12tfa2);
-        l12tfa1.setNextAction(l12ma2); 
-        
-        MultipleAction l12ma3=new MultipleAction(this,new Action[]{cpaConfusedFront});
-        TextFeedbackAction l12tfa3=new TextFeedbackAction(this,"We know that fish and other living things can't live in water that is very acidic or very basic. Could that have had something to do with why the fish died? Think about that as you learn about acids and bases today.");
-        l12ma3.addAction(l12tfa3);
-        l12tfa2.setNextAction(l12ma3); 
         
         MultiplePercept l12mp1=new MultiplePercept(this);
         l12mp1.addPercept(clp12);

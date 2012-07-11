@@ -24,6 +24,7 @@ public class TutorContentPanel extends javax.swing.JPanel {
     private TutorTextPanel myTextPanel;
     private TutorQuestionsPanel myQuestionsPanel;
     private TutorFeedbackPanel myFeedbackPanel;
+    private TutorPopupFrame myTPF;
     
     /** Creates new form TutorContentPanel */
     public TutorContentPanel() {
@@ -74,6 +75,15 @@ public class TutorContentPanel extends javax.swing.JPanel {
     public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         myFeedbackPanel.setPrompt(prompt);
         myLayout.show(this,"Prompt");
+    }
+    
+    public void setFrame(TutorPopupFrame tpf) {
+        myTPF=tpf;
+    }
+    public void hideTutor() {
+        try {
+            myTPF.setVisible(false);
+        } catch(Exception ex) {}
     }
 
     /** This method is called from within the constructor to

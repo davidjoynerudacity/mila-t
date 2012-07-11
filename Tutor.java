@@ -75,6 +75,7 @@ public class Tutor {
     }
     public void wasClicked() {
         showTutor();
+        StaticLogs.Log("Tutor Shown", myName);
     }
     
     public void addImage(String label,String filename) {
