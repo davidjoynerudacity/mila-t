@@ -22,6 +22,15 @@ public class PresentNodePercept extends ModelPercept {
         myProperty="";
         myColor="";
     }
+    public PresentNodePercept(Tutor myTutor,String node) {
+        this(myTutor);
+        myNode=node;
+    }
+    public PresentNodePercept(Tutor myTutor,String node,String property) {
+        this(myTutor,node);
+        myProperty=property;
+    }
+    
     
     public boolean isTrue() {
         if(!super.modelSelected()) { return false; }
