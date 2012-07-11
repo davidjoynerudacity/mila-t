@@ -136,7 +136,7 @@ public class GuideTutor extends OnDemandTutor {
             milaQs32.addQuestion(milaQ36);
             milaQs32.addQuestion(milaQ37);
             milaQs32.addQuestion(milaQ38);
-        QuestionItem milaQ4=new QuestionItem("What makes a good model?",new TextFeedbackAction(this,"We'll talk a lot about what makes a good model over the next several days. Generally, though, a good model is one that provides a good, complete explanation of a phenomenon with lots of evidence to support it."));
+        QuestionItem milaQ4=new QuestionItem("What makes a good model?",new TextFeedbackAction(this,"We'll talk a lot about what makes a good model over the next several days. Generally, though, a good model is one that provides a good, thorough explanation of a phenomenon using the evidence you have gathered to support it."));
         milaQs.addQuestion(milaQ1);
         milaQs.addQuestion(milaQ2);
         milaQs.addQuestion(milaQ3);
@@ -235,7 +235,7 @@ public class GuideTutor extends OnDemandTutor {
         /* LESSON 12/13 *******************************************************/
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
         
-        QuestionListAction l12qla1=new QuestionListAction(this);
+        /*QuestionListAction l12qla1=new QuestionListAction(this);
         QuestionItem l12q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l12q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to learn about how acids and bases work.");
             l12q1.setAction(l12q1tfa1);
@@ -258,7 +258,8 @@ public class GuideTutor extends OnDemandTutor {
         l12qla1.addQuestion(l12q3);
         l12qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp12,l12qla1));
+        addMapping(new Mapping(clp12,l12qla1));*/
+        addMapping(new Mapping(clp12,day1Qs));
         
         /* LESSON 14 **********************************************************/
         CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
