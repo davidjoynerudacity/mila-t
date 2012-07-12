@@ -159,7 +159,7 @@ public class MentorTutor extends InterruptTutor {
         l9tfa1.setNextAction(l9ma2); 
         
         MultipleAction l9ma3=new MultipleAction(this,new Action[]{cpaConcernedFront});
-        TextFeedbackAction l9tfa3=new TextFeedbackAction(this,"Remember, you're explaining a new problem now, so you should have started a new project for this. If you're still working in your Aquarium project, go ahead and click File, select New Project, and create a new project called Fish Kill.");
+        TextFeedbackAction l9tfa3=new TextFeedbackAction(this,"Remember, you're explaining a new problem now, so you should have started a new project for this. If you're still working in your Aquarium project, go ahead and click File, select New Project, and create a new project called Fish Die-off.");
         l9ma3.addAction(l9tfa3);
         l9tfa2.setNextAction(l9ma3); 
         
@@ -187,7 +187,7 @@ public class MentorTutor extends InterruptTutor {
         l11tfa2.setNextAction(l11ma3); 
         
         MultipleAction l11ma4=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l11tfa4=new TextFeedbackAction(this,"You're doing science the way scientists do it now. Throughout the camp, try to think about how you're gathering information to better explain the Fish Kill, and then using that information to know what more you need to research.");
+        TextFeedbackAction l11tfa4=new TextFeedbackAction(this,"You're doing science the way scientists do it now. Throughout the camp, try to think about how you're gathering information to better explain the fish die-off, and then using that information to know what more you need to research.");
         l11ma4.addAction(l11tfa4);
         l11tfa3.setNextAction(l11ma4); 
         
@@ -229,7 +229,7 @@ public class MentorTutor extends InterruptTutor {
         l14tfa1.setNextAction(l14ma2); 
         
         MultipleAction l14ma3=new MultipleAction(this,new Action[]{cpaExcitedFront});
-        TextFeedbackAction l14tfa3=new TextFeedbackAction(this,"Scientists use simulations in lots of ways. They use simulations to try to predict what will happen in the future, or understand what happened in the past. If you can make a simulation mimic what happened in the lake, it's possible that you've demonstrated the actual cause of the fish kill.");
+        TextFeedbackAction l14tfa3=new TextFeedbackAction(this,"Scientists use simulations in lots of ways. They use simulations to try to predict what will happen in the future, or understand what happened in the past. If you can make a simulation mimic what happened in the lake, you can use that as evidence in constructing a model of what caused the die-off.");
         l14ma3.addAction(l14tfa3);
         l14tfa2.setNextAction(l14ma3); 
         
@@ -289,7 +289,7 @@ public class MentorTutor extends InterruptTutor {
         l16ma1.addAction(new ShowTutorAction(this)); 
         
         MultipleAction l16ma2=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l16tfa2=new TextFeedbackAction(this,"Remember, though, that these aren't unlike the simulations you've been using. Algae and plants both eat some things and are eaten by other things. Anything that changes the amount of one of these organisms in the system could have impact lots of other parts of the system.");
+        TextFeedbackAction l16tfa2=new TextFeedbackAction(this,"Remember, though, that these aren't unlike the simulations you've been using. Algae and plants both eat some things and are eaten by other things. Anything that changes the amount of one of these organisms in the system could have impact on lots of other parts of the system.");
         l16ma2.addAction(l16tfa2);
         l16tfa1.setNextAction(l16ma2); 
         
@@ -299,7 +299,7 @@ public class MentorTutor extends InterruptTutor {
         l16tfa2.setNextAction(l16ma3); 
         
         MultipleAction l16ma4=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l16tfa4=new TextFeedbackAction(this,"Remember also that you can use simulations to try to test out your models. If you observe something in the simulations that shows your models are true, note it as evidence -- if you notice something that suggests a model is false, don't be afraid to research further and dismiss it if necessary.");
+        TextFeedbackAction l16tfa4=new TextFeedbackAction(this,"Remember also that you can use simulations to try to test out your models. If you observe something in the simulations that supports your model, note it as evidence -- if you notice something that suggests a model is false, don't be afraid to research further and dismiss it if necessary.");
         l16ma4.addAction(l16tfa4);
         l16tfa3.setNextAction(l16ma4); 
         
@@ -323,7 +323,7 @@ public class MentorTutor extends InterruptTutor {
         l17tfa1.setNextAction(l17ma2); 
         
         MultipleAction l17ma3=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l17tfa3=new TextFeedbackAction(this,"If one of your hypotheses is that pollution is causing the fish kill, make sure to use this simulation to further explain your model. You'll also want to try to back that theory up with information from the actual lake. Was there a spike in pollution before the fish kill?");
+        TextFeedbackAction l17tfa3=new TextFeedbackAction(this,"If one of your hypotheses is that pollution is causing the fish die-off, make sure to use this simulation to further explain your model. You'll also want to try to back that theory up with information from the actual lake. Was there a spike in pollution before the fish die-off?");
         l17ma3.addAction(l17tfa3);
         l17tfa2.setNextAction(l17ma3); 
         
@@ -366,12 +366,12 @@ public class MentorTutor extends InterruptTutor {
         CurrentLessonPercept clp19=new CurrentLessonPercept(this,"19");
         
         MultipleAction l19ma1=new MultipleAction(this,new Action[]{cpaExcitedFront});
-        TextFeedbackAction l19tfa1=new TextFeedbackAction(this,"You've learned everything you need to know to investigate the fish kill. Now, let's put those skills to the test!");
+        TextFeedbackAction l19tfa1=new TextFeedbackAction(this,"You've learned everything you need to know to investigate the fish die-off. Now, let's put those skills to the test!");
         l19ma1.addAction(l19tfa1);
         l19ma1.addAction(new ShowTutorAction(this)); 
         
         MultipleAction l19ma2=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction l19tfa2=new TextFeedbackAction(this,"Our goal now is to start to really develop our models of how the fish kill happened and to come to some really solid explanations. Now is the time to start trying to explain how every connection takes place and give some evidence for as many as we can.");
+        TextFeedbackAction l19tfa2=new TextFeedbackAction(this,"Our goal now is to start to really develop our models of how the fish die-off happened and to come to some really solid explanations. Now is the time to start trying to explain how every connection takes place and give some evidence for as many as we can.");
         l19ma2.addAction(l19tfa2);
         l19tfa1.setNextAction(l19ma2); 
         
@@ -405,7 +405,7 @@ public class MentorTutor extends InterruptTutor {
         CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
         
         MultipleAction l20ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction l20tfa1=new TextFeedbackAction(this,"In this lesson, you'll get even more information about what might have caused the fish kill. How does this new information change your understanding?");
+        TextFeedbackAction l20tfa1=new TextFeedbackAction(this,"In this lesson, you'll get even more information about what might have caused the fish die-off. How does this new information change your understanding?");
         l20ma1.addAction(l20tfa1);
         l20ma1.addAction(new ShowTutorAction(this)); 
         
@@ -415,7 +415,7 @@ public class MentorTutor extends InterruptTutor {
         l20tfa1.setNextAction(l20ma2); 
         
         MultipleAction l20ma3=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l20tfa3=new TextFeedbackAction(this,"Some of this information might even make you think of even more new models and hypotheses -- don't be afraid to start some more new models. Your goal is to come up with multiple very solid explanations of the fish kill, and it's never too late to start a new hypothesis!");
+        TextFeedbackAction l20tfa3=new TextFeedbackAction(this,"Some of this information might even make you think of even more new models and hypotheses -- don't be afraid to start some more new models. Your goal is to come up with multiple very solid explanations of the fish die-off, and it's never too late to start a new hypothesis!");
         l20ma3.addAction(l20tfa3);
         l20tfa2.setNextAction(l20ma3); 
         
@@ -439,7 +439,7 @@ public class MentorTutor extends InterruptTutor {
         l21tfa1.setNextAction(l21ma2); 
         
         MultipleAction l21ma3=new MultipleAction(this,new Action[]{cpaInterestedFront});
-        TextFeedbackAction l21tfa3=new TextFeedbackAction(this,"In your heads, try to look at your models as if you're an outside observer. If you saw someone present this explanation of the fish kill, what would they challenge you on? How would you defend your model?");
+        TextFeedbackAction l21tfa3=new TextFeedbackAction(this,"In your heads, try to look at your models as if you're an outside observer. If you saw someone present this explanation of the fish die-off, what would they challenge you on? How would you defend your model?");
         l21ma3.addAction(l21tfa3);
         l21tfa2.setNextAction(l21ma3); 
         
@@ -463,7 +463,7 @@ public class MentorTutor extends InterruptTutor {
         l23ma1.addAction(new ShowTutorAction(this)); 
         
         MultipleAction l23ma2=new MultipleAction(this,new Action[]{cpaExcitedFront});
-        TextFeedbackAction l23tfa2=new TextFeedbackAction(this,"As a scientist, your goal isn't to present everything that you've done. Instead, your goal is to present your final, strongest conclusions. Choose the remaining models that you're most confident about and prepare to explain them to people that have never heard of the fish kill before.");
+        TextFeedbackAction l23tfa2=new TextFeedbackAction(this,"As a scientist, your goal isn't to present everything that you've done. Instead, your goal is to present your final, strongest conclusions. Choose the remaining models that you're most confident about and prepare to explain them to people that have never heard of the fish die-off before.");
         l23ma2.addAction(l23tfa2);
         l23tfa1.setNextAction(l23ma2); 
         
@@ -482,6 +482,7 @@ public class MentorTutor extends InterruptTutor {
         
         TruePercept tp1=new TruePercept(this);
         TextFeedbackAction tfa0=new TextFeedbackAction(this,"I don't really have anything to say right now.");
+        tfa0.setLogThis(false);
         Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa0}));
         addMapping(m1);
     }

@@ -56,6 +56,9 @@ public class TutorPopupFrame extends javax.swing.JFrame {
             myTFA.setIsRead(true);
         }
     }
+    public String getTutorName() {
+        return myTutor.getName();
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -111,11 +114,13 @@ public class TutorPopupFrame extends javax.swing.JFrame {
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         setTFARead();
+        StaticLogs.Log("Tutor Hidden", myTutor.getName());
     }//GEN-LAST:event_formComponentHidden
 
     private void tutorImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tutorImageLabelMouseClicked
         if(myTutor!=null) {
             myTutor.checkMappings();
+            StaticLogs.Log("Tutor Mappings Checked Manually", myTutor.getName());
         }
     }//GEN-LAST:event_tutorImageLabelMouseClicked
 
