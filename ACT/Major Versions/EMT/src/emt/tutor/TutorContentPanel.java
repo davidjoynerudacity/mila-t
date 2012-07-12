@@ -80,6 +80,12 @@ public class TutorContentPanel extends javax.swing.JPanel {
     public void setFrame(TutorPopupFrame tpf) {
         myTPF=tpf;
     }
+    public String getTutorName() {
+        return myTPF.getTutorName();
+    }
+    public boolean frameIsVisible() {
+        return myTPF.isVisible();
+    }
     public void hideTutor() {
         try {
             myTPF.setVisible(false);

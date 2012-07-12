@@ -18,15 +18,15 @@ public class StaticLogs {
     public static String PROJECTROOTPATH="";
     public static void Log(String eventType, String ... parameters) {
         try {
-            FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "tutorLog.csv",true);
+            FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "tutorLog.xls",true);
             BufferedWriter out = new BufferedWriter(fstream);
             
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             
-            String outputString=eventType+","+sdf.format(cal.getTime())+",";
+            String outputString=eventType+"	"+sdf.format(cal.getTime())+"	";
             for(String s : parameters) {
-                outputString=outputString+s+",";
+                outputString=outputString+s+"	";
             }
             out.write(outputString.substring(0,outputString.length()-1));
             out.newLine();

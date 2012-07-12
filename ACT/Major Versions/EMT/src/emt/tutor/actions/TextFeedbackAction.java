@@ -15,9 +15,11 @@ public class TextFeedbackAction extends Action {
     private String myFeedback;
     private boolean isRead=false;
     private Action myNextAction;
+    private boolean myLogThis;
     
     public TextFeedbackAction(Tutor myTutor) {
         super(myTutor);
+        myLogThis=true;
     }
     public TextFeedbackAction(Tutor myTutor,String feedback) {
         this(myTutor);
@@ -44,6 +46,12 @@ public class TextFeedbackAction extends Action {
     }
     public void setIsRead(boolean read) {
         isRead=read;
+    }
+    public void setLogThis(boolean logThis) {
+        this.myLogThis=logThis;
+    }
+    public boolean getLogThis() {
+        return myLogThis;
     }
     
 }

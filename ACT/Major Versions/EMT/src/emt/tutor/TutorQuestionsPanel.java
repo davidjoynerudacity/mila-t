@@ -140,18 +140,22 @@ public class TutorQuestionsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Question1LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question1LabelMouseClicked
+        StaticLogs.Log("Tutor Question Clicked", myContentPanel.getTutorName(),q1.getQuestion());
         q1.getAction().doAction();
     }//GEN-LAST:event_Question1LabelMouseClicked
 
     private void Question2LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question2LabelMouseClicked
+        StaticLogs.Log("Tutor Question Clicked", myContentPanel.getTutorName(),q2.getQuestion());
         q2.getAction().doAction();
     }//GEN-LAST:event_Question2LabelMouseClicked
 
     private void Question3LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question3LabelMouseClicked
+        StaticLogs.Log("Tutor Question Clicked", myContentPanel.getTutorName(),q3.getQuestion());
         q3.getAction().doAction();
     }//GEN-LAST:event_Question3LabelMouseClicked
 
     private void Question4LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Question4LabelMouseClicked
+        StaticLogs.Log("Tutor Question Clicked", myContentPanel.getTutorName(),q4.getQuestion());
         q4.getAction().doAction();
     }//GEN-LAST:event_Question4LabelMouseClicked
 

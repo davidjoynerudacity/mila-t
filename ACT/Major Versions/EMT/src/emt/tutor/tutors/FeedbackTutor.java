@@ -90,6 +90,7 @@ public class FeedbackTutor extends InterruptTutor implements ActionListener {
         
         TruePercept tp1=new TruePercept(this);
         TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
+        tfa1.setLogThis(false);
         Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
         addMapping(m1);
     }

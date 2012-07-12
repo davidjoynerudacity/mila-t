@@ -107,8 +107,8 @@ public class CriticTutor extends OnDemandTutor {
         ConnectionCountPercept l9ccp1=new ConnectionCountPercept(this,0);
         
         MultipleAction l9ma1=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"Your goal for today is to come up with at least two hypotheses for what's causing the fish to die. Each hypothesis should get its own model, but it looks like right now you have less than three models. What other things might be causing the fish to die off?")});
-        MultipleAction l9ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a property called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
-        MultipleAction l9ma3=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"Good! You've got a fish population component, but it looks like you haven't put anything else in this model yet. Try to create a component showing what you think is causing the fish kill.")});
+        MultipleAction l9ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a variable called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
+        MultipleAction l9ma3=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"Good! You've got a fish population component, but it looks like you haven't put anything else in this model yet. Try to create a component showing what you think is causing the fish die-off.")});
         MultipleAction l9ma4=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"It looks like you have more than one component in this model, but they're not yet connected. How are they connected? Which is the cause and which is the effect?")});
         MultipleAction l9ma5=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to avoid unconnected components in our models, but for now it's okay to have some of those like you have here.")});
         MultipleAction l9ma6=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to justify all our connections with evidence, but since we haven't done any real research yet, you're right to think that none of them should have evidence right now.")});
@@ -138,13 +138,13 @@ public class CriticTutor extends OnDemandTutor {
         ConnectionCountPercept l11ccp1=new ConnectionCountPercept(this,0);
         NodeCountPercept l11ncp2=new NodeCountPercept(this,3,'<');
         
-        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Last time, you came up with at least two hypotheses for what might be causing the fish kill. Today, with the information you gained at the lake, try to come up with at least two more. In the end, you should have at least four hypotheses, each with a model.");
+        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Last time, you came up with at least two hypotheses for what might be causing the fish die-off. Today, with the information you gained at the lake, try to come up with at least two more. In the end, you should have at least four hypotheses, each with a model.");
         l11tfa1.setNextAction(new TextFeedbackAction(this,"When doing science, it's always good to start off with lots of possible explanations for what you're trying to explain. In the future, you'll be able to narrow things down more and focus on the hypotheses you think are more plausible."));
         MultipleAction l11ma1=new MultipleAction(this,new Action[]{cpaConfusedFront,l11tfa1});
-        MultipleAction l11ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a property called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
-        MultipleAction l11ma3=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"Good! You've got a fish population component, but it looks like you haven't put anything else in this model yet. Try to create a component showing what you think is causing the fish kill.")});
+        MultipleAction l11ma2=new MultipleAction(this,new Action[]{cpaConfusedFront,new TextFeedbackAction(this,"You're modeling what's causing the fish to die, but right now I don't see a component that shows the fish dying. You probably want a component called 'Fish' with a variable called 'Population', with a red arrow indicating the population is going down. If you need help understanding how these components work, ask Gabriel the Guide.")});
+        MultipleAction l11ma3=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"Good! You've got a fish population component, but it looks like you haven't put anything else in this model yet. Try to create a component showing what you think is causing the fish die-off.")});
         MultipleAction l11ma4=new MultipleAction(this,new Action[]{cpaInterestedFront,new TextFeedbackAction(this,"It looks like you have more than one component in this model, but they're not yet connected. How are they connected? Which is the cause and which is the effect?")});
-        MultipleAction l11ma5=new MultipleAction(this,new Action[]{cpaInterestedFront, new TextFeedbackAction(this,"Good! You've got your basic model down showing the link between your cause and the fish kill. Our next step is going to be to develop these models further. How does your hypothesized cause lead to the fish dying? Try to have at least one or two models with three or more components by the end of the lesson.")});
+        MultipleAction l11ma5=new MultipleAction(this,new Action[]{cpaInterestedFront, new TextFeedbackAction(this,"Good! You've got your basic model down showing the link between your cause and the fish die-off. Our next step is going to be to develop these models further. How does your hypothesized cause lead to the fish dying? Try to have at least one or two models with three or more components by the end of the lesson.")});
         MultipleAction l11ma6=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to avoid unconnected components in our models, but for now it's okay to have some of those like you have here.")});
         MultipleAction l11ma7=new MultipleAction(this,new Action[]{cpaHappyFront,new TextFeedbackAction(this,"Your model looks good! I can only see the model you're looking at, though, so remember to ask me for advice on your other models, too. Remember that later in the camp, we'll want to justify all our connections with evidence, but since we haven't done any real research yet, you're right to think that none of them should have evidence right now.")});
         
@@ -198,7 +198,7 @@ public class CriticTutor extends OnDemandTutor {
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15ncp1}),l15ma1));
         
         AbsentNodePercept l15anp1=new AbsentNodePercept(this,"Fish","Population");
-        TextFeedbackAction l15tfa2=new TextFeedbackAction(this,"The phenomenon you're describing is that the fish population is dropping, but I don't see a component for that. Try adding a component Fish with a property Population, and set the arrow to the red downward arrow.");
+        TextFeedbackAction l15tfa2=new TextFeedbackAction(this,"The phenomenon you're describing is that the fish population is dropping, but I don't see a component for that. Try adding a component Fish with a variable Population, and set the arrow to the red downward arrow.");
         MultipleAction l15ma2=new MultipleAction(this,new Action[]{l15tfa2,cpaConfusedFront}); 
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15anp1}),l15ma2));
         
@@ -223,18 +223,18 @@ public class CriticTutor extends OnDemandTutor {
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15ccp2}),l15ma6));
         
         MissingPropertiesPercept l15mpp1=new MissingPropertiesPercept(this);
-        TextFeedbackAction l15tfa7=new TextFeedbackAction(this,"It looks like not all your components have properties written for them. Remember, a component is just the physical piece of the system -- the properties are what change. For example, 'Water' doesn't go up; water 'Temperature' goes up.");
+        TextFeedbackAction l15tfa7=new TextFeedbackAction(this,"It looks like not all your components have variables written for them. Remember, a component is just the physical piece of the system -- the variables are what change. For example, 'Water' doesn't go up; water 'Temperature' goes up.");
         MultipleAction l15ma7=new MultipleAction(this,new Action[]{l15tfa7,cpaInterestedFront});
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15mpp1}),l15ma7));
         
         PresentNodePercept l15pnp1=new PresentNodePercept(this,"Food");
         TextFeedbackAction l15tfa8=new TextFeedbackAction(this,"It looks like right now you have a 'Food' component. Food is an abstract concept, though. What kind of food are you talking about? What are these fish eating? Do they eat algae, plants, other fish, or what?");
-        l15tfa8.setNextAction(new TextFeedbackAction(this,"Understanding what the fish eat will be important in figuring out if the food source had something to do with the fish kill."));
+        l15tfa8.setNextAction(new TextFeedbackAction(this,"Understanding what the fish eat will be important in figuring out if the food source had something to do with the fish die-off."));
         MultipleAction l15ma8=new MultipleAction(this,new Action[]{l15tfa8,cpaInterestedFront});
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15pnp1}),l15ma8));
         
         BidirectionalEdgePercept l15bap1=new BidirectionalEdgePercept(this);
-        TextFeedbackAction l15tfa9=new TextFeedbackAction(this,"Right now you have a connection with arrows on both sides. Does this make sense? You're trying to explain what caused the fish kill, but when a connection has arrows on both sides, it isn't clear what is causing what.");
+        TextFeedbackAction l15tfa9=new TextFeedbackAction(this,"Right now you have a connection with arrows on both sides. Does this make sense? You're trying to explain what caused the fish die-off, but when a connection has arrows on both sides, it isn't clear what is causing what.");
         MultipleAction l15ma9=new MultipleAction(this,new Action[]{l15tfa9,cpaInterestedFront});
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15bap1}),l15ma9));
         
