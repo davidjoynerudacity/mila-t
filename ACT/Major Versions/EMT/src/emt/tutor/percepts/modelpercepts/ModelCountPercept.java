@@ -32,9 +32,8 @@ public class ModelCountPercept extends ModelPercept {
     
     
     public boolean isTrue() {
-        if(!super.modelSelected()) { return false; }
-        
         int modelCount=getTutor().getModelCount();
+        
         if(mySearchType=='=') {
             if(modelCount==mySearchCount) {
                 return true;

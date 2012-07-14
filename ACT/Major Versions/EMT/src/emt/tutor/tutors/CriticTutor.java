@@ -56,6 +56,9 @@ public class CriticTutor extends OnDemandTutor {
         ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
         
         /* GLOBAL INITIAL MAPPINGS ********************************************/
+        ModelCountPercept mcp0=new ModelCountPercept(this,0);
+        MultipleAction gma0=new MultipleAction(this,new Action[]{cpaConcernedFront,new TextFeedbackAction(this,"Right now, you haven't created any models. I can only see the model you have selected, so go ahead and create one by clicking Propose New Hypothesis. If you need help, ask Gabriel the Guide.")});
+        addMapping(new Mapping(mcp0,gma0));
         NoModelSelectedPercept nmsp=new NoModelSelectedPercept(this);
         MultipleAction gma1=new MultipleAction(this,new Action[]{cpaConcernedFront,new TextFeedbackAction(this,"It doesn't look like you have a model selected. I can only see the model you have selected, so select or create one and then ask for my help again.")});
         addMapping(new Mapping(nmsp,gma1));
@@ -65,7 +68,7 @@ public class CriticTutor extends OnDemandTutor {
         NodeCountPercept ncp0=new NodeCountPercept(this,0);
         NodeCountPercept ncp1=new NodeCountPercept(this,1);
         NodeCountPercept ncp2=new NodeCountPercept(this,1,'>');
-        NodeCountPercept ncp3=new NodeCountPercept(this,2,'<');
+        NodeCountPercept ncp3=new NodeCountPercept(this,3,'<');
         ConnectionCountPercept ccp0=new ConnectionCountPercept(this,0);
         EvidencedConnectionCountPercept eccp0=new EvidencedConnectionCountPercept(this,0);
         ConnectionCountPercept ccp2=new ConnectionCountPercept(this,1,'<');
@@ -184,8 +187,7 @@ public class CriticTutor extends OnDemandTutor {
         TextFeedbackAction l14tfa1=new TextFeedbackAction(this,"Today, you'll be learning how to use NetLogo simulations. You won't be modifying your models much, but try to keep in mind how the simulations might be used to further inform your models as you use them.");
         MultipleAction l14ma1=new MultipleAction(this,new Action[]{cpaHappyFront,l14tfa1});
         
-        Mapping l14m1=new Mapping(clp12,l14ma1);
-        
+        Mapping l14m1=new Mapping(clp14,l14ma1);
         addMapping(l14m1);
         
         
@@ -213,7 +215,7 @@ public class CriticTutor extends OnDemandTutor {
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15ccp1}),l15ma4));
         
         NodeCountPercept l15ncp3=new NodeCountPercept(this,3,'<');
-        TextFeedbackAction l15tfa5=new TextFeedbackAction(this,"You've got a simple model connecting two components. Now, try to make this model bigger. What other components are important to this model?");
+        TextFeedbackAction l15tfa5=new TextFeedbackAction(this,"You've got a simple model connecting two components. Now, try to make this model more complete. What other components are important to this model?");
         MultipleAction l15ma5=new MultipleAction(this,new Action[]{l15tfa5,cpaConcernedFront});
         addMapping(new Mapping(new MultiplePercept(this,new Percept[]{clp15,l15ncp3}),l15ma5));
         

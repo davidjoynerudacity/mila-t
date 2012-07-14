@@ -130,7 +130,7 @@ public class MentorTutor extends InterruptTutor {
         tfa6.setNextAction(ma7);
         
         MultipleAction ma8=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction tfa8=new TextFeedbackAction(this,"When you're done with what one of us has to say, just click the X in the top right to hide us. You can always bring us back up by clicking on our faces to the left.");
+        TextFeedbackAction tfa8=new TextFeedbackAction(this,"When you're done with what one of us has to say, just click the hide button in the bottom right to hide us. You can always bring us back up by clicking on our faces to the left.");
         ma8.addAction(tfa8);
         tfa7.setNextAction(ma8);
         
@@ -149,7 +149,7 @@ public class MentorTutor extends InterruptTutor {
         CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
         
         MultipleAction l9ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction l9tfa1=new TextFeedbackAction(this,"Hey! Welcome to today's lesson. Today, your goal is going to be to come up with at least three different hypotheses for what might be causing the death of the fish in Lake Clara Meer.");
+        TextFeedbackAction l9tfa1=new TextFeedbackAction(this,"Hey! Welcome to today's lesson. Today, your goal is going to be to come up with at least two different hypotheses for what might be causing the death of the fish in Lake Clara Meer.");
         l9ma1.addAction(l9tfa1);
         l9ma1.addAction(new ShowTutorAction(this)); 
         
@@ -172,7 +172,7 @@ public class MentorTutor extends InterruptTutor {
         CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
         
         MultipleAction l11ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
-        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Hey! Welcome to today's lesson. You just got back from Lake Clara Meer, gathering informaton and exploring what could have caused the problem. Your goal now is to revise your models based on that information.");
+        TextFeedbackAction l11tfa1=new TextFeedbackAction(this,"Hey! Welcome to today's lesson. You just got back from Lake Clara Meer, gathering information and exploring what could have caused the problem. Your goal now is to revise your models based on that information.");
         l11ma1.addAction(l11tfa1);
         l11ma1.addAction(new ShowTutorAction(this)); 
         
@@ -208,6 +208,7 @@ public class MentorTutor extends InterruptTutor {
         MultipleAction l12ma1=new MultipleAction(this,new Action[]{cpaHappyFront});
         TextFeedbackAction l12tfa1=new TextFeedbackAction(this,"Today you learned about acids and bases. Could that have had something to do with why the fish died? Try to think of ways these things might have impacted the lake.");
         l12ma1.addAction(l12tfa1);
+        l12ma1.addAction(new ShowTutorAction(this)); 
         
         MultiplePercept l12mp1=new MultiplePercept(this);
         l12mp1.addPercept(clp12);

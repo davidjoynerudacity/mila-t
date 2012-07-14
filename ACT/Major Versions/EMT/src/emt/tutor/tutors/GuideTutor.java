@@ -62,6 +62,7 @@ public class GuideTutor extends OnDemandTutor {
         CurrentLessonPercept clp7=new CurrentLessonPercept(this,"7");
         
         QuestionListAction day1Qs=new QuestionListAction(this);
+        MultipleAction day1MA=new MultipleAction(this,new Action[]{day1Qs,cpaHappyFront});
         day1Qs.setIntro("Do you need help with the basics of MILA? What can I help you with?");
         QuestionItem q1=new QuestionItem("How do I create MILA models?");
         QuestionItem q2=new QuestionItem("How do I take notes?");
@@ -175,15 +176,16 @@ public class GuideTutor extends OnDemandTutor {
         tutorsQs.addQuestion(tutorQ3);
         tutorsQs.addQuestion(tutorQ4);
         
-        addMapping(new Mapping(clp7,day1Qs));
+        addMapping(new Mapping(clp7,day1MA));
         
         /* LESSON 9 ***********************************************************/
         CurrentLessonPercept clp9=new CurrentLessonPercept(this,"9");
         QuestionListAction l9qla1=new QuestionListAction(this);
+        MultipleAction l9ma1=new MultipleAction(this,new Action[]{l9qla1,cpaHappyFront});
         QuestionItem l9q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l9q1tfa1=new TextFeedbackAction(this,"For this lesson, your goal is to come up with multiple hypotheses for what might have caused the fish in Lake Clara Meer to die off.");
             l9q1.setAction(l9q1tfa1);
-            TextFeedbackAction l9q1tfa2=new TextFeedbackAction(this,"Try to come up with at least three different hypotheses, and then create a model for each hypothesis. In each of these models, make sure you're including the fact that the Fish Population is decreasing, along with whatever else you're hypothesizing (for example, that Pollution Concentration was rising or that Oxygen Levels were decreasing).");
+            TextFeedbackAction l9q1tfa2=new TextFeedbackAction(this,"Try to come up with at least two different hypotheses, and then create a model for each hypothesis. In each of these models, make sure you're including the fact that the Fish Population is decreasing, along with whatever else you're hypothesizing (for example, that Pollution Concentration was rising or that Oxygen Levels were decreasing).");
             l9q1tfa1.setNextAction(l9q1tfa2);
         QuestionItem l9q2=new QuestionItem("What should my models look like?");
             TextFeedbackAction l9q2tfa1=new TextFeedbackAction(this,"The goal of your model is to explain why and how the fish in Lake Clara Meer all died. So, your model should include an initial event that caused the Fish Population to drop. Eventually, you'll have a long explanation for how this took place, but for now focus on the initial hypotheses.");
@@ -191,17 +193,18 @@ public class GuideTutor extends OnDemandTutor {
         QuestionItem l9q3=new QuestionItem("What else should I keep in mind?");
             TextFeedbackAction l9q3tfa1=new TextFeedbackAction(this,"Try to think about how the fish die-off problem and the Aquarium problem are similar and how they're different. Is there anything you learned with the Aquarium that you can transfer to the fish die-off?");
             l9q3.setAction(l9q3tfa1);
-        QuestionItem l9q4=new QuestionItem("See more questions...", day1Qs);
+        QuestionItem l9q4=new QuestionItem("See more questions...", day1MA);
         l9qla1.addQuestion(l9q1);
         l9qla1.addQuestion(l9q2);
         l9qla1.addQuestion(l9q3);
         l9qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp9,l9qla1));
+        addMapping(new Mapping(clp9,l9ma1));
         
         /* LESSON 11 **********************************************************/
         CurrentLessonPercept clp11=new CurrentLessonPercept(this,"11");
         QuestionListAction l11qla1=new QuestionListAction(this);
+        MultipleAction l11ma1=new MultipleAction(this,new Action[]{l11qla1,cpaConfusedFront});
         QuestionItem l11q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l11q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to add in some of the new information you've gathered into your models. You are also encouraged to create new models if you have new ideas for what might have caused the fish die-off.");
             l11q1.setAction(l11q1tfa1);
@@ -232,7 +235,7 @@ public class GuideTutor extends OnDemandTutor {
         l11qla1.addQuestion(l11q3);
         l11qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp11,l11qla1));
+        addMapping(new Mapping(clp11,l11ma1));
         
         /* LESSON 12/13 *******************************************************/
         CurrentLessonPercept clp12=new CurrentLessonPercept(this,"12");
@@ -261,12 +264,13 @@ public class GuideTutor extends OnDemandTutor {
         l12qla1.addQuestion(l9q4);
         
         addMapping(new Mapping(clp12,l12qla1));*/
-        addMapping(new Mapping(clp12,day1Qs));
+        addMapping(new Mapping(clp12,day1MA));
         
         /* LESSON 14 **********************************************************/
         CurrentLessonPercept clp14=new CurrentLessonPercept(this,"14");
         
         QuestionListAction l14qla1=new QuestionListAction(this);
+        MultipleAction l14ma1=new MultipleAction(this,new Action[]{l14qla1,cpaConfusedFront});
         QuestionItem l14q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l14q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to learn how to use NetLogo simulations, and to learn how scientists use simulations in real science.");
             l14q1.setAction(l14q1tfa1);
@@ -312,12 +316,13 @@ public class GuideTutor extends OnDemandTutor {
         l14qla1.addQuestion(l14q3);
         l14qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp14,l14qla1));
+        addMapping(new Mapping(clp14,l14ma1));
         
         /* LESSON 15 **********************************************************/
         CurrentLessonPercept clp15=new CurrentLessonPercept(this,"15");
         
         QuestionListAction l15qla1=new QuestionListAction(this);
+        MultipleAction l15ma1=new MultipleAction(this,new Action[]{l15qla1,cpaConcernedFront});
         QuestionItem l15q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l15q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to explore the different food sources available to fish, and figure out if food might have played a role in the fish die-off.");
             l15q1.setAction(l15q1tfa1);
@@ -346,12 +351,13 @@ public class GuideTutor extends OnDemandTutor {
         l15qla1.addQuestion(l15q3);
         l15qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp15,l15qla1));
+        addMapping(new Mapping(clp15,l15ma1));
         
         /* LESSON 16 **********************************************************/
         CurrentLessonPercept clp16=new CurrentLessonPercept(this,"16");
         
         QuestionListAction l16qla1=new QuestionListAction(this);
+        MultipleAction l16ma1=new MultipleAction(this,new Action[]{l16qla1,cpaConcernedFront});
         QuestionItem l16q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l16q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to understand how real data and simulations can both help a scientist research a problem or phenomenon.");
             l16q1.setAction(l16q1tfa1);
@@ -367,12 +373,13 @@ public class GuideTutor extends OnDemandTutor {
         l16qla1.addQuestion(l14q3);
         l16qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp16,l16qla1));
+        addMapping(new Mapping(clp16,l16ma1));
         
         /* LESSON 17 **********************************************************/
         CurrentLessonPercept clp17=new CurrentLessonPercept(this,"17");
         
         QuestionListAction l17qla1=new QuestionListAction(this);
+        MultipleAction l17ma1=new MultipleAction(this,new Action[]{l17qla1,cpaInterestedFront});
         QuestionItem l17q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l17q1tfa1=new TextFeedbackAction(this,"Your goal for this lesson is to use the AQWA simulation to learn more about how pollution might have affected the lake.");
             l17q1.setAction(l17q1tfa1);
@@ -390,13 +397,14 @@ public class GuideTutor extends OnDemandTutor {
         l17qla1.addQuestion(l14q3);
         l17qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp17,l17qla1));
+        addMapping(new Mapping(clp17,l17ma1));
         
         
         /* LESSON 18 **********************************************************/
         CurrentLessonPercept clp18=new CurrentLessonPercept(this,"18");
         
         QuestionListAction l18qla1=new QuestionListAction(this);
+        MultipleAction l18ma1=new MultipleAction(this,new Action[]{l18qla1,cpaInterestedFront});
         QuestionItem l18q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l18q1tfa1=new TextFeedbackAction(this,"The goal for this lesson is to understand how oxygen depletion and bacteria can impact the system.");
             l18q1.setAction(l18q1tfa1);
@@ -422,13 +430,14 @@ public class GuideTutor extends OnDemandTutor {
         l18qla1.addQuestion(l18q3);
         l18qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp18,l18qla1));
+        addMapping(new Mapping(clp18,l18ma1));
         
         
         /* LESSON 19 **********************************************************/
         CurrentLessonPercept clp19=new CurrentLessonPercept(this,"19");
         
         QuestionListAction l19qla1=new QuestionListAction(this);
+        MultipleAction l19ma1=new MultipleAction(this,new Action[]{l19qla1,cpaAmazedFront});
         QuestionItem l19q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l19q1tfa1=new TextFeedbackAction(this,"The goal for this lesson is to start to make final progress toward coming up with a good, solid explanation for why the fish in Lake Clara Meer died. Your goal is also to start ruling out some of the hypotheses that don't seem to be true or are difficult to research further.");
             l19q1.setAction(l19q1tfa1);
@@ -449,13 +458,14 @@ public class GuideTutor extends OnDemandTutor {
         l19qla1.addQuestion(l18q2);
         l19qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp19,l19qla1));
+        addMapping(new Mapping(clp19,l19ma1));
         
         
         /* LESSON 20 **********************************************************/
         CurrentLessonPercept clp20=new CurrentLessonPercept(this,"20");
         
         QuestionListAction l20qla1=new QuestionListAction(this);
+        MultipleAction l20ma1=new MultipleAction(this,new Action[]{l20qla1,cpaAmazedFront});
         QuestionItem l20q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l20q1tfa1=new TextFeedbackAction(this,"For this lesson, your goal is to make your scientific claims and arguments even better.");
             l20q1.setAction(l20q1tfa1);
@@ -479,13 +489,14 @@ public class GuideTutor extends OnDemandTutor {
         l20qla1.addQuestion(l20q3);
         l20qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp20,l20qla1));
+        addMapping(new Mapping(clp20,l20ma1));
         
         
         /* LESSON 21 **********************************************************/
         CurrentLessonPercept clp21=new CurrentLessonPercept(this,"21");
         
         QuestionListAction l21qla1=new QuestionListAction(this);
+        MultipleAction l21ma1=new MultipleAction(this,new Action[]{l21qla1,cpaExcitedFront});
         QuestionItem l21q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l21q1tfa1=new TextFeedbackAction(this,"We're coming down to the end! Today should be the day you really reach a consensus on what models you think are strong enough to present.");
             l21q1.setAction(l21q1tfa1);
@@ -507,13 +518,14 @@ public class GuideTutor extends OnDemandTutor {
         l21qla1.addQuestion(l21q3);
         l21qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp21,l21qla1));
+        addMapping(new Mapping(clp21,l21ma1));
         
         
         /* LESSON 23 **********************************************************/
         CurrentLessonPercept clp23=new CurrentLessonPercept(this,"23");
         
         QuestionListAction l23qla1=new QuestionListAction(this);
+        MultipleAction l23ma1=new MultipleAction(this,new Action[]{l23qla1,cpaExcitedFront});
         QuestionItem l23q1=new QuestionItem("What is the goal for this lesson?");
             TextFeedbackAction l23q1tfa1=new TextFeedbackAction(this,"In this lesson, your goal is to make your presentation for our visitors. Try to decide what three models (or fewer) that you want to present tomorrow.");
             l23q1.setAction(l23q1tfa1);
@@ -526,7 +538,7 @@ public class GuideTutor extends OnDemandTutor {
         l23qla1.addQuestion(l21q3);
         l23qla1.addQuestion(l9q4);
         
-        addMapping(new Mapping(clp23,l23qla1));
+        addMapping(new Mapping(clp23,l23ma1));
         
         
         /* END LESSON-SPECIFIC CONTENT ****************************************/
