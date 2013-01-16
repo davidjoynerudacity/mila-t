@@ -66,7 +66,7 @@ public class GuideTutor extends OnDemandTutor {
         day1Qs.setIntro("Do you need help with the basics of MILA? What can I help you with?");
         QuestionItem q1=new QuestionItem("How do I create MILA models?");
         QuestionItem q2=new QuestionItem("How do I take notes?");
-        QuestionItem q3=new QuestionItem("How do I use the internet or hypermedia?");
+        QuestionItem q3=new QuestionItem("How do I use the Internet or hypermedia?");
         QuestionItem q4=new QuestionItem("How do I use the tutors?");
         day1Qs.addQuestion(q1);
         day1Qs.addQuestion(q2);
