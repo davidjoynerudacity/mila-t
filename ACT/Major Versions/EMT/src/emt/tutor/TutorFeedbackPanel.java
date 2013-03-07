@@ -14,7 +14,6 @@ import emt.tutor.actions.ChangePictureAction;
 import emt.tutor.actions.FeedbackPromptAction;
 import emt.tutor.actions.MultipleAction;
 import emt.tutor.actions.TextFeedbackAction;
-import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -78,6 +77,7 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         FeedbackTextArea.setColumns(20);
+        FeedbackTextArea.setLineWrap(true);
         FeedbackTextArea.setRows(4);
         FeedbackTextArea.setName("FeedbackTextArea"); // NOI18N
         jScrollPane1.setViewportView(FeedbackTextArea);
