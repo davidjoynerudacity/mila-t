@@ -12,6 +12,7 @@ package emt.tutor;
 
 import emt.tutor.actions.FeedbackPromptAction;
 import emt.tutor.actions.TextFeedbackAction;
+import emt.tutor.actions.quiz.*;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -50,6 +51,15 @@ public class TutorPopupFrame extends javax.swing.JFrame {
     }
     public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         tutorContentPanel1.giveFeedbackPrompt(prompt);
+    }
+    public void giveQuizChoice(QuizChoiceAction prompt) {
+        tutorContentPanel1.giveQuizChoice(prompt);
+    }
+    public void giveQuizText(QuizTextAction prompt) {
+        tutorContentPanel1.giveQuizText(prompt);
+    }
+    public void giveRepeatQuizAction(RepeatQuizAction rqa) {
+        tutorContentPanel1.giveRepeatQuizAction(rqa);
     }
     public void setTFARead() {
         if(!(myTFA==null)) {

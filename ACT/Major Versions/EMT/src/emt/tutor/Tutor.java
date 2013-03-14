@@ -7,6 +7,7 @@ package emt.tutor;
 import emt.ProjectModelPanel;
 import emt.evexmodel.EvexModel;
 import emt.tutor.actions.*;
+import emt.tutor.actions.quiz.*;
 import emt.tutor.percepts.*;
 import java.awt.Image;
 import java.io.File;
@@ -104,10 +105,19 @@ public class Tutor {
     }
     public void giveQuestionList(ArrayList<QuestionItem> questions,String intro) {
         myFrame.giveQuestionList(questions,intro);
+    }public void giveQuizChoice(QuizChoiceAction prompt) {
+        myFrame.giveQuizChoice(prompt);
+    }
+    public void giveQuizText(QuizTextAction prompt) {
+        myFrame.giveQuizText(prompt);
     }
     public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         myFrame.giveFeedbackPrompt(prompt);
     }
+    public void giveRepeatQuizAction(RepeatQuizAction rqa) {
+        myFrame.giveRepeatQuizAction(rqa);
+    }
+    
     
     public String getName() {
         return myName;

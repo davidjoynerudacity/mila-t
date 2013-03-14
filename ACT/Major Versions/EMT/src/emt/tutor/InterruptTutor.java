@@ -20,17 +20,17 @@ public class InterruptTutor extends Tutor implements ActionListener {
     public InterruptTutor() {
         super();
         myTimer=new Timer(myDelay,this);
-        myTimer.start();
+        //myTimer.start();
     }
     public InterruptTutor(String name) {
         super(name);
         myTimer=new Timer(myDelay,this);
-        myTimer.start();
+        //myTimer.start();
     }
     public InterruptTutor(String name,ProjectModelPanel modelPanel) {
         super(name,modelPanel);
         myTimer=new Timer(myDelay,this);
-        myTimer.start();
+        //myTimer.start();
     }
     
     public void wasClicked() {

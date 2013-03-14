@@ -8,7 +8,11 @@
  *
  * Created on May 28, 2012, 1:54:25 PM
  */
-package emt.tutor;
+package emt.tutor.actionpanels;
+
+import emt.tutor.QuestionItem;
+import emt.tutor.StaticLogs;
+import emt.tutor.TutorContentPanel;
 
 /**
  *
