@@ -10,8 +10,13 @@
  */
 package emt.tutor;
 
+import emt.tutor.actionpanels.TutorFeedbackPanel;
+import emt.tutor.actionpanels.TutorQuestionsPanel;
+import emt.tutor.actionpanels.*;
+import emt.tutor.actionpanels.TutorTextPanel;
 import emt.tutor.actions.FeedbackPromptAction;
 import emt.tutor.actions.TextFeedbackAction;
+import emt.tutor.actions.quiz.*;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 
@@ -24,6 +29,10 @@ public class TutorContentPanel extends javax.swing.JPanel {
     private TutorTextPanel myTextPanel;
     private TutorQuestionsPanel myQuestionsPanel;
     private TutorFeedbackPanel myFeedbackPanel;
+    private TutorQuizCheckboxChoicePanel myQuizCheckboxChoicePanel;
+    private TutorQuizRadioChoicePanel myQuizRadioChoicePanel;
+    private TutorQuizTextPanel myQuizTextPanel;
+    private TutorQuizRepeatPanel myQuizRepeatPanel;
     private TutorPopupFrame myTPF;
     
     /** Creates new form TutorContentPanel */
@@ -36,10 +45,19 @@ public class TutorContentPanel extends javax.swing.JPanel {
         myTextPanel=new TutorTextPanel(this);
         myQuestionsPanel=new TutorQuestionsPanel(this);
         myFeedbackPanel=new TutorFeedbackPanel(this);
+        myQuizCheckboxChoicePanel=new TutorQuizCheckboxChoicePanel(this);
+        myQuizRadioChoicePanel=new TutorQuizRadioChoicePanel(this);
+        myQuizTextPanel=new TutorQuizTextPanel(this);
+        myQuizRepeatPanel=new TutorQuizRepeatPanel(this);
+        
         
         this.add(myTextPanel, "Text");
         this.add(myQuestionsPanel, "Questions");
         this.add(myFeedbackPanel, "Prompt");
+        this.add(myQuizCheckboxChoicePanel,"QuizCheckbox");
+        this.add(myQuizRadioChoicePanel,"QuizRadio");
+        this.add(myQuizTextPanel,"QuizText");
+        this.add(myQuizRepeatPanel,"RQA");
         
         ((CardLayout)this.getLayout()).show(this, "Text");
     }
@@ -75,6 +93,29 @@ public class TutorContentPanel extends javax.swing.JPanel {
     public void giveFeedbackPrompt(FeedbackPromptAction prompt) {
         myFeedbackPanel.setPrompt(prompt);
         myLayout.show(this,"Prompt");
+    }
+    public void giveQuizChoice(QuizChoiceAction prompt) {
+        if(prompt.getIsRadio()) {
+            giveRadioQuizChoice(prompt);
+        } else {
+            giveCheckboxQuizChoice(prompt);
+        }
+    }
+    public void giveRadioQuizChoice(QuizChoiceAction prompt) {
+        myQuizRadioChoicePanel.setQuizChoiceAction(prompt);
+        myLayout.show(this,"QuizRadio");
+    }
+    public void giveCheckboxQuizChoice(QuizChoiceAction prompt) {
+        myQuizCheckboxChoicePanel.setQuizChoiceAction(prompt);
+        myLayout.show(this,"QuizCheckbox");
+    }
+    public void giveQuizText(QuizTextAction prompt) {
+        myQuizTextPanel.setQuizTextAction(prompt);
+        myLayout.show(this,"QuizText");
+    }
+    public void giveRepeatQuizAction(RepeatQuizAction rqa) {
+        myQuizRepeatPanel.setRQA(rqa);
+        myLayout.show(this,"RQA");
     }
     
     public void setFrame(TutorPopupFrame tpf) {
