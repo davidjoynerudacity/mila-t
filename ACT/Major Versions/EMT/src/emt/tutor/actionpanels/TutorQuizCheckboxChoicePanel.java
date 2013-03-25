@@ -14,6 +14,7 @@ import emt.tutor.QuestionItem;
 import emt.tutor.StaticLogs;
 import emt.tutor.TutorContentPanel;
 import emt.tutor.actions.quiz.QuizChoiceAction;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,41 +28,95 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         initComponents();
         myContentPanel=contentPanel;
     }
+    public void saveAnswer() {
+        if(OptionBox1.isSelected()) {
+            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox1.getText() + ";"));
+        }
+        if(OptionBox2.isSelected()) {
+            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox2.getText() + ";"));
+        }
+        if(OptionBox3.isSelected()) {
+            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox3.getText() + ";"));
+        }
+        if(OptionBox4.isSelected()) {
+            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox4.getText() + ";"));
+        }
+        if(OptionBox5.isSelected()) {
+            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox5.getText() + ";"));
+        }
+        if(OptionBox6.isSelected()) {
+            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox6.getText() + ";"));
+        }
+    }
     public void setQuizChoiceAction(QuizChoiceAction prompt) {
         myPrompt=prompt;
+        OptionBox1.setSelected(false);
+        OptionBox2.setSelected(false);
+        OptionBox3.setSelected(false);
+        OptionBox4.setSelected(false);
+        OptionBox5.setSelected(false);
+        OptionBox6.setSelected(false);
+        if(myPrompt.getIsLast()) {
+            NextButton.setText("Finish");
+        } else {
+            NextButton.setText("Next");
+        }
+        if(myPrompt.getIsFirst()) {
+            PreviousButton.setVisible(false);
+        } else {
+            PreviousButton.setVisible(true);
+        }
         setIntro(prompt.getPrompt());
         if(prompt.getOptions().size()>0) {
             setOption1(prompt.getOptions().get(0));
             OptionBox1.setVisible(true);
+            if(myPrompt.getAnswer().contains(OptionBox1.getText())) {
+                OptionBox1.setSelected(true);
+            }
         } else {
             OptionBox1.setVisible(false);
         }
         if(prompt.getOptions().size()>1) {
             setOption2(prompt.getOptions().get(1));
             OptionBox2.setVisible(true);
+            if(myPrompt.getAnswer().contains(OptionBox2.getText())) {
+                OptionBox2.setSelected(true);
+            }
         } else {
             OptionBox2.setVisible(false);
         }
         if(prompt.getOptions().size()>2) {
             setOption3(prompt.getOptions().get(2));
             OptionBox3.setVisible(true);
+            if(myPrompt.getAnswer().contains(OptionBox3.getText())) {
+                OptionBox3.setSelected(true);
+            }
         } else {
             OptionBox3.setVisible(false);
         }
         if(prompt.getOptions().size()>3) {
             setOption4(prompt.getOptions().get(3));
             OptionBox4.setVisible(true);
+            if(myPrompt.getAnswer().contains(OptionBox4.getText())) {
+                OptionBox4.setSelected(true);
+            }
         } else {
             OptionBox4.setVisible(false);
         }if(prompt.getOptions().size()>4) {
             setOption5(prompt.getOptions().get(4));
             OptionBox5.setVisible(true);
+            if(myPrompt.getAnswer().contains(OptionBox5.getText())) {
+                OptionBox5.setSelected(true);
+            }
         } else {
             OptionBox5.setVisible(false);
         }
         if(prompt.getOptions().size()>5) {
             setOption6(prompt.getOptions().get(5));
             OptionBox6.setVisible(true);
+            if(myPrompt.getAnswer().contains(OptionBox6.getText())) {
+                OptionBox6.setSelected(true);
+            }
         } else {
             OptionBox6.setVisible(false);
         }
@@ -97,6 +152,7 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         QuestionHeadingLabel = new javax.swing.JLabel();
         OptionBox1 = new javax.swing.JCheckBox();
         OptionBox2 = new javax.swing.JCheckBox();
@@ -105,6 +161,7 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         NextButton = new javax.swing.JButton();
         OptionBox5 = new javax.swing.JCheckBox();
         OptionBox6 = new javax.swing.JCheckBox();
+        PreviousButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
         setLayout(null);
@@ -116,24 +173,28 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         add(QuestionHeadingLabel);
         QuestionHeadingLabel.setBounds(10, 11, 520, 17);
 
+        buttonGroup1.add(OptionBox1);
         OptionBox1.setText(resourceMap.getString("OptionBox1.text")); // NOI18N
         OptionBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox1.setName("OptionBox1"); // NOI18N
         add(OptionBox1);
         OptionBox1.setBounds(10, 32, 520, 14);
 
+        buttonGroup1.add(OptionBox2);
         OptionBox2.setText(resourceMap.getString("OptionBox2.text")); // NOI18N
         OptionBox2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox2.setName("OptionBox2"); // NOI18N
         add(OptionBox2);
         OptionBox2.setBounds(10, 48, 520, 14);
 
+        buttonGroup1.add(OptionBox3);
         OptionBox3.setText(resourceMap.getString("OptionBox3.text")); // NOI18N
         OptionBox3.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox3.setName("OptionBox3"); // NOI18N
         add(OptionBox3);
         OptionBox3.setBounds(10, 65, 520, 14);
 
+        buttonGroup1.add(OptionBox4);
         OptionBox4.setText(resourceMap.getString("OptionBox4.text")); // NOI18N
         OptionBox4.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox4.setName("OptionBox4"); // NOI18N
@@ -150,22 +211,44 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         add(NextButton);
         NextButton.setBounds(450, 120, 80, 23);
 
+        buttonGroup1.add(OptionBox5);
         OptionBox5.setText(resourceMap.getString("OptionBox5.text")); // NOI18N
         OptionBox5.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox5.setName("OptionBox5"); // NOI18N
         add(OptionBox5);
         OptionBox5.setBounds(10, 97, 520, 14);
 
+        buttonGroup1.add(OptionBox6);
         OptionBox6.setText(resourceMap.getString("OptionBox6.text")); // NOI18N
         OptionBox6.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox6.setName("OptionBox6"); // NOI18N
         add(OptionBox6);
         OptionBox6.setBounds(10, 113, 520, 14);
+
+        PreviousButton.setText(resourceMap.getString("PreviousButton.text")); // NOI18N
+        PreviousButton.setName("PreviousButton"); // NOI18N
+        PreviousButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PreviousButtonActionPerformed(evt);
+            }
+        });
+        add(PreviousButton);
+        PreviousButton.setBounds(370, 120, 80, 23);
     }// </editor-fold>//GEN-END:initComponents
 
 private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
-    myPrompt.next();
+    if(buttonGroup1.getSelection()==null&&myPrompt.getAnswerRequired()) {
+        JOptionPane.showMessageDialog(this, "Please select at least one answer.");
+    } else {
+        saveAnswer();
+        myPrompt.next();
+    }
 }//GEN-LAST:event_NextButtonActionPerformed
+
+private void PreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreviousButtonActionPerformed
+    saveAnswer();
+    myPrompt.previous();
+}//GEN-LAST:event_PreviousButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NextButton;
@@ -175,6 +258,8 @@ private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JCheckBox OptionBox4;
     private javax.swing.JCheckBox OptionBox5;
     private javax.swing.JCheckBox OptionBox6;
+    private javax.swing.JButton PreviousButton;
     private javax.swing.JLabel QuestionHeadingLabel;
+    private javax.swing.ButtonGroup buttonGroup1;
     // End of variables declaration//GEN-END:variables
 }
