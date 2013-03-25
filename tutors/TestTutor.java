@@ -65,7 +65,7 @@ public class TestTutor extends OnDemandTutor {
         tfa2.setNextAction(tfa3);
         addMapping(new Mapping(tp1,tfa2));*/
         
-        QuizQuestionSet qqs1=new QuizQuestionSet(this);
+        QuizQuestionSet qqs1=new QuizQuestionSet(this,"Survey");
         
         qqs1.addQuestion(new QuizTextAction(this,"Please enter your name."));
         qqs1.addQuestion(new QuizTextAction(this,"Please enter your teacher's name."));
@@ -128,7 +128,7 @@ public class TestTutor extends OnDemandTutor {
         GiveQuizAction gqa1=new GiveQuizAction(this);
         gqa1.setQuizQuestionSet(qqs1);
         
-        QuizQuestionSet qqs2=new QuizQuestionSet(this);
+        QuizQuestionSet qqs2=new QuizQuestionSet(this,"Quiz");
         qqs2.addQuestion(new QuizChoiceAction(this,true,"A valid hypothesis in any scientific experiment must be:",new String[]{"believable","put in the form of a question","testable","based on past valid experimentation"}));
         qqs2.addQuestion(new QuizChoiceAction(this,true,"A hypothesis is:",new String[]{"a possible, tentative answer to a question","a theory","an accepted belief that has been tested","a false belief that must be tested"}));
         qqs2.addQuestion(new QuizChoiceAction(this,true,"A theory is:",new String[]{"a re-creation of an event","an explanation for a phenomena","a plausible, scientifically accepted generalization","a questionable explanation for a natural phenomenon"}));
