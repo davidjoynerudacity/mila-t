@@ -18,7 +18,7 @@ public class StaticLogs {
     public static String PROJECTROOTPATH="";
     public static void Log(String eventType, String ... parameters) {
         try {
-            FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "tutorLog.xls",true);
+            FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "softwareLog.csv",true);
             BufferedWriter out = new BufferedWriter(fstream);
             
             Calendar cal = Calendar.getInstance();
