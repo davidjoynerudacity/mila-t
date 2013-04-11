@@ -44,9 +44,9 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         if(OptionBox5.isSelected()) {
             myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox5.getText() + ";"));
         }
-        if(OptionBox6.isSelected()) {
-            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox6.getText() + ";"));
-        }
+//        if(OptionBox6.isSelected()) {
+//            myPrompt.setAnswer(myPrompt.getAnswer().concat(OptionBox6.getText() + ";"));
+//        }
     }
     public void setQuizChoiceAction(QuizChoiceAction prompt) {
         myPrompt=prompt;
@@ -55,7 +55,7 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         OptionBox3.setSelected(false);
         OptionBox4.setSelected(false);
         OptionBox5.setSelected(false);
-        OptionBox6.setSelected(false);
+//        OptionBox6.setSelected(false);
         if(myPrompt.getIsLast()) {
             NextButton.setText("Finish");
         } else {
@@ -66,7 +66,7 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         } else {
             PreviousButton.setVisible(true);
         }
-        setIntro(prompt.getPrompt());
+        setIntro("<html><p>" + prompt.getPrompt() + "</p></html>");
         if(prompt.getOptions().size()>0) {
             setOption1(prompt.getOptions().get(0));
             OptionBox1.setVisible(true);
@@ -111,15 +111,15 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         } else {
             OptionBox5.setVisible(false);
         }
-        if(prompt.getOptions().size()>5) {
-            setOption6(prompt.getOptions().get(5));
-            OptionBox6.setVisible(true);
-            if(myPrompt.getAnswer().contains(OptionBox6.getText())) {
-                OptionBox6.setSelected(true);
-            }
-        } else {
-            OptionBox6.setVisible(false);
-        }
+//        if(prompt.getOptions().size()>5) {
+//            setOption6(prompt.getOptions().get(5));
+//            OptionBox6.setVisible(true);
+//            if(myPrompt.getAnswer().contains(OptionBox6.getText())) {
+//                OptionBox6.setSelected(true);
+//            }
+//        } else {
+//            OptionBox6.setVisible(false);
+//        }
     }
     public void setIntro(String intro) {
         QuestionHeadingLabel.setText(intro);
@@ -139,9 +139,9 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
     public void setOption5(String option) {
         OptionBox5.setText(option);
     }
-    public void setOption6(String option) {
-        OptionBox6.setText(option);
-    }
+//    public void setOption6(String option) {
+//        OptionBox6.setText(option);
+//    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -160,46 +160,34 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
         OptionBox4 = new javax.swing.JCheckBox();
         NextButton = new javax.swing.JButton();
         OptionBox5 = new javax.swing.JCheckBox();
-        OptionBox6 = new javax.swing.JCheckBox();
         PreviousButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
-        setLayout(null);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorQuizCheckboxChoicePanel.class);
         QuestionHeadingLabel.setFont(resourceMap.getFont("QuestionHeadingLabel.font")); // NOI18N
         QuestionHeadingLabel.setText(resourceMap.getString("QuestionHeadingLabel.text")); // NOI18N
         QuestionHeadingLabel.setName("QuestionHeadingLabel"); // NOI18N
-        add(QuestionHeadingLabel);
-        QuestionHeadingLabel.setBounds(10, 11, 520, 17);
 
         buttonGroup1.add(OptionBox1);
         OptionBox1.setText(resourceMap.getString("OptionBox1.text")); // NOI18N
         OptionBox1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox1.setName("OptionBox1"); // NOI18N
-        add(OptionBox1);
-        OptionBox1.setBounds(10, 32, 520, 14);
 
         buttonGroup1.add(OptionBox2);
         OptionBox2.setText(resourceMap.getString("OptionBox2.text")); // NOI18N
         OptionBox2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox2.setName("OptionBox2"); // NOI18N
-        add(OptionBox2);
-        OptionBox2.setBounds(10, 48, 520, 14);
 
         buttonGroup1.add(OptionBox3);
         OptionBox3.setText(resourceMap.getString("OptionBox3.text")); // NOI18N
         OptionBox3.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox3.setName("OptionBox3"); // NOI18N
-        add(OptionBox3);
-        OptionBox3.setBounds(10, 65, 520, 14);
 
         buttonGroup1.add(OptionBox4);
         OptionBox4.setText(resourceMap.getString("OptionBox4.text")); // NOI18N
         OptionBox4.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox4.setName("OptionBox4"); // NOI18N
-        add(OptionBox4);
-        OptionBox4.setBounds(10, 81, 520, 14);
 
         NextButton.setText(resourceMap.getString("NextButton.text")); // NOI18N
         NextButton.setName("NextButton"); // NOI18N
@@ -208,22 +196,11 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
                 NextButtonActionPerformed(evt);
             }
         });
-        add(NextButton);
-        NextButton.setBounds(450, 120, 80, 23);
 
         buttonGroup1.add(OptionBox5);
         OptionBox5.setText(resourceMap.getString("OptionBox5.text")); // NOI18N
         OptionBox5.setMargin(new java.awt.Insets(0, 0, 0, 0));
         OptionBox5.setName("OptionBox5"); // NOI18N
-        add(OptionBox5);
-        OptionBox5.setBounds(10, 97, 520, 14);
-
-        buttonGroup1.add(OptionBox6);
-        OptionBox6.setText(resourceMap.getString("OptionBox6.text")); // NOI18N
-        OptionBox6.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        OptionBox6.setName("OptionBox6"); // NOI18N
-        add(OptionBox6);
-        OptionBox6.setBounds(10, 113, 520, 14);
 
         PreviousButton.setText(resourceMap.getString("PreviousButton.text")); // NOI18N
         PreviousButton.setName("PreviousButton"); // NOI18N
@@ -232,8 +209,45 @@ public class TutorQuizCheckboxChoicePanel extends javax.swing.JPanel {
                 PreviousButtonActionPerformed(evt);
             }
         });
-        add(PreviousButton);
-        PreviousButton.setBounds(370, 120, 80, 23);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(OptionBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OptionBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OptionBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OptionBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OptionBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(QuestionHeadingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(PreviousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(QuestionHeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OptionBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OptionBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OptionBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OptionBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(OptionBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PreviousButton)
+                    .addComponent(NextButton)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
@@ -257,7 +271,6 @@ private void PreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GE
     private javax.swing.JCheckBox OptionBox3;
     private javax.swing.JCheckBox OptionBox4;
     private javax.swing.JCheckBox OptionBox5;
-    private javax.swing.JCheckBox OptionBox6;
     private javax.swing.JButton PreviousButton;
     private javax.swing.JLabel QuestionHeadingLabel;
     private javax.swing.ButtonGroup buttonGroup1;
