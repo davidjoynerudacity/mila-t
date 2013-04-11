@@ -53,7 +53,7 @@ public class TutorQuizTextPanel extends javax.swing.JPanel {
             PreviousButton.setVisible(true);
         }
         FeedbackTextArea.setText(myPrompt.getAnswer());
-        QuestionLabel.setText(prompt.getPrompt());
+        QuestionLabel.setText("<html><p>" + prompt.getPrompt() + "</p></html>");
     }
 
     /** This method is called from within the constructor to
@@ -72,14 +72,12 @@ public class TutorQuizTextPanel extends javax.swing.JPanel {
         PreviousButton = new javax.swing.JButton();
 
         setName("Form"); // NOI18N
-        setLayout(null);
+        setPreferredSize(new java.awt.Dimension(540, 143));
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorQuizTextPanel.class);
         QuestionLabel.setFont(resourceMap.getFont("QuestionLabel.font")); // NOI18N
         QuestionLabel.setText(resourceMap.getString("QuestionLabel.text")); // NOI18N
         QuestionLabel.setName("QuestionLabel"); // NOI18N
-        add(QuestionLabel);
-        QuestionLabel.setBounds(10, 11, 520, 17);
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
@@ -90,9 +88,6 @@ public class TutorQuizTextPanel extends javax.swing.JPanel {
         FeedbackTextArea.setName("FeedbackTextArea"); // NOI18N
         jScrollPane1.setViewportView(FeedbackTextArea);
 
-        add(jScrollPane1);
-        jScrollPane1.setBounds(10, 38, 520, 78);
-
         NextButton.setText(resourceMap.getString("NextButton.text")); // NOI18N
         NextButton.setName("NextButton"); // NOI18N
         NextButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,8 +95,6 @@ public class TutorQuizTextPanel extends javax.swing.JPanel {
                 NextButtonActionPerformed(evt);
             }
         });
-        add(NextButton);
-        NextButton.setBounds(450, 120, 80, 23);
 
         PreviousButton.setText(resourceMap.getString("PreviousButton.text")); // NOI18N
         PreviousButton.setName("PreviousButton"); // NOI18N
@@ -110,8 +103,37 @@ public class TutorQuizTextPanel extends javax.swing.JPanel {
                 PreviousButtonActionPerformed(evt);
             }
         });
-        add(PreviousButton);
-        PreviousButton.setBounds(370, 120, 80, 23);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(346, Short.MAX_VALUE)
+                .addComponent(PreviousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(QuestionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(QuestionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NextButton)
+                    .addComponent(PreviousButton)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed

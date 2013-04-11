@@ -22,7 +22,7 @@ public abstract class AbstractQuizAction extends Action {
     public AbstractQuizAction(Tutor myTutor) {
         super(myTutor);
         myAnswer="";
-        myAnswerRequired=true;
+        myAnswerRequired=false;
     }
     public void setQuestionSet(QuizQuestionSet set) {
         mySet=set;
