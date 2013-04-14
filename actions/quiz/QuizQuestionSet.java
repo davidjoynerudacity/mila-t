@@ -5,7 +5,7 @@
 package emt.tutor.actions.quiz;
 
 import emt.tutor.Action;
-import emt.tutor.StaticLogs;
+import emt.tutor.StaticVars;
 import emt.tutor.Tutor;
 import emt.tutor.actions.TextFeedbackAction;
 import java.io.BufferedWriter;
@@ -73,10 +73,10 @@ public class QuizQuestionSet  {
     
     public void saveQuizResults() {
         try {
-            new File(StaticLogs.PROJECTROOTPATH + File.separator + "QuizData").mkdir();
+            new File(StaticVars.PROJECTROOTPATH + File.separator + "QuizData").mkdir();
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-            FileWriter fstream = new FileWriter(StaticLogs.PROJECTROOTPATH + File.separator + "QuizData" + File.separator + quizTitle + "_" + sdf.format(cal.getTime()) + ".dat",true);
+            FileWriter fstream = new FileWriter(StaticVars.PROJECTROOTPATH + File.separator + "QuizData" + File.separator + quizTitle + "_" + sdf.format(cal.getTime()) + ".dat",true);
             BufferedWriter out = new BufferedWriter(fstream);
             
             for(AbstractQuizAction question : questions) {

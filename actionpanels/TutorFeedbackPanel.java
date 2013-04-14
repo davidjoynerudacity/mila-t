@@ -11,7 +11,7 @@
 package emt.tutor.actionpanels;
 
 import emt.tutor.Action;
-import emt.tutor.StaticLogs;
+import emt.tutor.StaticVars;
 import emt.tutor.TutorContentPanel;
 import emt.tutor.actions.ChangePictureAction;
 import emt.tutor.actions.FeedbackPromptAction;
@@ -39,7 +39,7 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
     public void setPrompt(FeedbackPromptAction prompt) {
         QuestionLabel.setText(prompt.getPrompt());
         myFPA=prompt;
-        StaticLogs.Log("Tutor Feedback Asked", myContentPanel.getTutorName(),myFPA.getPrompt());
+        StaticVars.Log("Tutor Feedback Asked", myContentPanel.getTutorName(),myFPA.getPrompt());
     }
     
     private void saveFeedback() {
@@ -52,7 +52,7 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
             save.println(FeedbackTextArea.getText());
             save.close();
             myFPA.setHasBeenAnswered(true);
-            StaticLogs.Log("Tutor Feedback Received", myContentPanel.getTutorName(),myFPA.getPrompt(),FeedbackTextArea.getText());
+            StaticVars.Log("Tutor Feedback Received", myContentPanel.getTutorName(),myFPA.getPrompt(),FeedbackTextArea.getText());
         } catch(Exception ex) {}
     }
 
