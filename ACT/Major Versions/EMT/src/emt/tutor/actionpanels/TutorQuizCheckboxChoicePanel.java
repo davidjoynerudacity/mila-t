@@ -11,7 +11,7 @@
 package emt.tutor.actionpanels;
 
 import emt.tutor.QuestionItem;
-import emt.tutor.StaticLogs;
+import emt.tutor.StaticVars;
 import emt.tutor.TutorContentPanel;
 import emt.tutor.actions.quiz.QuizChoiceAction;
 import javax.swing.JOptionPane;

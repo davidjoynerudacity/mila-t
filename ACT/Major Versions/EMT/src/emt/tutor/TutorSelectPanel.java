@@ -137,7 +137,7 @@ public class TutorSelectPanel extends javax.swing.JPanel {
         } else {
             currentTutorIndex--;
         }
-        StaticLogs.Log("Tutor Switched", tutors.get(currentTutorIndex).getName());
+        StaticVars.Log("Tutor Switched", tutors.get(currentTutorIndex).getName());
         updateTutor();
     }//GEN-LAST:event_previousTutorButtonActionPerformed
 
@@ -147,7 +147,7 @@ public class TutorSelectPanel extends javax.swing.JPanel {
         } else {
             currentTutorIndex++;
         }
-        StaticLogs.Log("Tutor Switched", tutors.get(currentTutorIndex).getName());
+        StaticVars.Log("Tutor Switched", tutors.get(currentTutorIndex).getName());
         updateTutor();
     }//GEN-LAST:event_nextTutorButtonActionPerformed
 

@@ -10,7 +10,7 @@
  */
 package emt.tutor.actionpanels;
 
-import emt.tutor.StaticLogs;
+import emt.tutor.StaticVars;
 import emt.tutor.TutorContentPanel;
 import emt.tutor.actions.TextFeedbackAction;
 
@@ -30,7 +30,7 @@ public class TutorTextPanel extends javax.swing.JPanel {
     
     public void giveTextFeedback(TextFeedbackAction tfa) {
         if(tfa.getLogThis()) {
-            StaticLogs.Log("Tutor Text Feedback given", myContentPanel.getTutorName(),tfa.getFeedback());
+            StaticVars.Log("Tutor Text Feedback given", myContentPanel.getTutorName(),tfa.getFeedback());
         }
         this.tutorTextLabel.setText("<html><p>" + tfa.getFeedback() + "</p></html>");
         myTFA=tfa;

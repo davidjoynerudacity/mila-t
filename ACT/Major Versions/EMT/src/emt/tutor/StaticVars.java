@@ -14,7 +14,7 @@ import java.util.Calendar;
  *
  * @author David
  */
-public class StaticLogs {
+public class StaticVars {
     public static String PROJECTROOTPATH="";
     public static void Log(String eventType, String ... parameters) {
         try {
