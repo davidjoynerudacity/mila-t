@@ -4,11 +4,21 @@
  */
 package emt.tutor;
 
+import emt.evexmodel.EvexModel;
+import emt.tutor.studentmodel.*;
+import emt.tutor.studentmodel.StudentModel;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 
 /**
  *
@@ -34,4 +44,78 @@ public class StaticVars {
             fstream.close();
         } catch(Exception ex) {}
     }
+    
+    public static StudentModel previousEcologyModel;
+    public static StudentModel previousInquiryModel;
+    public static StudentModel previousModelingModel;
+    public static StudentModel currentEcologyModel;
+    public static StudentModel currentInquiryModel;
+    public static StudentModel currentModelingModel;
+    
+    public static void initializeNewStudentModels() {
+        previousEcologyModel=new StudentModel(new EcologyTargetModel());
+        previousInquiryModel=new StudentModel(new InquiryTargetModel());
+        previousModelingModel=new StudentModel(new ModelingTargetModel());
+        currentEcologyModel=new StudentModel(new EcologyTargetModel());
+        currentInquiryModel=new StudentModel(new InquiryTargetModel());
+        currentModelingModel=new StudentModel(new ModelingTargetModel());
+    }
+    public static void loadPreviousStudentModels() {
+        loadStudentModel(previousEcologyModel,currentEcologyModel,"Ecology");
+        loadStudentModel(previousInquiryModel,currentInquiryModel,"Inquiry");
+        loadStudentModel(previousModelingModel,currentModelingModel,"Modeling");
+    }
+    public static void saveStudentModels() {
+        saveStudentModel(currentEcologyModel,"Ecology");
+        saveStudentModel(currentInquiryModel,"Inquiry");
+        saveStudentModel(currentModelingModel,"Modeling");
+    }
+    private static void saveStudentModel(StudentModel model, String type) {
+        new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type;
+        new File(modelPath).mkdir();
+        try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+            FileOutputStream save = new FileOutputStream(modelPath + File.separator + type + "_" + sdf.format(cal.getTime())+".xml");
+            XMLEncoder encoder=new XMLEncoder(save);
+            encoder.writeObject(model);
+            encoder.close();
+        } catch(Exception ex) {
+            System.out.println("Student model save failed.");
+            System.out.println(ex.getMessage());
+        }
+    }
+    private static void loadStudentModel(StudentModel previousModel,StudentModel currentModel,String type) {
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type + File.separator;
+        try {
+            File f=new File(modelPath);
+            ArrayList<String> files=new ArrayList();
+            Collections.sort(files);
+            
+            /*if(files.get(files.size()-1).equals("model.xml")) { //was created with EMT 1.9 or earlier
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+                String newName = "model-"+sdf.format(cal.getTime())+".xml";
+                new File(projectRootPath + File.separator + model + File.separator + files.get(files.size()-1)).renameTo(new File(projectRootPath + File.separator + model + File.separator + newName));
+                
+                f=new File(projectRootPath + File.separator + model + File.separator);
+                files=new ArrayList(Arrays.asList(f.list(new ModelFilter())));
+                Collections.sort(files);
+            }*/
+            if(files.size()>0) {
+                FileInputStream reader=new FileInputStream(modelPath + files.get(files.size()-1));
+                XMLDecoder decoder=new XMLDecoder(reader);
+                previousModel=(StudentModel)decoder.readObject();
+                currentModel=(StudentModel)decoder.readObject();
+            } else {
+                System.out.println("No student models found.");
+                initializeNewStudentModels();
+            }
+        
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    
 }

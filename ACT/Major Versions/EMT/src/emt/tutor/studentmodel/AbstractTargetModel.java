@@ -13,5 +13,12 @@ import java.util.ArrayList;
 public abstract class AbstractTargetModel {
     protected ArrayList<String> constructs;
     
+    public AbstractTargetModel() {
+        constructs=new ArrayList<String>();
+    }
+    
+    public ArrayList<String> getConstructs() {
+        return constructs;
+    }
     
 }
