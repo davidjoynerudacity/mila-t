@@ -12,6 +12,9 @@ import emt.tutor.Tutor;
  * @author David
  */
 public class UnevidencedEdgePercept extends ModelPercept {
+
+    public UnevidencedEdgePercept() {
+    }
     public UnevidencedEdgePercept(Tutor myTutor) {
         super(myTutor);
     }

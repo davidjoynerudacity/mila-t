@@ -13,6 +13,9 @@ import emt.tutor.Tutor;
  */
 public class GiveQuizAction extends Action {
     private QuizQuestionSet mySet;
+
+    public GiveQuizAction() {
+    }
     
     public GiveQuizAction(Tutor myTutor) {
         super(myTutor);

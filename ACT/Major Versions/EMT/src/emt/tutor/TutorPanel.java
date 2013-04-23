@@ -74,7 +74,7 @@ public class TutorPanel extends javax.swing.JPanel {
     
     public void setTutor(Tutor tutor) {
         myTutor=tutor;
-        tutor.setPanel(this);
+        tutor.initializePanel(this);
     }
     public Tutor getTutor() {
         return myTutor;

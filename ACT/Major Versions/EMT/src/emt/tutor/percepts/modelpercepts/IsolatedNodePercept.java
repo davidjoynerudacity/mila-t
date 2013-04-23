@@ -16,6 +16,9 @@ public class IsolatedNodePercept extends ModelPercept {
     public IsolatedNodePercept(Tutor myTutor) {
         super(myTutor);
     }
+
+    public IsolatedNodePercept() {
+    }
     
     public boolean isTrue() {
         if(!super.modelSelected()) { return false; }

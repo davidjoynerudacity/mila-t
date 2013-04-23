@@ -13,6 +13,9 @@ import emt.tutor.Tutor;
  */
 public class RepeatQuizAction extends Action {
     private QuizQuestionSet myQSS;
+
+    public RepeatQuizAction() {
+    }
     
     public RepeatQuizAction(Tutor myTutor,QuizQuestionSet qss) {
         super(myTutor);

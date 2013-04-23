@@ -28,7 +28,7 @@ public class MultiTutorPanel extends javax.swing.JPanel {
         this.setLayout(myLayout);
     }
     public void addTutor(Tutor tutor) {
-        this.add(tutor.getPanel(),tutor.getName());
+        this.add(tutor.returnPanel(),tutor.getName());
     }
     public void switchTutor(String name) {
         ((CardLayout)this.getLayout()).show(this, name);

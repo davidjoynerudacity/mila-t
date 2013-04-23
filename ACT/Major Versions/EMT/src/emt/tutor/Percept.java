@@ -13,6 +13,9 @@ public abstract class Percept {
     
     public abstract boolean isTrue();
     
+    public Percept() {
+        
+    }
     public Percept(Tutor tutor) {
         myTutor=tutor;
     }

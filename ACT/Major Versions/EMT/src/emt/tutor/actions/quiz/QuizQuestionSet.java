@@ -24,6 +24,9 @@ public class QuizQuestionSet  {
     private String quizTitle;
     private int currentQuestion;
     private Tutor myTutor;
+
+    public QuizQuestionSet() {
+    }
     
     public QuizQuestionSet(Tutor tutor) {
         this.myTutor=tutor;

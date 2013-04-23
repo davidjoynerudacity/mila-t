@@ -21,13 +21,20 @@ import javax.swing.Timer;
 public class NewQuestionPercept extends Percept {
     private ArrayList<String> myLoadedQuestions;
     
+    public NewQuestionPercept() {
+        myLoadedQuestions=new ArrayList<String>();
+        myLoadedQuestions.add(null);
+    }
     public NewQuestionPercept(Tutor myTutor) {
         super(myTutor);
         myLoadedQuestions=new ArrayList<String>();
         myLoadedQuestions.add(null);
         QUESTIONCHECKER.startChecking();
     }
-    
+    public void setTutor(Tutor tutor) {
+        super.setTutor(tutor);
+        QUESTIONCHECKER.startChecking();
+    }
     public boolean isTrue() {
         System.out.println("Checking new question percept...");
         if(!myLoadedQuestions.contains(QUESTIONCHECKER.CURRENTQUESTION)) {

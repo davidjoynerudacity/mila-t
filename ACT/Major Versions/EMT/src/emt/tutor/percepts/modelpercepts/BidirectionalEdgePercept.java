@@ -14,6 +14,9 @@ import emt.tutor.Tutor;
 public class BidirectionalEdgePercept extends ModelPercept {
     private int mySearchCount;
     private char mySearchType;
+
+    public BidirectionalEdgePercept() {
+    }
     
     public BidirectionalEdgePercept(Tutor myTutor) {
         super(myTutor);

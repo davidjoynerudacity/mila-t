@@ -16,6 +16,9 @@ public class QuizChoiceAction extends AbstractQuizAction {
     private String myPrompt;
     private boolean isRadio;
     private ArrayList<String> myOptions;
+
+    public QuizChoiceAction() {
+    }
     
     public QuizChoiceAction(Tutor myTutor) {
         super(myTutor);

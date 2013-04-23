@@ -13,6 +13,9 @@ import emt.tutor.Tutor;
  * @author David
  */
 public abstract class ModelPercept extends Percept {
+    public ModelPercept() {
+        
+    }
     public ModelPercept(Tutor myTutor) {
         super(myTutor);
     }

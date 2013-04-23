@@ -16,6 +16,9 @@ public class PresentConnectionPercept extends ModelPercept {
     private String myNode2;
     private String myProperty1;
     private String myProperty2;
+
+    public PresentConnectionPercept() {
+    }
     
     public PresentConnectionPercept(Tutor myTutor) {
         super(myTutor);

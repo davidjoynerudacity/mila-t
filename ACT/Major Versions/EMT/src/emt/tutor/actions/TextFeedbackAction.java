@@ -17,6 +17,9 @@ public class TextFeedbackAction extends Action {
     private Action myNextAction;
     private boolean myLogThis;
     
+    public TextFeedbackAction() {
+        myLogThis=true;
+    }
     public TextFeedbackAction(Tutor myTutor) {
         super(myTutor);
         myLogThis=true;

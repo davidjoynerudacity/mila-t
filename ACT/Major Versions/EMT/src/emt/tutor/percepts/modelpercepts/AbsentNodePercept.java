@@ -14,6 +14,9 @@ import emt.tutor.Tutor;
 public class AbsentNodePercept extends ModelPercept {
     private String myNode;
     private String myProperty;
+
+    public AbsentNodePercept() {
+    }
     
     public AbsentNodePercept(Tutor myTutor) {
         super(myTutor);

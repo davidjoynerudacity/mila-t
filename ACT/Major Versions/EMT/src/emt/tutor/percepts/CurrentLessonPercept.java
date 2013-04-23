@@ -20,8 +20,15 @@ import javax.swing.Timer;
 public class CurrentLessonPercept extends Percept {
     private String myLesson;
     
+    public CurrentLessonPercept() {
+        
+    }
     public CurrentLessonPercept(Tutor myTutor) {
         super(myTutor);
+        LESSONCHECKER.startChecking();
+    }
+    public void setTutor(Tutor tutor) {
+        super.setTutor(tutor);
         LESSONCHECKER.startChecking();
     }
     public CurrentLessonPercept(Tutor myTutor,String lesson) {

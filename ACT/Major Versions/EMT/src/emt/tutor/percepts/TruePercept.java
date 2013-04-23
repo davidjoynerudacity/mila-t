@@ -12,6 +12,9 @@ import emt.tutor.Tutor;
  * @author David
  */
 public class TruePercept extends Percept {
+    public TruePercept() {
+        
+    }
     public TruePercept(Tutor myTutor) {
         super(myTutor);
     }
