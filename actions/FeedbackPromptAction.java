@@ -15,6 +15,9 @@ public class FeedbackPromptAction extends Action {
     private String myPrompt;
     private boolean hasBeenAnswered=false;
     
+    public FeedbackPromptAction() {
+        
+    }
     public FeedbackPromptAction(Tutor myTutor) {
         super(myTutor);
     }

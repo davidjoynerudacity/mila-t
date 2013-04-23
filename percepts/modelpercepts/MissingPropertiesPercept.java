@@ -15,6 +15,9 @@ public class MissingPropertiesPercept extends ModelPercept {
     public MissingPropertiesPercept(Tutor myTutor) {
         super(myTutor);
     }
+
+    public MissingPropertiesPercept() {
+    }
     
     public boolean isTrue() {
         if(!super.modelSelected()) { return false; }

@@ -14,6 +14,9 @@ import emt.tutor.Tutor;
  */
 public class ChangePictureAction extends Action {
     private String myPicKey;
+    public ChangePictureAction() {
+        
+    }
     public ChangePictureAction(Tutor myTutor) {
         super(myTutor);
     }

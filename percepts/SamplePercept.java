@@ -14,6 +14,9 @@ import java.util.Calendar;
  */
 public class SamplePercept extends Percept {
     private int myTarget;
+    public SamplePercept() {
+        myTarget=0;
+    }
     public SamplePercept(Tutor tutor) {
         super(tutor);
         myTarget=0;

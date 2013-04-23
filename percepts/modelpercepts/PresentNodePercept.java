@@ -15,6 +15,9 @@ public class PresentNodePercept extends ModelPercept {
     private String myNode;
     private String myProperty;
     private String myColor;
+
+    public PresentNodePercept() {
+    }
     
     public PresentNodePercept(Tutor myTutor) {
         super(myTutor);

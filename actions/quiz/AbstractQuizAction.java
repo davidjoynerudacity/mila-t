@@ -18,6 +18,9 @@ public abstract class AbstractQuizAction extends Action {
     private boolean myIsFirst;
     private boolean myAnswerRequired;
     private QuizQuestionSet mySet;
+
+    public AbstractQuizAction() {
+    }
         
     public AbstractQuizAction(Tutor myTutor) {
         super(myTutor);

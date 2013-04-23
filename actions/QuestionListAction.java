@@ -18,6 +18,10 @@ public class QuestionListAction extends Action {
     private ArrayList<QuestionItem> myQuestions;
     private String myIntro;
     
+    public QuestionListAction() {
+        myQuestions=new ArrayList<QuestionItem>();
+        myIntro="Hi! What can I help you with today?";
+    }
     public QuestionListAction(Tutor myTutor) {
         super(myTutor);
         myQuestions=new ArrayList<QuestionItem>();

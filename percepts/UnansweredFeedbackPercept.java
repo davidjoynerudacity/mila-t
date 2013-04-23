@@ -14,7 +14,9 @@ import emt.tutor.actions.FeedbackPromptAction;
  */
 public class UnansweredFeedbackPercept extends Percept {
     private FeedbackPromptAction myFPA;
-    
+    public UnansweredFeedbackPercept() {
+        
+    }
     public UnansweredFeedbackPercept(Tutor myTutor) {
         super(myTutor);
     }

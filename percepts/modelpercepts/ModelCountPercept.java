@@ -14,6 +14,9 @@ import emt.tutor.Tutor;
 public class ModelCountPercept extends ModelPercept {
     private int mySearchCount;
     private char mySearchType;
+
+    public ModelCountPercept() {
+    }
     
     public ModelCountPercept(Tutor myTutor) {
         super(myTutor);

@@ -16,6 +16,9 @@ public class TimePercept extends Percept {
     private GregorianCalendar endTime;
     private boolean dateMatters;
     
+    public TimePercept() {
+        
+    }
     public TimePercept(Tutor myTutor) {
         super(myTutor);
     }

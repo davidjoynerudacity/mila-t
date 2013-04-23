@@ -7,6 +7,11 @@ package emt.tutor;
 import emt.ProjectModelPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.XMLEncoder;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.Timer;
 
 /**
@@ -20,17 +25,17 @@ public class InterruptTutor extends Tutor implements ActionListener {
     public InterruptTutor() {
         super();
         myTimer=new Timer(myDelay,this);
-        //myTimer.start();
+        myTimer.start();
     }
     public InterruptTutor(String name) {
         super(name);
         myTimer=new Timer(myDelay,this);
-        //myTimer.start();
+        myTimer.start();
     }
     public InterruptTutor(String name,ProjectModelPanel modelPanel) {
         super(name,modelPanel);
         myTimer=new Timer(myDelay,this);
-        //myTimer.start();
+        myTimer.start();
     }
     
     public void wasClicked() {
@@ -43,4 +48,6 @@ public class InterruptTutor extends Tutor implements ActionListener {
             super.checkMappings();
         }
     }
+    
+    
 }

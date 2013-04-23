@@ -14,7 +14,9 @@ import emt.tutor.actions.TextFeedbackAction;
  */
 public class UnreadTextFeedbackPercept extends Percept {
     private TextFeedbackAction myTFA;
-    
+    public UnreadTextFeedbackPercept() {
+        
+    }
     public UnreadTextFeedbackPercept(Tutor myTutor) {
         super(myTutor);
     }

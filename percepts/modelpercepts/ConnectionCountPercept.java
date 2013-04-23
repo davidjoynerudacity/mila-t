@@ -14,6 +14,9 @@ import emt.tutor.Tutor;
 public class ConnectionCountPercept extends ModelPercept {
     private int mySearchCount;
     private char mySearchType;
+
+    public ConnectionCountPercept() {
+    }
     
     public ConnectionCountPercept(Tutor myTutor) {
         super(myTutor);

@@ -16,6 +16,9 @@ public class AbsentConnectionPercept extends ModelPercept {
     private String myNode2;
     private String myProperty1;
     private String myProperty2;
+
+    public AbsentConnectionPercept() {
+    }
     
     public AbsentConnectionPercept(Tutor myTutor) {
         super(myTutor);

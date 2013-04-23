@@ -12,6 +12,9 @@ import emt.tutor.Tutor;
  * @author David
  */
 public class NoModelSelectedPercept extends ModelPercept {
+
+    public NoModelSelectedPercept() {
+    }
     public NoModelSelectedPercept(Tutor myTutor) {
         super(myTutor);
     }

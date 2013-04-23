@@ -13,6 +13,9 @@ import emt.tutor.Tutor;
  */
 public class QuizTextAction extends AbstractQuizAction {
     private String myPrompt;
+
+    public QuizTextAction() {
+    }
     
     public QuizTextAction(Tutor myTutor) {
         super(myTutor);

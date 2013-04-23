@@ -12,6 +12,9 @@ import emt.tutor.Tutor;
  * @author David
  */
 public class FocusTutorAction extends Action {
+    public FocusTutorAction() {
+        
+    }
     public FocusTutorAction(Tutor myTutor) {
         super(myTutor);
     }

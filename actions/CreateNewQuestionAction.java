@@ -16,6 +16,9 @@ import emt.tutor.percepts.UnansweredFeedbackPercept;
  * @author David
  */
 public class CreateNewQuestionAction extends Action {
+    public CreateNewQuestionAction() {
+        
+    }
     public CreateNewQuestionAction(Tutor myTutor) {
         super(myTutor);
     }

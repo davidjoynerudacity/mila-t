@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class MultipleAction extends Action {
     private ArrayList<Action> myActions;
     
+    public MultipleAction() {
+        
+    }
     public MultipleAction(Tutor tutor) {
         super(tutor);
         myActions=new ArrayList<Action>();

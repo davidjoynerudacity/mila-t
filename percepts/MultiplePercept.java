@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class MultiplePercept extends Percept {
     private ArrayList<Percept> myPercepts;
     
+    public MultiplePercept() {
+        myPercepts=new ArrayList<Percept>();
+    }
     public MultiplePercept(Tutor tutor) {
         super(tutor);
         myPercepts=new ArrayList<Percept>();

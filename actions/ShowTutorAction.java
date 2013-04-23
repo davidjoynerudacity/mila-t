@@ -12,6 +12,9 @@ import emt.tutor.Tutor;
  * @author David
  */
 public class ShowTutorAction extends Action {
+    public ShowTutorAction() {
+        
+    }
     public ShowTutorAction(Tutor myTutor) {
         super(myTutor);
     }

@@ -10,8 +10,14 @@ import emt.tutor.actions.*;
 import emt.tutor.actions.quiz.*;
 import emt.tutor.percepts.*;
 import java.awt.Image;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -21,11 +27,11 @@ import javax.swing.ImageIcon;
  * @author David
  */
 public class Tutor {
-    private String myName;
+    protected String myName;
     private TutorPanel myPanel;
     private TutorPopupFrame myFrame;
-    private HashMap myImages;
-    private ArrayList<Mapping> myMappings;
+    protected HashMap myImages;
+    protected ArrayList<Mapping> myMappings;
     private ProjectModelPanel myModelPanel;
     
     public Tutor() {
@@ -125,10 +131,22 @@ public class Tutor {
     public void setName(String name) {
         myName=name;
     }
-    public TutorPanel getPanel() {
+    public HashMap getImages() {
+        return myImages;
+    }
+    public void setImages(HashMap images) {
+        myImages=images;
+    }
+    public ArrayList<Mapping> getMappings() {
+        return myMappings;
+    }
+    public void setMappings(ArrayList<Mapping> mappings) {
+        myMappings=mappings;
+    }
+    public TutorPanel returnPanel() {
         return myPanel;
     }
-    public void setPanel(TutorPanel panel) {
+    public void initializePanel(TutorPanel panel) {
         myPanel=panel;
         switchImage("neutral-side");
     }
@@ -154,6 +172,36 @@ public class Tutor {
     }
     public int getModelCount() {
         return myModelPanel.getModelCount();
+    }
+    public void saveTutor() {
+        new File("SavedTutors").mkdir();
+        String tutorPath="SavedTutors" + File.separator;
+        new File(tutorPath).mkdir();
+        try {
+            FileOutputStream save = new FileOutputStream(tutorPath + File.separator + myName +".xml");
+            XMLEncoder encoder=new XMLEncoder(save);
+            
+           
+            encoder.writeObject(myMappings);
+            encoder.close();
+        } catch(Exception ex) {
+            System.out.println("Tutor save failed.");
+            System.out.println(ex.getMessage());
+        }
+    }
+    public void loadTutor() {
+        File f = new File("LoadTutors");
+        String names[] = f.list();
+
+        try {
+            FileInputStream reader=new FileInputStream("LoadTutors" + File.separator + myName + ".xml");
+            XMLDecoder decoder=new XMLDecoder(reader);
+            myMappings=(ArrayList<Mapping>)decoder.readObject();
+            System.out.println("Tutor loaded!");
+        } catch(Exception ex) {
+            System.out.println("Tutor Load Failed.");
+            System.out.println(ex);
+        }
     }
     
     public void initializeSampleTutor() {
