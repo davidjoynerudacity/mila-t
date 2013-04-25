@@ -14,6 +14,7 @@ import emt.tutor.Tutor;
 public class ModelCountPercept extends ModelPercept {
     private int mySearchCount;
     private char mySearchType;
+    private char myModelType;
 
     public ModelCountPercept() {
     }
@@ -22,20 +23,24 @@ public class ModelCountPercept extends ModelPercept {
         super(myTutor);
         mySearchCount=0;
         mySearchType='=';
+        myModelType='a'; //a for all, c for considered, d for dismissed
     }
     public ModelCountPercept(Tutor myTutor,int searchCount) {
         this(myTutor);
         mySearchCount=searchCount;
     }
     public ModelCountPercept(Tutor myTutor,int searchCount,char searchType) {
-        this(myTutor);
-        mySearchCount=searchCount;
+        this(myTutor,searchCount);
         mySearchType=searchType;
+    }
+    public ModelCountPercept(Tutor myTutor,int searchCount,char searchType,char modelType) {
+        this(myTutor,searchCount,searchType);
+        myModelType=modelType;
     }
     
     
     public boolean isTrue() {
-        int modelCount=getTutor().getModelCount();
+        int modelCount=getTutor().getModelCount(myModelType);
         
         if(mySearchType=='=') {
             if(modelCount==mySearchCount) {
