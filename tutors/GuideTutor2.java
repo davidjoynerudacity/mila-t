@@ -59,6 +59,19 @@ public class GuideTutor2 extends OnDemandTutor {
         ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
         ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
         
+        //Check if phenomenon has been written
+        PhenomenonUnwrittenPercept pwp=new PhenomenonUnwrittenPercept(this);
+        QuestionItem QIphenomenon=new QuestionItem("How do I describe my phenonemon?");
+        TextFeedbackAction tfaPhenomenon1=new TextFeedbackAction(this,"A phenomenon description gives a nice, clear, concise description of exactly what it is you are trying to explain.");
+        TextFeedbackAction tfaPhenomenon2=new TextFeedbackAction(this,"Ask yourself what you are trying to explain, then try to write down how you would describe that to another person.");
+        TextFeedbackAction tfaPhenomenon3=new TextFeedbackAction(this,"Your phenomenon will be the final piece of every scientific model you make, so you can try to think of where your models will lead.");
+        tfaPhenomenon1.setNextAction(tfaPhenomenon2);
+        tfaPhenomenon2.setNextAction(tfaPhenomenon3);
+        QIphenomenon.setAction(tfaPhenomenon1);
+        HoldQuestionsAction hqaPhenomenon=new HoldQuestionsAction(this);
+        hqaPhenomenon.addQuestion(QIphenomenon);
+        addMapping(new Mapping(pwp,hqaPhenomenon));
+        
         //Check if there are a lot of models and if the current model is very good
         NodeCountPercept ncp5=new NodeCountPercept(this,5,'>');
         EvidencedConnectionCountPercept eccp3=new EvidencedConnectionCountPercept(this,3,'>');
@@ -94,12 +107,16 @@ public class GuideTutor2 extends OnDemandTutor {
         
         //Check if there's an algae node and offer information if so
         PresentNodePercept pnp1=new PresentNodePercept(this,"Algae");
-        QuestionItem q5=new QuestionItem("How might algae be related to the lake problem?");
-        TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good thinking! Algae could be involved in lots of ways!");
+        QuestionItem q5=new QuestionItem("What roles could algae play in an ecological system?");
+        TextFeedbackAction tfa1=new TextFeedbackAction(this,"Algae gets involved in ecological systems in a lot of ways.");
         TextFeedbackAction tfa2=new TextFeedbackAction(this,"Algae consumes carbon dioxide and produces oxygen, so if the algae dies off, it could cause oxygen levels to drop.");
         TextFeedbackAction tfa3=new TextFeedbackAction(this,"Some kinds of algae also produce poisons. Blue-green algae are especially notorious for producing chemicals that are poisonous to fish and humans.");
+        TextFeedbackAction tfa4=new TextFeedbackAction(this,"Other forms of algae actually eat things that are harmful to fish or humans, so if algae dies off, it could cause the concentration of these poisons to spike.");
+        TextFeedbackAction tfa5=new TextFeedbackAction(this,"Try conducting some experiments or looking at some scientific principles to figure out how algae might be related to your phenomenon.");
         tfa1.setNextAction(tfa2);
         tfa2.setNextAction(tfa3);
+        tfa3.setNextAction(tfa4);
+        tfa4.setNextAction(tfa5);
         q5.setAction(tfa1);
         HoldQuestionsAction hqa2=new HoldQuestionsAction(this);
         hqa2.addQuestion(q5);
@@ -107,12 +124,14 @@ public class GuideTutor2 extends OnDemandTutor {
         
         //Check if there's a bacteria node and offer information if so
         PresentNodePercept pnpBacteria=new PresentNodePercept(this,"Bacteria");
-        QuestionItem QIBacteria=new QuestionItem("How might bacteria be related to the lake problem?");
-        TextFeedbackAction tfaBacteria1=new TextFeedbackAction(this,"Good thinking! Algae could be involved in lots of ways!");
-        TextFeedbackAction tfaBacteria2=new TextFeedbackAction(this,"Algae consumes carbon dioxide and produces oxygen, so if the algae dies off, it could cause oxygen levels to drop.");
-        TextFeedbackAction tfaBacteria3=new TextFeedbackAction(this,"Some kinds of algae also produce poisons. Blue-green algae are especially notorious for producing chemicals that are poisonous to fish and humans.");
+        QuestionItem QIBacteria=new QuestionItem("What roles could bacteria play in an ecological system?");
+        TextFeedbackAction tfaBacteria1=new TextFeedbackAction(this,"Bacteria interacts with lots of different systems in lots of different ways.");
+        TextFeedbackAction tfaBacteria2=new TextFeedbackAction(this,"Some bacteria are known to eat chemicals that are harmful to fish. Nitrosomonas, for example, eat the ammonia in waste, cleaning up the water.");
+        TextFeedbackAction tfaBacteria3=new TextFeedbackAction(this,"Other bacteria, though, can be harmful or poisonous. Some cause diseases, while others produce chemicals that are deadly in large quantities.");
+        TextFeedbackAction tfaBacteria4=new TextFeedbackAction(this,"Try looking at the bacteria that are in the system you're exploring to try to figure out what role they could have played in your phenomenon.");
         tfaBacteria1.setNextAction(tfaBacteria2);
         tfaBacteria2.setNextAction(tfaBacteria3);
+        tfaBacteria3.setNextAction(tfaBacteria4);
         QIBacteria.setAction(tfaBacteria1);
         HoldQuestionsAction hqaBacteria=new HoldQuestionsAction(this);
         hqaBacteria.addQuestion(QIBacteria);
@@ -215,13 +234,13 @@ public class GuideTutor2 extends OnDemandTutor {
         tutorsQs.addQuestion(tutorQ3);
         tutorsQs.addQuestion(tutorQ4);
         
-        QuestionItem q4=new QuestionItem("This is a test question item.",new TextFeedbackAction(this,"Stuff."));
+        QuestionItem q4=new QuestionItem("What makes a good scientific model?",milaQ4.getAction());
         
         HoldQuestionsAction hqa1=new HoldQuestionsAction(this);
+        hqa1.getQuestions().add(q4);
         hqa1.getQuestions().add(q1);
         hqa1.getQuestions().add(q2);
         hqa1.getQuestions().add(q3);
-        hqa1.getQuestions().add(q4);
         addMapping(new Mapping(tp1,hqa1));
         
     }

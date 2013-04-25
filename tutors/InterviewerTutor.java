@@ -84,10 +84,6 @@ public class InterviewerTutor extends InterruptTutor implements ActionListener {
         ChangePictureAction cpaNeutralFrontBulb=new ChangePictureAction(this,"neutral-front-bulb");
         ChangePictureAction cpaNeutralSideBulb=new ChangePictureAction(this,"neutral-side-bulb");
         
-        NewQuestionPercept nqp=new NewQuestionPercept(this);
-        CreateNewQuestionAction cnqa=new CreateNewQuestionAction(this);
-        addMapping(new Mapping(nqp,cnqa));
-        
         TruePercept tp1=new TruePercept(this);
         TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
         tfa1.setLogThis(false);
