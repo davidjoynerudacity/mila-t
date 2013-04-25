@@ -26,6 +26,7 @@ import java.util.Collections;
  */
 public class StaticVars {
     public static String PROJECTROOTPATH="";
+    public static boolean TUTORSON=true;
     public static void Log(String eventType, String ... parameters) {
         try {
             FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "softwareLog.csv",true);

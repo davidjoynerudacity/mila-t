@@ -170,8 +170,8 @@ public class Tutor {
     public EvexModel getModel() {
         return myModelPanel.getModel();
     }
-    public int getModelCount() {
-        return myModelPanel.getModelCount();
+    public int getModelCount(char modelType) {
+        return myModelPanel.getModelCount(modelType);
     }
     public void saveTutor() {
         new File("SavedTutors").mkdir();
