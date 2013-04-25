@@ -173,6 +173,9 @@ public class Tutor {
     public int getModelCount(char modelType) {
         return myModelPanel.getModelCount(modelType);
     }
+    public String getPhenomenon() {
+        return myModelPanel.getPhenomenon();
+    }
     public void saveTutor() {
         new File("SavedTutors").mkdir();
         String tutorPath="SavedTutors" + File.separator;
