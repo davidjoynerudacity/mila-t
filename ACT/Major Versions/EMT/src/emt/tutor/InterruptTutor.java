@@ -20,7 +20,7 @@ import javax.swing.Timer;
  */
 public class InterruptTutor extends Tutor implements ActionListener {
     private Timer myTimer;
-    private int myDelay=5000;
+    private int myDelay=10000;
     
     public InterruptTutor() {
         super();

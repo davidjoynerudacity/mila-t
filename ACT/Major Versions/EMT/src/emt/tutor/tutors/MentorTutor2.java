@@ -9,6 +9,7 @@ import emt.tutor.*;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
 import emt.tutor.percepts.modelpercepts.*;
+import java.util.ArrayList;
 import javax.swing.Timer;
 /**
  *
@@ -92,5 +93,25 @@ public class MentorTutor2 extends InterruptTutor {
         tfa0.setLogThis(false);
         Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa0}));
         addMapping(m1);
+    }
+    
+    @Override
+    public void checkMappings() {
+        //Construct prioritized list of possible responses
+        ArrayList<Action> foundActions=new ArrayList<Action>();
+        
+        //Iterate through responses and give the first one that hasn't been given already
+        Action doAction=null;
+        for(Action action : foundActions) {
+            if(!StaticVars.usedActions.contains(action.getId())) {
+                doAction=action;
+                break;
+            }
+        }
+        if(doAction!=null) {
+            doAction.doAction();
+        }
+        
+        //Set timer for how long to wait before giving feedback again
     }
 }

@@ -10,6 +10,7 @@ package emt.tutor;
  */
 public abstract class Action {
     private Tutor myTutor;
+    private String id;
     
     public abstract void doAction();
     
@@ -25,4 +26,13 @@ public abstract class Action {
     public Tutor getTutor() {
         return myTutor;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
 }
