@@ -27,6 +27,7 @@ import java.util.Collections;
 public class StaticVars {
     public static String PROJECTROOTPATH="";
     public static boolean TUTORSON=true;
+    
     public static void Log(String eventType, String ... parameters) {
         try {
             FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "softwareLog.csv",true);
@@ -44,6 +45,31 @@ public class StaticVars {
             out.close();
             fstream.close();
         } catch(Exception ex) {}
+    }
+    
+    public static ArrayList<String> usedActions=new ArrayList<String>();
+    public static void loadUsedActions() {
+        try {
+            FileInputStream reader=new FileInputStream(PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "actions.xml");
+            XMLDecoder decoder=new XMLDecoder(reader);
+            usedActions=(ArrayList<String>)decoder.readObject();
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    public static void saveUsedActions() {
+        new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator;
+        new File(modelPath).mkdir();
+        try {
+            FileOutputStream save = new FileOutputStream(modelPath + "actions.xml");
+            XMLEncoder encoder=new XMLEncoder(save);
+            encoder.writeObject(usedActions);
+            encoder.close();
+        } catch(Exception ex) {
+            System.out.println("Used actions save failed.");
+            System.out.println(ex.getMessage());
+        }
     }
     
     public static StudentModel previousEcologyModel;
@@ -91,7 +117,7 @@ public class StaticVars {
         String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type + File.separator;
         try {
             File f=new File(modelPath);
-            ArrayList<String> files=new ArrayList();
+            ArrayList<String> files=new ArrayList(Arrays.asList(f.list()));
             Collections.sort(files);
             
             /*if(files.get(files.size()-1).equals("model.xml")) { //was created with EMT 1.9 or earlier
@@ -108,7 +134,13 @@ public class StaticVars {
                 FileInputStream reader=new FileInputStream(modelPath + files.get(files.size()-1));
                 XMLDecoder decoder=new XMLDecoder(reader);
                 previousModel=(StudentModel)decoder.readObject();
-                currentModel=(StudentModel)decoder.readObject();
+                decoder.close();
+                reader.close();
+                FileInputStream reader2=new FileInputStream(modelPath + files.get(files.size()-1));
+                XMLDecoder decoder2=new XMLDecoder(reader2);
+                currentModel=(StudentModel)decoder2.readObject();
+                decoder2.close();
+                reader2.close();
             } else {
                 System.out.println("No student models found.");
                 initializeNewStudentModels();
