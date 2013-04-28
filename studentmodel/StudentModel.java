@@ -34,6 +34,9 @@ public class StudentModel {
     public void setScores(HashMap scores) {
         myScores=scores;
     }
+    public boolean hasConstruct(String construct) {
+        return myScores.containsKey(construct);
+    }
     public Integer checkConstruct(String construct) {
         return myScores.get(construct);
     }

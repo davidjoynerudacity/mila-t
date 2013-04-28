@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -27,6 +29,8 @@ import java.util.Collections;
 public class StaticVars {
     public static String PROJECTROOTPATH="";
     public static boolean TUTORSON=true;
+    public static ArrayList<String> logs=new ArrayList<String>();
+    public static ComboBoxModel evidenceBoxModel=new DefaultComboBoxModel(new String[]{"","Observation on the system itself","Observation from a simulation","Observation from a similar situation","Result from a controlled experiment","Information from an expert","Information from a non-expert","Information from a trusted source","Logical explanation"});
     
     public static void Log(String eventType, String ... parameters) {
         try {
@@ -41,6 +45,7 @@ public class StaticVars {
                 outputString=outputString+s+"	";
             }
             out.write(outputString.substring(0,outputString.length()-1));
+            logs.add(outputString.substring(0,outputString.length()-1));
             out.newLine();
             out.close();
             fstream.close();
