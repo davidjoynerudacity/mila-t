@@ -5,6 +5,7 @@
 package emt.tutor.actions;
 
 import emt.tutor.Action;
+import emt.tutor.StaticVars;
 import emt.tutor.Tutor;
 
 /**
@@ -49,6 +50,9 @@ public class TextFeedbackAction extends Action {
     }
     public void setIsRead(boolean read) {
         isRead=read;
+        if(this.getId().length()>0) {
+            StaticVars.usedActions.add(this.getId());
+        }
     }
     public void setLogThis(boolean logThis) {
         this.myLogThis=logThis;

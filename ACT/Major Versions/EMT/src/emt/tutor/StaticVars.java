@@ -4,21 +4,27 @@
  */
 package emt.tutor;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 import emt.evexmodel.EvexModel;
 import emt.tutor.studentmodel.*;
-import emt.tutor.studentmodel.StudentModel;
+import emt.tutor.studentmodel.EcologyModel;
+import emt.tutor.studentmodel.ModelingModel;
+import emt.tutor.studentmodel.InquiryModel;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Scanner;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
@@ -29,10 +35,12 @@ import javax.swing.DefaultComboBoxModel;
 public class StaticVars {
     public static String PROJECTROOTPATH="";
     public static boolean TUTORSON=true;
-    public static ArrayList<String> logs=new ArrayList<String>();
+    //public static ArrayList<String> logs=new ArrayList<String>();
+    public static String mostRecentLog="";
     public static ComboBoxModel evidenceBoxModel=new DefaultComboBoxModel(new String[]{"","Observation on the system itself","Observation from a simulation","Observation from a similar situation","Result from a controlled experiment","Information from an expert","Information from a non-expert","Information from a trusted source","Logical explanation"});
     
     public static void Log(String eventType, String ... parameters) {
+        
         try {
             FileWriter fstream = new FileWriter(PROJECTROOTPATH + File.separator + "softwareLog.csv",true);
             BufferedWriter out = new BufferedWriter(fstream);
@@ -44,20 +52,26 @@ public class StaticVars {
             for(String s : parameters) {
                 outputString=outputString+s+"	";
             }
+            mostRecentLog=outputString;
             out.write(outputString.substring(0,outputString.length()-1));
-            logs.add(outputString.substring(0,outputString.length()-1));
+            //logs.add(outputString.substring(0,outputString.length()-1));
             out.newLine();
             out.close();
             fstream.close();
+            StaticHooks.alertTutor("Observer");
         } catch(Exception ex) {}
     }
     
     public static ArrayList<String> usedActions=new ArrayList<String>();
     public static void loadUsedActions() {
         try {
-            FileInputStream reader=new FileInputStream(PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "actions.xml");
-            XMLDecoder decoder=new XMLDecoder(reader);
-            usedActions=(ArrayList<String>)decoder.readObject();
+            String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator;
+            XStream stream=new XStream(new StaxDriver());
+            usedActions=(ArrayList<String>)stream.fromXML(new FileReader(modelPath+"actions.xml"));
+            System.out.println("Used actions load complete.");
+//            FileInputStream reader=new FileInputStream(PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "actions.xml");
+//            XMLDecoder decoder=new XMLDecoder(reader);
+//            usedActions=(ArrayList<String>)decoder.readObject();
         } catch(Exception ex) {
             System.out.println(ex);
         }
@@ -67,60 +81,99 @@ public class StaticVars {
         String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator;
         new File(modelPath).mkdir();
         try {
-            FileOutputStream save = new FileOutputStream(modelPath + "actions.xml");
-            XMLEncoder encoder=new XMLEncoder(save);
-            encoder.writeObject(usedActions);
-            encoder.close();
+            FileWriter w=new FileWriter(modelPath + "actions.xml");
+            XStream stream=new XStream(new StaxDriver());
+            w.write(stream.toXML(usedActions));
+            w.close();
+//            FileOutputStream save = new FileOutputStream(modelPath + "actions.xml");
+//            XMLEncoder encoder=new XMLEncoder(save);
+//            encoder.writeObject(usedActions);
+//            encoder.close();
         } catch(Exception ex) {
             System.out.println("Used actions save failed.");
             System.out.println(ex.getMessage());
         }
     }
     
-    public static StudentModel previousEcologyModel;
-    public static StudentModel previousInquiryModel;
-    public static StudentModel previousModelingModel;
-    public static StudentModel currentEcologyModel;
-    public static StudentModel currentInquiryModel;
-    public static StudentModel currentModelingModel;
+    public static EcologyModel previousEcologyModel;
+    public static InquiryModel previousInquiryModel;
+    public static ModelingModel previousModelingModel;
+    public static EcologyModel currentEcologyModel;
+    public static InquiryModel currentInquiryModel;
+    public static ModelingModel currentModelingModel;
     
     public static void initializeNewStudentModels() {
-        previousEcologyModel=new StudentModel(new EcologyTargetModel());
-        previousInquiryModel=new StudentModel(new InquiryTargetModel());
-        previousModelingModel=new StudentModel(new ModelingTargetModel());
-        currentEcologyModel=new StudentModel(new EcologyTargetModel());
-        currentInquiryModel=new StudentModel(new InquiryTargetModel());
-        currentModelingModel=new StudentModel(new ModelingTargetModel());
+        previousEcologyModel=new EcologyModel();
+        previousInquiryModel=new InquiryModel();
+        previousModelingModel=new ModelingModel();
+        currentEcologyModel=new EcologyModel();
+        currentInquiryModel=new InquiryModel();
+        currentModelingModel=new ModelingModel();
     }
     public static void loadPreviousStudentModels() {
-        loadStudentModel(previousEcologyModel,currentEcologyModel,"Ecology");
-        loadStudentModel(previousInquiryModel,currentInquiryModel,"Inquiry");
-        loadStudentModel(previousModelingModel,currentModelingModel,"Modeling");
+        loadStudentModel("Ecology");
+        loadStudentModel("Inquiry");
+        loadStudentModel("Modeling");
     }
     public static void saveStudentModels() {
-        saveStudentModel(currentEcologyModel,"Ecology");
-        saveStudentModel(currentInquiryModel,"Inquiry");
-        saveStudentModel(currentModelingModel,"Modeling");
+        saveEcologyModel(currentEcologyModel);
+        saveInquiryModel(currentInquiryModel);
+        saveModelingModel(currentModelingModel);
     }
-    private static void saveStudentModel(StudentModel model, String type) {
+    private static void saveEcologyModel(EcologyModel model) {
         new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
-        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type;
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "Ecology";
         new File(modelPath).mkdir();
         try {
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-            FileOutputStream save = new FileOutputStream(modelPath + File.separator + type + "_" + sdf.format(cal.getTime())+".xml");
-            XMLEncoder encoder=new XMLEncoder(save);
-            encoder.writeObject(model);
-            encoder.close();
+            String filename=modelPath + File.separator + "Ecology" + "_" + sdf.format(cal.getTime())+".xml";
+            FileWriter w=new FileWriter(filename);
+            XStream stream=new XStream(new StaxDriver());
+            w.write(stream.toXML(model));
+            w.close();
         } catch(Exception ex) {
-            System.out.println("Student model save failed.");
+            System.out.println("Ecology model save failed.");
             System.out.println(ex.getMessage());
         }
     }
-    private static void loadStudentModel(StudentModel previousModel,StudentModel currentModel,String type) {
-        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type + File.separator;
+    private static void saveInquiryModel(InquiryModel model) {
+        new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "Inquiry";
+        new File(modelPath).mkdir();
         try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+            String filename=modelPath + File.separator + "Inquiry" + "_" + sdf.format(cal.getTime())+".xml";
+            FileWriter w=new FileWriter(filename);
+            XStream stream=new XStream(new StaxDriver());
+            w.write(stream.toXML(model));
+            w.close();
+        } catch(Exception ex) {
+            System.out.println("Inquiry model save failed.");
+            System.out.println(ex.getMessage());
+        }
+    }
+    private static void saveModelingModel(ModelingModel model) {
+        new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "Modeling";
+        new File(modelPath).mkdir();
+        try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+            String filename=modelPath + File.separator + "Modeling" + "_" + sdf.format(cal.getTime())+".xml";
+            FileWriter w=new FileWriter(filename);
+            XStream stream=new XStream(new StaxDriver());
+            w.write(stream.toXML(model));
+            w.close();
+        } catch(Exception ex) {
+            System.out.println("Modeling model save failed.");
+            System.out.println(ex.getMessage());
+        }
+    }
+    private static void loadStudentModel(String type) {
+        try {
+            String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type + File.separator;
             File f=new File(modelPath);
             ArrayList<String> files=new ArrayList(Arrays.asList(f.list()));
             Collections.sort(files);
@@ -136,22 +189,28 @@ public class StaticVars {
                 Collections.sort(files);
             }*/
             if(files.size()>0) {
-                FileInputStream reader=new FileInputStream(modelPath + files.get(files.size()-1));
-                XMLDecoder decoder=new XMLDecoder(reader);
-                previousModel=(StudentModel)decoder.readObject();
-                decoder.close();
-                reader.close();
-                FileInputStream reader2=new FileInputStream(modelPath + files.get(files.size()-1));
-                XMLDecoder decoder2=new XMLDecoder(reader2);
-                currentModel=(StudentModel)decoder2.readObject();
-                decoder2.close();
-                reader2.close();
+                XStream stream=new XStream(new StaxDriver());
+                if(type.equals("Ecology")) {
+                    previousEcologyModel=(EcologyModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    currentEcologyModel=(EcologyModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    System.out.println("Ecology model loaded.");
+                } else if(type.equals("Inquiry")) {
+                    previousInquiryModel=(InquiryModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    currentInquiryModel=(InquiryModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    System.out.println("Inquiry model loaded.");
+                } else if(type.equals("Modeling")) {
+                    previousModelingModel=(ModelingModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    currentModelingModel=(ModelingModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    System.out.println("Modeling model loaded.");
+                }
+                
             } else {
                 System.out.println("No student models found.");
                 initializeNewStudentModels();
             }
         
         } catch(Exception ex) {
+            initializeNewStudentModels();
             System.out.println(ex);
         }
     }

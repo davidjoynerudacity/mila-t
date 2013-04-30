@@ -19,7 +19,7 @@ import javax.swing.Timer;
  * @author David
  */
 public class InterruptTutor extends Tutor implements ActionListener {
-    private Timer myTimer;
+    protected Timer myTimer;
     private int myDelay=10000;
     
     public InterruptTutor() {
@@ -42,10 +42,12 @@ public class InterruptTutor extends Tutor implements ActionListener {
         super.wasClicked();
     }
     
+    
+    @Override
     public void actionPerformed(ActionEvent e) {
         if(!super.isVisible()) {
             System.out.println("Checking mappings for " + this.getName());
-            super.checkMappings();
+            checkMappings();
         }
     }
     
