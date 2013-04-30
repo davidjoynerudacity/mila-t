@@ -10,7 +10,8 @@ package emt.tutor;
  */
 public abstract class Action {
     private Tutor myTutor;
-    private String id;
+    private String id="";
+    private String face="";
     
     public abstract void doAction();
     
@@ -33,6 +34,14 @@ public abstract class Action {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getFace() {
+        return face;
+    }
+
+    public void setFace(String face) {
+        this.face = face;
     }
     
 }

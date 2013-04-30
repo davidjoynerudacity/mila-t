@@ -80,6 +80,7 @@ public class TutorTextPanel extends javax.swing.JPanel {
             myTFA.getNextAction().doAction();
         } else {
             myContentPanel.hideTutor();
+            myTFA.getTutor().checkMappings();
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 
