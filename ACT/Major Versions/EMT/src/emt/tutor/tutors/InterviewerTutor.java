@@ -11,11 +11,43 @@ import emt.tutor.percepts.*;
 import emt.tutor.percepts.modelpercepts.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 /**
  *
  * @author David
  */
 public class InterviewerTutor extends InterruptTutor implements ActionListener {
+    private long threshold=15000;
+    
+    ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
+    ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
+    ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
+    ChangePictureAction cpaConcernedSide=new ChangePictureAction(this,"concerned-side");
+    ChangePictureAction cpaConfusedFront=new ChangePictureAction(this,"confused-front");
+    ChangePictureAction cpaConfusedSide=new ChangePictureAction(this,"confused-side");
+    ChangePictureAction cpaExcitedFront=new ChangePictureAction(this,"excited-front");
+    ChangePictureAction cpaExcitedSide=new ChangePictureAction(this,"excited-side");
+    ChangePictureAction cpaHappyFront=new ChangePictureAction(this,"happy-front");
+    ChangePictureAction cpaHappySide=new ChangePictureAction(this,"happy-side");
+    ChangePictureAction cpaInterestedFront=new ChangePictureAction(this,"interested-front");
+    ChangePictureAction cpaInterestedSide=new ChangePictureAction(this,"interested-side");
+    ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
+    ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
+    ChangePictureAction cpaAmazedFrontBulb=new ChangePictureAction(this,"amazed-front-bulb");
+    ChangePictureAction cpaAmazedSideBulb=new ChangePictureAction(this,"amazed-side-bulb");
+    ChangePictureAction cpaConcernedFrontBulb=new ChangePictureAction(this,"concerned-front-bulb");
+    ChangePictureAction cpaConcernedSideBulb=new ChangePictureAction(this,"concerned-side-bulb");
+    ChangePictureAction cpaConfusedFrontBulb=new ChangePictureAction(this,"confused-front-bulb");
+    ChangePictureAction cpaConfusedSideBulb=new ChangePictureAction(this,"confused-side-bulb");
+    ChangePictureAction cpaExcitedFrontBulb=new ChangePictureAction(this,"excited-front-bulb");
+    ChangePictureAction cpaExcitedSideBulb=new ChangePictureAction(this,"excited-side-bulb");
+    ChangePictureAction cpaHappyFrontBulb=new ChangePictureAction(this,"happy-front-bulb");
+    ChangePictureAction cpaHappySideBulb=new ChangePictureAction(this,"happy-side-bulb");
+    ChangePictureAction cpaInterestedFrontBulb=new ChangePictureAction(this,"interested-front-bulb");
+    ChangePictureAction cpaInterestedSideBulb=new ChangePictureAction(this,"interested-side-bulb");
+    ChangePictureAction cpaNeutralFrontBulb=new ChangePictureAction(this,"neutral-front-bulb");
+    ChangePictureAction cpaNeutralSideBulb=new ChangePictureAction(this,"neutral-side-bulb");
+    
     public InterviewerTutor() {
         super("Interviewer");
         initializeTutor();
@@ -56,59 +88,64 @@ public class InterviewerTutor extends InterruptTutor implements ActionListener {
         addImage("neutral-front-bulb", "s-neutral-front.png");
         addImage("neutral-side-bulb", "s-neutral-side.png");
     
-        ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
-        ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
-        ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
-        ChangePictureAction cpaConcernedSide=new ChangePictureAction(this,"concerned-side");
-        ChangePictureAction cpaConfusedFront=new ChangePictureAction(this,"confused-front");
-        ChangePictureAction cpaConfusedSide=new ChangePictureAction(this,"confused-side");
-        ChangePictureAction cpaExcitedFront=new ChangePictureAction(this,"excited-front");
-        ChangePictureAction cpaExcitedSide=new ChangePictureAction(this,"excited-side");
-        ChangePictureAction cpaHappyFront=new ChangePictureAction(this,"happy-front");
-        ChangePictureAction cpaHappySide=new ChangePictureAction(this,"happy-side");
-        ChangePictureAction cpaInterestedFront=new ChangePictureAction(this,"interested-front");
-        ChangePictureAction cpaInterestedSide=new ChangePictureAction(this,"interested-side");
-        ChangePictureAction cpaNeutralFront=new ChangePictureAction(this,"neutral-front");
-        ChangePictureAction cpaNeutralSide=new ChangePictureAction(this,"neutral-side");
-        ChangePictureAction cpaAmazedFrontBulb=new ChangePictureAction(this,"amazed-front-bulb");
-        ChangePictureAction cpaAmazedSideBulb=new ChangePictureAction(this,"amazed-side-bulb");
-        ChangePictureAction cpaConcernedFrontBulb=new ChangePictureAction(this,"concerned-front-bulb");
-        ChangePictureAction cpaConcernedSideBulb=new ChangePictureAction(this,"concerned-side-bulb");
-        ChangePictureAction cpaConfusedFrontBulb=new ChangePictureAction(this,"confused-front-bulb");
-        ChangePictureAction cpaConfusedSideBulb=new ChangePictureAction(this,"confused-side-bulb");
-        ChangePictureAction cpaExcitedFrontBulb=new ChangePictureAction(this,"excited-front-bulb");
-        ChangePictureAction cpaExcitedSideBulb=new ChangePictureAction(this,"excited-side-bulb");
-        ChangePictureAction cpaHappyFrontBulb=new ChangePictureAction(this,"happy-front-bulb");
-        ChangePictureAction cpaHappySideBulb=new ChangePictureAction(this,"happy-side-bulb");
-        ChangePictureAction cpaInterestedFrontBulb=new ChangePictureAction(this,"interested-front-bulb");
-        ChangePictureAction cpaInterestedSideBulb=new ChangePictureAction(this,"interested-side-bulb");
-        ChangePictureAction cpaNeutralFrontBulb=new ChangePictureAction(this,"neutral-front-bulb");
-        ChangePictureAction cpaNeutralSideBulb=new ChangePictureAction(this,"neutral-side-bulb");
-        
-        TruePercept tp1=new TruePercept(this);
-        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I don't really have anything to say right now.");
-        tfa1.setLogThis(false);
-        Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa1}));
-        addMapping(m1);
+        MultipleAction nullMA=new MultipleAction(this);
+        nullMA.addAction(cpaNeutralSide);
+        TextFeedbackAction nullTFA=new TextFeedbackAction(this,"I don't have anything to ask right now.");
+        nullTFA.setLogThis(false);
+        nullMA.addAction(nullTFA);
+        myNullAction=nullMA;
     }
     
     @Override
     public void checkMappings() {
-        //Construct prioritized list of possible responses
-        ArrayList<Action> foundActions=new ArrayList<Action>();
-        
-        //Iterate through responses and give the first one that hasn't been given already
-        Action doAction=null;
-        for(Action action : foundActions) {
-            if(!StaticVars.usedActions.contains(action.getId())) {
-                doAction=action;
-                break;
+        if(lastFeedbackTime==null||new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
+            System.out.println("Checking Interviewer mappings...");
+            ArrayList<Action> foundActions=new ArrayList<Action>();
+            
+            String lastActionString=StaticVars.mostRecentLog;
+            String[] splitString=lastActionString.split("	");
+            String command=splitString[0];
+
+            if(command.equals("Model Dismissed")) {
+                FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
+                fpa1.setPrompt("What made you want to dismiss that hypothesis?");
+                //fpa1.setId("fpa1");
+                fpa1.setFace(cpaInterestedFrontBulb);
+                foundActions.add(fpa1);
             }
+            if(command.equals("Model Reconsidered")) {
+                FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
+                fpa2.setPrompt("What made you reconsider that hypothesis?");
+                fpa2.setFace(cpaHappyFrontBulb);
+                foundActions.add(fpa2);
+            }
+            
+            
+
+            //Iterate through responses and give the first one that hasn't been given already
+            Action doAction=null;
+            for(Action action : foundActions) {
+                if(!StaticVars.usedActions.contains(action.getId())) {
+                    doAction=action;
+                    break;
+                }
+            }
+            if(doAction!=null) {
+                MultipleAction finalMA=new MultipleAction(this);
+                finalMA.addAction(doAction);
+                finalMA.addAction(new FocusTutorAction(this));
+                if(doAction.getFace()!=null) {
+                    finalMA.addAction(doAction.getFace());
+                }
+                finalMA.doAction();
+                //setLastFeedbackTime(new Date());
+            } else {
+                this.getNullAction().doAction();
+            }
+
+            //Set timer for how long to wait before giving feedback again
+        } else {
+            System.out.println("Skipping Interviewer check due to threshold");
         }
-        if(doAction!=null) {
-            doAction.doAction();
-        }
-        
-        //Set timer for how long to wait before giving feedback again
     }
 }

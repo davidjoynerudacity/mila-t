@@ -133,6 +133,10 @@ public class ObserverTutor extends InterruptTutor {
                     StaticVars.currentInquiryModel.incrementEvidenceStrength(-1);
                 }
             }
+        } else if(command.equals("Opened Simulation Dialog")) {
+            StaticVars.currentMiscModel.incrementSimulationCount(1);
+        } else if(command.equals("Opened Notes Dialog")) {
+            StaticVars.currentMiscModel.incrementNoteCount(1);
         }
     }
 }

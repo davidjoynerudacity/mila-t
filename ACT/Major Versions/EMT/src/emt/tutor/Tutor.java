@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -33,6 +34,8 @@ public class Tutor {
     protected HashMap myImages;
     protected ArrayList<Mapping> myMappings;
     private ProjectModelPanel myModelPanel;
+    protected Action myNullAction;
+    protected Date lastFeedbackTime;
     
     public Tutor() {
         myName="";
@@ -262,4 +265,22 @@ public class Tutor {
 //        addMapping(m2);
 //        addMapping(m3);
     }
+
+    public Action getNullAction() {
+        return myNullAction;
+    }
+
+    public void setNullAction(Action myNullAction) {
+        this.myNullAction = myNullAction;
+    }
+
+    public Date getLastFeedbackTime() {
+        return lastFeedbackTime;
+    }
+
+    public void setLastFeedbackTime(Date lastFeedbackTime) {
+        this.lastFeedbackTime = lastFeedbackTime;
+    }
+    
+    
 }

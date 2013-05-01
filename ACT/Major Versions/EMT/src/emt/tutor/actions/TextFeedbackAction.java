@@ -31,6 +31,9 @@ public class TextFeedbackAction extends Action {
     }
     public void doAction() {
         getTutor().giveTextFeedback(this);
+        if(this.getFace()!=null) {
+            this.getFace().doAction();
+        }
     }
     public String getFeedback() {
         return myFeedback;

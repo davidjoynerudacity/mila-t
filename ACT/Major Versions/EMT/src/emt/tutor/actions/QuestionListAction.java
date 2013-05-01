@@ -29,6 +29,9 @@ public class QuestionListAction extends Action {
     }
     public void doAction() {
         getTutor().giveQuestionList(myQuestions,myIntro);
+        if(this.getFace()!=null) {
+            this.getFace().doAction();
+        }
     }
     public ArrayList<QuestionItem> getQuestions() {
         return myQuestions;

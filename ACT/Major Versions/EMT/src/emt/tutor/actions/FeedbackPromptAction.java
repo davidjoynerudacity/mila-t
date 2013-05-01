@@ -5,6 +5,7 @@
 package emt.tutor.actions;
 
 import emt.tutor.Action;
+import emt.tutor.StaticVars;
 import emt.tutor.Tutor;
 
 /**
@@ -35,5 +36,8 @@ public class FeedbackPromptAction extends Action {
     }
     public void setHasBeenAnswered(boolean answered) {
         hasBeenAnswered=answered;
+        if(this.getId().length()>0) {
+            StaticVars.usedActions.add(this.getId());
+        }
     }
 }
