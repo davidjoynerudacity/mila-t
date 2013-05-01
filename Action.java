@@ -4,6 +4,8 @@
  */
 package emt.tutor;
 
+import emt.tutor.actions.ChangePictureAction;
+
 /**
  *
  * @author David
@@ -11,7 +13,7 @@ package emt.tutor;
 public abstract class Action {
     private Tutor myTutor;
     private String id="";
-    private String face="";
+    private ChangePictureAction face;
     
     public abstract void doAction();
     
@@ -36,11 +38,11 @@ public abstract class Action {
         this.id = id;
     }
 
-    public String getFace() {
+    public ChangePictureAction getFace() {
         return face;
     }
 
-    public void setFace(String face) {
+    public void setFace(ChangePictureAction face) {
         this.face = face;
     }
     

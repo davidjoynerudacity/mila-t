@@ -11,12 +11,15 @@ import emt.tutor.percepts.*;
 import emt.tutor.percepts.modelpercepts.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.Timer;
 /**
  *
  * @author David
  */
 public class MentorTutor2 extends InterruptTutor {
+    private long threshold=15000;
+    
     ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
     ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
     ChangePictureAction cpaConcernedFront=new ChangePictureAction(this,"concerned-front");
@@ -45,6 +48,10 @@ public class MentorTutor2 extends InterruptTutor {
     ChangePictureAction cpaInterestedSideBulb=new ChangePictureAction(this,"interested-side-bulb");
     ChangePictureAction cpaNeutralFrontBulb=new ChangePictureAction(this,"neutral-front-bulb");
     ChangePictureAction cpaNeutralSideBulb=new ChangePictureAction(this,"neutral-side-bulb");
+    
+    ChangePictureAction cpaGuidePreview=new ChangePictureAction(this,"guide-preview");
+    ChangePictureAction cpaCriticPreview=new ChangePictureAction(this,"critic-preview");
+    ChangePictureAction cpaInterviewerPreview=new ChangePictureAction(this,"interviewer-preview");
     
     public MentorTutor2() {
         super("Mentor");
@@ -86,55 +93,96 @@ public class MentorTutor2 extends InterruptTutor {
         addImage("neutral-front-bulb", "a-neutral-front.png");
         addImage("neutral-side-bulb", "a-neutral-side.png");
         
+        addImage("guide-preview","j-neutral-front.jpg");
+        addImage("interviewer-preview","s-neutral-front.jpg");
+        addImage("critic-preview","u-neutral-front.jpg");
         
+        MultipleAction nullMA=new MultipleAction(this);
+        nullMA.addAction(cpaNeutralSide);
+        TextFeedbackAction nullTFA=new TextFeedbackAction(this,"I don't really have anything to say right now.");
+        nullTFA.setLogThis(false);
+        nullMA.addAction(nullTFA);
+        myNullAction=nullMA;
         
         /* END LESSON-SPECIFIC CONTENT ****************************************/
-        
-        TruePercept tp1=new TruePercept(this);
-        TextFeedbackAction tfa0=new TextFeedbackAction(this,"I don't really have anything to say right now.");
-        tfa0.setLogThis(false);
-        Mapping m1=new Mapping(tp1,new MultipleAction(this,new Action[]{cpaNeutralSide,tfa0}));
-        addMapping(m1);
     }
     
     @Override
     public void checkMappings() {
         //Construct prioritized list of possible responses
-        System.out.println("Checking Mentor2 mappings...");
-        ArrayList<Action> foundActions=new ArrayList<Action>();
-        
-        if(this.getModelCount('a')>0&&this.getPhenomenon().length()==0) {
-            TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you've started forming hypotheses, but you haven't really described the phenomenon you're addressing yet.");
-            tfa1.setId("tfa1");
-            TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's important to have a good idea about what you're explaining before you start forming hypotheses. Use the box in the top left to describe what you're trying to explain.");
-            tfa1.setNextAction(tfa2);
-            MultipleAction ma1=new MultipleAction(this);
-            ma1.addAction(tfa1);
-            ma1.addAction(cpaConcernedSideBulb);
-            ma1.addAction(new FocusTutorAction(this));
-            ma1.setId("tfa1");
-            foundActions.add(ma1);
-        }
-        
-        //Iterate through responses and give the first one that hasn't been given already
-        Action doAction=null;
-        for(Action action : foundActions) {
-            if(!StaticVars.usedActions.contains(action.getId())) {
-                doAction=action;
-                break;
+        if(lastFeedbackTime==null||new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
+            System.out.println("Checking Mentor2 mappings...");
+            ArrayList<Action> foundActions=new ArrayList<Action>();
+            if(!StaticVars.usedActions.contains("tfaIntro1")) {
+                TextFeedbackAction tfaIntro1=new TextFeedbackAction(this,"Hi! Welcome to MILA, the Modeling & Inquiry Learning Application. I'm Mercer, and I'd like to introduce you to the program real quick. Press the 'Next' button below to continue.");
+                tfaIntro1.setFace(cpaHappyFront);
+                TextFeedbackAction tfaIntro2=new TextFeedbackAction(this,"The goal of MILA is to let you do science the way scientists do it. You'll investigate a phenomenon, create a model of it, and use that model to tell you how to investigate the phenomenon more.");
+                TextFeedbackAction tfaIntro3=new TextFeedbackAction(this,"A few friends of mine are here to help you. First, I'm Mercer, your Mentor. I'll interrupt you when I have some advice or information to share.");
+                TextFeedbackAction tfaIntro4=new TextFeedbackAction(this,"When you see this light bulb, it means I have something to tell you. Just click on me to read what I have to say!");
+                tfaIntro4.setFace(cpaInterestedFrontBulb);
+                TextFeedbackAction tfaIntro5=new TextFeedbackAction(this,"This is Gabriel, the Guide. She's here to answer your questions. When you have a question, click on Gabriel to see what questions she's ready to answer.");
+                tfaIntro5.setFace(cpaGuidePreview);
+                TextFeedbackAction tfaIntro6=new TextFeedbackAction(this,"This is Craig, the Critic. He's here to take a closer look at your models. When you think your model is done, or when you are not sure how to make it better, click him to get some advice.");
+                tfaIntro6.setFace(cpaCriticPreview);
+                TextFeedbackAction tfaIntro7=new TextFeedbackAction(this,"This is Isla, the Interviewer. Sometimes, she'll ask you questions. When she does, just type your response in her box.");
+                tfaIntro7.setFace(cpaInterviewerPreview);
+                TextFeedbackAction tfaIntro8=new TextFeedbackAction(this,"Isla and I will occasionally interrupt you, while Gabriel and Craig are there for you to talk to when you need it. Remember, we all react to what you do in the software, so check with us often!");
+                tfaIntro8.setFace(cpaHappyFront);
+                TextFeedbackAction tfaIntro9=new TextFeedbackAction(this,"That's all there is to it! Why don't you get started by describing the phenomenon you're trying to explain in the box in the upper left?");
+                tfaIntro9.setFace(cpaHappyFront);
+                tfaIntro1.setNextAction(tfaIntro2);
+                tfaIntro2.setNextAction(tfaIntro3);
+                tfaIntro3.setNextAction(tfaIntro4);
+                tfaIntro4.setNextAction(tfaIntro5);
+                tfaIntro5.setNextAction(tfaIntro6);
+                tfaIntro6.setNextAction(tfaIntro7);
+                tfaIntro7.setNextAction(tfaIntro8);
+                tfaIntro8.setNextAction(tfaIntro9);
+                tfaIntro1.setId("tfaIntro1");
+                MultipleAction ma1=new MultipleAction(this);
+                ma1.addAction(tfaIntro1);
+                ma1.addAction(new ShowTutorAction(this));
+                ma1.setId("tfa1");
+                foundActions.add(ma1);
             }
-        }
-        if(doAction!=null) {
-            doAction.doAction();
+           
+
+            if(this.getModelCount('a')>0&&this.getPhenomenon().length()==0) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you've started forming hypotheses, but you haven't really described the phenomenon you're addressing yet.");
+                tfa1.setId("tfa1");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's important to have a good idea about what you're explaining before you start forming hypotheses. Use the box in the top left to describe what you're trying to explain.");
+                tfa1.setNextAction(tfa2);
+                tfa1.setFace(cpaConcernedSideBulb);
+                foundActions.add(tfa1);
+            }
+            
+            
+
+            //Iterate through responses and give the first one that hasn't been given already
+            Action doAction=null;
+            for(Action action : foundActions) {
+                if(!StaticVars.usedActions.contains(action.getId())) {
+                    doAction=action;
+                    break;
+                }
+            }
+            if(doAction!=null) {
+                MultipleAction finalMA=new MultipleAction(this);
+                finalMA.addAction(doAction);
+                finalMA.addAction(new FocusTutorAction(this));
+                if(doAction.getFace()!=null) {
+                    finalMA.addAction(doAction.getFace());
+                }
+                finalMA.doAction();
+                //setLastFeedbackTime(new Date());
+            } else {
+                this.getNullAction().doAction();
+            }
+
+            //Set timer for how long to wait before giving feedback again
         } else {
-            TextFeedbackAction nullFeedback=new TextFeedbackAction(this,"I don't really have anything to say right now.");
-            MultipleAction nullMA=new MultipleAction(this);
-            nullMA.addAction(nullFeedback);
-            nullMA.addAction(cpaNeutralSide);
-            nullMA.doAction();
+            System.out.println("Skipping Mentor check due to threshold");
         }
-        
-        //Set timer for how long to wait before giving feedback again
     }
     
 }

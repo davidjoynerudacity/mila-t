@@ -13,6 +13,7 @@ package emt.tutor.actionpanels;
 import emt.tutor.StaticVars;
 import emt.tutor.TutorContentPanel;
 import emt.tutor.actions.TextFeedbackAction;
+import java.util.Date;
 
 /**
  *
@@ -80,7 +81,10 @@ public class TutorTextPanel extends javax.swing.JPanel {
             myTFA.getNextAction().doAction();
         } else {
             myContentPanel.hideTutor();
-            myTFA.getTutor().checkMappings();
+            if(myTFA.getTutor().getNullAction()!=null) {
+                myTFA.getTutor().getNullAction().doAction();
+                myTFA.getTutor().setLastFeedbackTime(new Date());
+            }
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 

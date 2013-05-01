@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -38,6 +39,8 @@ public class StaticVars {
     //public static ArrayList<String> logs=new ArrayList<String>();
     public static String mostRecentLog="";
     public static ComboBoxModel evidenceBoxModel=new DefaultComboBoxModel(new String[]{"","Observation on the system itself","Observation from a simulation","Observation from a similar situation","Result from a controlled experiment","Information from an expert","Information from a non-expert","Information from a trusted source","Logical explanation"});
+    //public static int CURRENTDAY=new Date().getDate();
+    public static int CURRENTDAY=12;
     
     public static void Log(String eventType, String ... parameters) {
         
@@ -59,6 +62,7 @@ public class StaticVars {
             out.close();
             fstream.close();
             StaticHooks.alertTutor("Observer");
+            StaticHooks.alertTutor("Interviewer");
         } catch(Exception ex) {}
     }
     
@@ -101,6 +105,7 @@ public class StaticVars {
     public static EcologyModel currentEcologyModel;
     public static InquiryModel currentInquiryModel;
     public static ModelingModel currentModelingModel;
+    public static MiscModel currentMiscModel;
     
     public static void initializeNewStudentModels() {
         previousEcologyModel=new EcologyModel();
@@ -109,16 +114,19 @@ public class StaticVars {
         currentEcologyModel=new EcologyModel();
         currentInquiryModel=new InquiryModel();
         currentModelingModel=new ModelingModel();
+        currentMiscModel=new MiscModel();
     }
     public static void loadPreviousStudentModels() {
         loadStudentModel("Ecology");
         loadStudentModel("Inquiry");
         loadStudentModel("Modeling");
+        loadStudentModel("Misc");
     }
     public static void saveStudentModels() {
         saveEcologyModel(currentEcologyModel);
         saveInquiryModel(currentInquiryModel);
         saveModelingModel(currentModelingModel);
+        saveMiscModel(currentMiscModel);
     }
     private static void saveEcologyModel(EcologyModel model) {
         new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
@@ -171,6 +179,23 @@ public class StaticVars {
             System.out.println(ex.getMessage());
         }
     }
+    private static void saveMiscModel(MiscModel model) {
+        new File(PROJECTROOTPATH + File.separator + "StudentModels").mkdir();
+        String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "Misc";
+        new File(modelPath).mkdir();
+        try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+            String filename=modelPath + File.separator + "Misc" + "_" + sdf.format(cal.getTime())+".xml";
+            FileWriter w=new FileWriter(filename);
+            XStream stream=new XStream(new StaxDriver());
+            w.write(stream.toXML(model));
+            w.close();
+        } catch(Exception ex) {
+            System.out.println("Misc model save failed.");
+            System.out.println(ex.getMessage());
+        }
+    }
     private static void loadStudentModel(String type) {
         try {
             String modelPath=PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + type + File.separator;
@@ -202,6 +227,9 @@ public class StaticVars {
                     previousModelingModel=(ModelingModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
                     currentModelingModel=(ModelingModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
                     System.out.println("Modeling model loaded.");
+                } else if(type.equals("Misc")) {
+                    currentMiscModel=(MiscModel)stream.fromXML(new FileReader(modelPath + files.get(files.size()-1)));
+                    System.out.println("Misc model loaded.");
                 }
                 
             } else {
