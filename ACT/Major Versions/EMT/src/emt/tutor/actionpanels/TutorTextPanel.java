@@ -31,7 +31,7 @@ public class TutorTextPanel extends javax.swing.JPanel {
     
     public void giveTextFeedback(TextFeedbackAction tfa) {
         if(tfa.getLogThis()) {
-            StaticVars.Log("Tutor Text Feedback given", myContentPanel.getTutorName(),tfa.getFeedback());
+            StaticVars.Log("Tutor Text Feedback given", myContentPanel.getTutorName(),tfa.getFeedback(),tfa.getId());
         }
         this.tutorTextLabel.setText("<html><p>" + tfa.getFeedback() + "</p></html>");
         myTFA=tfa;

@@ -35,6 +35,7 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class StaticVars {
     public static String PROJECTROOTPATH="";
+    public static boolean PROJECTOPENED=false;
     public static boolean TUTORSON=true;
     //public static ArrayList<String> logs=new ArrayList<String>();
     public static String mostRecentLog="";
@@ -61,9 +62,14 @@ public class StaticVars {
             out.newLine();
             out.close();
             fstream.close();
-            StaticHooks.alertTutor("Observer");
             StaticHooks.alertTutor("Interviewer");
+            StaticHooks.alertTutor("Observer");
         } catch(Exception ex) {}
+    }
+    
+    public static void reinitializeTutors() {
+        loadPreviousStudentModels();
+        loadUsedActions();
     }
     
     public static ArrayList<String> usedActions=new ArrayList<String>();
@@ -78,6 +84,7 @@ public class StaticVars {
 //            usedActions=(ArrayList<String>)decoder.readObject();
         } catch(Exception ex) {
             System.out.println(ex);
+            usedActions=new ArrayList<String>();
         }
     }
     public static void saveUsedActions() {

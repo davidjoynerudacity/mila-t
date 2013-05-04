@@ -5,6 +5,7 @@
 package emt.tutor.tutors;
 
 import emt.ProjectModelPanel;
+import emt.evexmodel.EvexNode;
 import emt.tutor.*;
 import emt.tutor.actions.*;
 import emt.tutor.percepts.*;
@@ -104,15 +105,17 @@ public class MentorTutor2 extends InterruptTutor {
         nullMA.addAction(nullTFA);
         myNullAction=nullMA;
         
-        /* END LESSON-SPECIFIC CONTENT ****************************************/
+        lastFeedbackTime=new Date();
     }
     
     @Override
     public void checkMappings() {
-        //Construct prioritized list of possible responses
-        if(lastFeedbackTime==null||new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
+        if(StaticVars.PROJECTOPENED) {
+            //Construct prioritized list of possible responses
             System.out.println("Checking Mentor2 mappings...");
             ArrayList<Action> foundActions=new ArrayList<Action>();
+
+            //LESSON-SPECIFIC FEEDBACK (REMEMBER GUIDELINES)
             if(!StaticVars.usedActions.contains("tfaIntro1")) {
                 TextFeedbackAction tfaIntro1=new TextFeedbackAction(this,"Hi! Welcome to MILA, the Modeling & Inquiry Learning Application. I'm Mercer, and I'd like to introduce you to the program real quick. Press the 'Next' button below to continue.");
                 tfaIntro1.setFace(cpaHappyFront);
@@ -128,7 +131,7 @@ public class MentorTutor2 extends InterruptTutor {
                 tfaIntro7.setFace(cpaInterviewerPreview);
                 TextFeedbackAction tfaIntro8=new TextFeedbackAction(this,"Isla and I will occasionally interrupt you, while Gabriel and Craig are there for you to talk to when you need it. Remember, we all react to what you do in the software, so check with us often!");
                 tfaIntro8.setFace(cpaHappyFront);
-                TextFeedbackAction tfaIntro9=new TextFeedbackAction(this,"That's all there is to it! Why don't you get started by describing the phenomenon you're trying to explain in the box in the upper left?");
+                TextFeedbackAction tfaIntro9=new TextFeedbackAction(this,"That's all there is to it! Why don't you get started by describing the phenomenon you're trying to explain in the box in the upper left? Your goal for today is to describe the phenomenon and come up with three hypotheses.");
                 tfaIntro9.setFace(cpaHappyFront);
                 tfaIntro1.setNextAction(tfaIntro2);
                 tfaIntro2.setNextAction(tfaIntro3);
@@ -145,20 +148,139 @@ public class MentorTutor2 extends InterruptTutor {
                 ma1.setId("tfa1");
                 foundActions.add(ma1);
             }
-           
-
-            if(this.getModelCount('a')>0&&this.getPhenomenon().length()==0) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you've started forming hypotheses, but you haven't really described the phenomenon you're addressing yet.");
-                tfa1.setId("tfa1");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's important to have a good idea about what you're explaining before you start forming hypotheses. Use the box in the top left to describe what you're trying to explain.");
+            if(StaticVars.CURRENTDAY==9) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
+                tfa1.setId("GNB");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to have at least four or five things in each of your hypotheses by the end of the day. Feel free to add new hypotheses if any come to mind, or to dismiss ones that don't seem to be working.");
                 tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaConcernedSideBulb);
+                tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            
-            
 
-            //Iterate through responses and give the first one that hasn't been given already
+            if(StaticVars.CURRENTDAY==10) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving really solid evidence for your hypotheses. Try to add evidence to as many of your connections as possible.");
+                tfa1.setId("B2T");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Remember to check with Craig the Critic if you want feedback on how good your evidence is and where your models could be improved.");
+                tfa1.setNextAction(tfa2);
+                tfa1.setFace(cpaHappyFrontBulb);
+                foundActions.add(tfa1);
+            }
+            if(StaticVars.CURRENTDAY==14) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, you're using the simulations. Simulations can be fun to play around with, but remember to try to use what you observe in the simulations to support or refute your hypotheses, or to create new hypotheses.");
+                tfa1.setId("BR0");
+                tfa1.setFace(cpaHappyFrontBulb);
+                foundActions.add(tfa1);
+            }
+            if(StaticVars.CURRENTDAY>=15) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, we're tying everything together. Using what you know, try to make one of your models really strong. Justify all your claims with evidence and give a really thorough description of your hypothesis.");
+                tfa1.setId("9X9");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Remember also to dismiss hypotheses that you don't think really worked. That's a crucial part of science, and it's something to be proud of!");
+                tfa1.setNextAction(tfa2);
+                tfa1.setFace(cpaHappyFrontBulb);
+                foundActions.add(tfa1);
+            }
+
+            if(new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
+                if(this.getModelCount('a')>0&&this.getPhenomenon().length()==0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you've started forming hypotheses, but you haven't really described the phenomenon you're addressing yet.");
+                    tfa1.setId("tfa1");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's important to have a good idea about what you're explaining before you start forming hypotheses. Use the box in the top left to describe what you're trying to explain.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaConcernedSideBulb);
+                    foundActions.add(tfa1);
+                }
+
+                if(this.getPhenomenon().length()>0&&this.getModelCount('a')==0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good job! It looks like you've written up a description of your phenomenon. Describing what you're trying to explain is the first step in science.");
+                    tfa1.setId("GD5");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, try to think of some hypotheses for what might have caused your phenomenon to occur. To add a hypothesis, click Propose New Hypothesis.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(this.getModelCount('a')>0&&this.getModel().getNodes().isEmpty()) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've created a model, but you haven't put anything into it yet.");
+                    tfa1.setId("JD6");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Usually the first thing to put in your model is something for what you're trying to explain. For example, maybe you're trying to explain that the Fish Population in a lake is going down, or that the Pigment Color of a Butterfly is going up.");
+                    tfa1.setNextAction(tfa2);
+                    TextFeedbackAction tfa3=new TextFeedbackAction(this,"If you need help adding things to your model, ask Gabriel the Guide.");
+                    tfa2.setNextAction(tfa3);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+
+                if(this.getModel()!=null) {
+                    EvexNode nodeWithoutProperty=this.getModel().getNodeWithoutProperty();
+                    if(nodeWithoutProperty!=null) {
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"Hmm, it looks like you've added a component without a property.");
+                        tfa1.setId("Z2K");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Remember, a component is the physical part of the system. What about " + nodeWithoutProperty.getName() + " is changing? Or, what is " + nodeWithoutProperty.getName() + " actually a variable of?");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaConfusedFrontBulb);
+                        foundActions.add(tfa1);
+                    }
+                }
+                if(StaticVars.currentEcologyModel.getInvisibleComponents()>0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see that you've added something to your model that isn't visible to the human eye. Well done!");
+                    tfa1.setId("BA5");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Learning to understand the role that invisible things play in ecology is one of the most important parts of life science. You're off to a great start with it!");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaExcitedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentEcologyModel.getInvisibleComponents()==0&&StaticVars.CURRENTDAY>10) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"It's looking to me like most of the things in your model so far are things visible to the human eye. However, invisible things can play huge roles in ecological systems, too!");
+                    tfa1.setId("IGW");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to think about what role tiny organisms like bacteria or invisible chemicals like nitrate might play in the system.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaConcernedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentMiscModel.getGuideCount()>5) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see that you've been interacting with Gabriel a fair amount. I hope her information is useful!");
+                    tfa1.setId("BSW");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Remember, her information changes based on what you do: as your model gets better or as your process gets deeper, the information she offers changes. Check back with her often to see if she has new ideas for you!");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentMiscModel.getCriticCount()>5) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see Craig the Critic has been giving you a lot of feedback. I hope you're finding ways to incorporate his advice!");
+                    tfa1.setId("T14");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"As your model gets better and your understanding of the system gets stronger, he'll offer you deeper and more thorough feedback. With his help, your model will keep getting stronger and stronger over time.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentMiscModel.getGuideCount()<6&&StaticVars.CURRENTDAY>=10) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you haven't been chatting with Gabriel very often. You might not need her help, but remember that the information she offers changes based on what you do. Check back with her regularly to see if she has new or useful information for you.");
+                    tfa1.setId("ETU");
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentMiscModel.getCriticCount()<6&&StaticVars.CURRENTDAY>=10) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like you haven't been chatting with Craig very often. Remember to check with him to get feedback on potential problems with your model or places it could get stronger.");
+                    tfa1.setId("074");
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                //Positive feedback on simulation use
+                //Or: suggesting simulation use
+                //Reacting to emphasis on certain (weak) forms of evidence on later days
+                //Positive feedback on prevalence of strong data
+                //Reacting to change in problem description on a later day
+                //Positive feedback on the first well-evidenced connection
+                //Positive feedback on note-taking
+                //Or: suggestion to take notes
+                //Positive feedback on general number of different kinds of evidence
+                //Reacting to skill milestones
+
+                //Iterate through responses and give the first one that hasn't been given already
+
+                } else {
+                System.out.println("Skipping Mentor check due to threshold");
+            }
+
             Action doAction=null;
             for(Action action : foundActions) {
                 if(!StaticVars.usedActions.contains(action.getId())) {
@@ -180,8 +302,6 @@ public class MentorTutor2 extends InterruptTutor {
             }
 
             //Set timer for how long to wait before giving feedback again
-        } else {
-            System.out.println("Skipping Mentor check due to threshold");
         }
     }
     
