@@ -121,7 +121,7 @@ public class CriticTutor2 extends OnDemandTutor {
             tfa1.setFace(cpaConcernedFront);
             foundActions.add(tfa1);
         }
-        if(foundActions.size()>0) { chooseAndDoAction(foundActions); return; }
+        if(foundActions.size()>1) { chooseAndDoAction(foundActions); return; }
         
         if(this.getModel().getNodes().size()==3) {
             TextFeedbackAction tfa1=new TextFeedbackAction(this,"So far, you have three things in this model. That's a good place to start, but a complex phenomenon probably needs a more thorough explanation.");
@@ -145,7 +145,7 @@ public class CriticTutor2 extends OnDemandTutor {
             foundActions.add(tfa1);
         }
         EvexNode nodeWithoutProperty=this.getModel().getNodeWithoutProperty();
-        if(this.getModel().getNodeWithoutProperty()!=null) {
+        if(nodeWithoutProperty!=null) {
             TextFeedbackAction tfa1=new TextFeedbackAction(this,"One of your nodes -- your " + nodeWithoutProperty.getName() + " node -- doesn't have a variable listed.");
             TextFeedbackAction tfa2=new TextFeedbackAction(this,"A variable is what feature of the physical part of the system is changing. For example, if the temperature of a lake is going up, then the Water is the component and the Temperature is the variable.");
             TextFeedbackAction tfa3=new TextFeedbackAction(this,"If a certain organism or creature is dying off, then the Creature is the component and its Population is the variable.");
@@ -156,7 +156,7 @@ public class CriticTutor2 extends OnDemandTutor {
             tfa1.setFace(cpaInterestedFront);
             foundActions.add(tfa1);
         }
-        if(foundActions.size()>1) { chooseAndDoAction(foundActions); return; }
+        if(foundActions.size()>2) { chooseAndDoAction(foundActions); return; }
         
         EvexNode unconnectedNode=this.getModel().getUnconnectedNode();
         if(unconnectedNode!=null) {

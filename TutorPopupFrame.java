@@ -82,6 +82,7 @@ public class TutorPopupFrame extends javax.swing.JFrame {
         tutorImageLabel = new javax.swing.JLabel();
         tutorContentPanel1 = new emt.tutor.TutorContentPanel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(emt.EMTApp.class).getContext().getResourceMap(TutorPopupFrame.class);
         setTitle(resourceMap.getString("Tutor-Name.title")); // NOI18N
         setAlwaysOnTop(true);

@@ -98,54 +98,59 @@ public class InterviewerTutor extends InterruptTutor implements ActionListener {
     
     @Override
     public void checkMappings() {
-        if(lastFeedbackTime==null||new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
-            System.out.println("Checking Interviewer mappings...");
-            ArrayList<Action> foundActions=new ArrayList<Action>();
-            
-            String lastActionString=StaticVars.mostRecentLog;
-            String[] splitString=lastActionString.split("	");
-            String command=splitString[0];
+        if(StaticVars.PROJECTOPENED) {
+            if(lastFeedbackTime==null||new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
+                System.out.println("Checking Interviewer mappings...");
+                ArrayList<Action> foundActions=new ArrayList<Action>();
 
-            if(command.equals("Model Dismissed")) {
-                FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
-                fpa1.setPrompt("What made you want to dismiss that hypothesis?");
-                //fpa1.setId("fpa1");
-                fpa1.setFace(cpaInterestedFrontBulb);
-                foundActions.add(fpa1);
-            }
-            if(command.equals("Model Reconsidered")) {
-                FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
-                fpa2.setPrompt("What made you reconsider that hypothesis?");
-                fpa2.setFace(cpaHappyFrontBulb);
-                foundActions.add(fpa2);
-            }
-            
-            
+                String lastActionString=StaticVars.mostRecentLog;
+                String[] splitString=lastActionString.split("	");
+                System.out.println("Interviewer's line: " + lastActionString);
+                String command=splitString[0];
 
-            //Iterate through responses and give the first one that hasn't been given already
-            Action doAction=null;
-            for(Action action : foundActions) {
-                if(!StaticVars.usedActions.contains(action.getId())) {
-                    doAction=action;
-                    break;
+                if(command.equals("Model Dismissed")) {
+                    FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
+                    fpa1.setPrompt("What made you want to dismiss that hypothesis?");
+                    //fpa1.setId("fpa1");
+                    fpa1.setFace(cpaInterestedFrontBulb);
+                    foundActions.add(fpa1);
                 }
-            }
-            if(doAction!=null) {
-                MultipleAction finalMA=new MultipleAction(this);
-                finalMA.addAction(doAction);
-                finalMA.addAction(new FocusTutorAction(this));
-                if(doAction.getFace()!=null) {
-                    finalMA.addAction(doAction.getFace());
+                if(command.equals("Model Reconsidered")) {
+                    FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
+                    fpa2.setPrompt("What made you reconsider that hypothesis?");
+                    fpa2.setFace(cpaHappyFrontBulb);
+                    foundActions.add(fpa2);
                 }
-                finalMA.doAction();
-                //setLastFeedbackTime(new Date());
+                //ask about a newly-created model if it's created on a later day
+                //ask about model dismissal specifically on an early day
+                //clarify 'other' evidence
+                //general request for thoughts on later days (delay until later in the lesson?)
+
+                //Iterate through responses and give the first one that hasn't been given already
+                Action doAction=null;
+                for(Action action : foundActions) {
+                    if(!StaticVars.usedActions.contains(action.getId())) {
+                        doAction=action;
+                        break;
+                    }
+                }
+                if(doAction!=null) {
+                    MultipleAction finalMA=new MultipleAction(this);
+                    finalMA.addAction(doAction);
+                    finalMA.addAction(new FocusTutorAction(this));
+                    if(doAction.getFace()!=null) {
+                        finalMA.addAction(doAction.getFace());
+                    }
+                    finalMA.doAction();
+                    //setLastFeedbackTime(new Date());
+                } else {
+                    //this.getNullAction().doAction();
+                }
+
+                //Set timer for how long to wait before giving feedback again
             } else {
-                this.getNullAction().doAction();
+                System.out.println("Skipping Interviewer check due to threshold");
             }
-
-            //Set timer for how long to wait before giving feedback again
-        } else {
-            System.out.println("Skipping Interviewer check due to threshold");
         }
     }
 }
