@@ -98,7 +98,7 @@ public class InterviewerTutor extends InterruptTutor implements ActionListener {
     
     @Override
     public void checkMappings() {
-        if(StaticVars.PROJECTOPENED) {
+        if(StaticVars.PROJECTOPENED&&StaticVars.TUTORSON) {
             if(lastFeedbackTime==null||new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
                 System.out.println("Checking Interviewer mappings...");
                 ArrayList<Action> foundActions=new ArrayList<Action>();
