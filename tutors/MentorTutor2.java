@@ -110,7 +110,7 @@ public class MentorTutor2 extends InterruptTutor {
     
     @Override
     public void checkMappings() {
-        if(StaticVars.PROJECTOPENED) {
+        if(StaticVars.PROJECTOPENED&&StaticVars.TUTORSON) {
             //Construct prioritized list of possible responses
             System.out.println("Checking Mentor2 mappings...");
             ArrayList<Action> foundActions=new ArrayList<Action>();
@@ -264,6 +264,7 @@ public class MentorTutor2 extends InterruptTutor {
                     tfa1.setFace(cpaHappyFrontBulb);
                     foundActions.add(tfa1);
                 }
+                //On insert into connection with evidence? mention how it treats evidence
                 //Positive feedback on simulation use
                 //Or: suggesting simulation use
                 //Reacting to emphasis on certain (weak) forms of evidence on later days
