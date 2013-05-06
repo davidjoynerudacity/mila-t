@@ -17,7 +17,7 @@ import java.util.Date;
  * @author David
  */
 public class InterviewerTutor extends InterruptTutor implements ActionListener {
-    private long threshold=15000;
+    private long threshold=30000;
     
     ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
     ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
