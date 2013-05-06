@@ -205,7 +205,7 @@ public class CriticTutor2 extends OnDemandTutor {
             tfa1.setFace(cpaInterestedFront);
             foundActions.add(tfa1);
         }
-        if(this.getModel().getEdges().size()-this.getModel().getEvidencedEdgeCount()>1) {
+        if(this.getModel().getEdges().size()-this.getModel().getEvidencedEdgeCount()>2) {
             TextFeedbackAction tfa1=new TextFeedbackAction(this,"It looks like your model still has a few connections that don't have any evidence to support them.");
             TextFeedbackAction tfa2=new TextFeedbackAction(this,"You can always add evidence later, but you probably want to make sure your model is worth pursuing by supporting some of your connections with evidence before you go further.");
             tfa1.setNextAction(tfa2);
@@ -253,7 +253,7 @@ public class CriticTutor2 extends OnDemandTutor {
         }
         if(foundActions.size()>1) { chooseAndDoAction(foundActions); return; }
         
-        ArrayList<EvexEdge> weakEvidenceEdges=this.getModel().getEdgesByScore(3);
+        ArrayList<EvexEdge> weakEvidenceEdges=this.getModel().getEdgesByMaxScore(3);
         for(EvexEdge weakEdge : weakEvidenceEdges) {
             TextFeedbackAction tfa1=new TextFeedbackAction(this);
             TextFeedbackAction tfa2=new TextFeedbackAction(this);
@@ -279,7 +279,7 @@ public class CriticTutor2 extends OnDemandTutor {
         }
         if(foundActions.size()>2) { chooseAndDoAction(foundActions); return; }
         
-        ArrayList<EvexEdge> weakEvidenceEdges2=this.getModel().getEdgesByScore(5);
+        ArrayList<EvexEdge> weakEvidenceEdges2=this.getModel().getEdgesByMaxScore(5);
         for(EvexEdge weakEdge : weakEvidenceEdges2) {
             TextFeedbackAction tfa1=new TextFeedbackAction(this);
             TextFeedbackAction tfa2=new TextFeedbackAction(this);
