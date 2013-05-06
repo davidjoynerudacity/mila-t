@@ -19,7 +19,7 @@ import javax.swing.Timer;
  * @author David
  */
 public class MentorTutor2 extends InterruptTutor {
-    private long threshold=15000;
+    private long threshold=120000;
     
     ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
     ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
