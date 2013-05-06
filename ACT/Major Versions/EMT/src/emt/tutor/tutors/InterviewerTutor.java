@@ -108,11 +108,18 @@ public class InterviewerTutor extends InterruptTutor implements ActionListener {
                 System.out.println("Interviewer's line: " + lastActionString);
                 String command=splitString[0];
 
-                if(command.equals("Model Dismissed")) {
+                if(command.equals("Model Dismissed")&&StaticVars.CURRENTDAY>=10) {
                     FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
                     fpa1.setPrompt("What made you want to dismiss that hypothesis?");
                     //fpa1.setId("fpa1");
                     fpa1.setFace(cpaInterestedFrontBulb);
+                    foundActions.add(fpa1);
+                }
+                if(command.equals("Model Dismissed")&&StaticVars.CURRENTDAY<10) {
+                    FeedbackPromptAction fpa1=new FeedbackPromptAction(this);
+                    fpa1.setPrompt("What made you want to dismiss that hypothesis so early in your research?");
+                    //fpa1.setId("fpa1");
+                    fpa1.setFace(cpaConcernedFrontBulb);
                     foundActions.add(fpa1);
                 }
                 if(command.equals("Model Reconsidered")) {
@@ -121,15 +128,40 @@ public class InterviewerTutor extends InterruptTutor implements ActionListener {
                     fpa2.setFace(cpaHappyFrontBulb);
                     foundActions.add(fpa2);
                 }
-                //ask about a newly-created model if it's created on a later day
-                //ask about model dismissal specifically on an early day
-                //clarify 'other' evidence
+                if(command.contains("New Model Added")&&StaticVars.CURRENTDAY>=13) {
+                    FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
+                    fpa2.setPrompt("What made you propose a new hypothesis after a week of investigation?");
+                    fpa2.setFace(cpaInterestedFrontBulb);
+                    foundActions.add(fpa2);
+                }
+                if(command.contains("Problem Definition Changed")&&StaticVars.CURRENTDAY>=13) {
+                    FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
+                    fpa2.setPrompt("What made you want to change your phenomenon description after a week of investigation?");
+                    fpa2.setFace(cpaInterestedFrontBulb);
+                    foundActions.add(fpa2);
+                }
+                ArrayList<String> typesOfEvidenceUsed=this.getModel().getTypesOfEvidenceUsed();
+                if(typesOfEvidenceUsed.contains("Other")) {
+                    FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
+                    fpa2.setPrompt("What kind of feedback is the 'Other' evidence you provided?");
+                    fpa2.setFace(cpaConfusedFrontBulb);
+                    fpa2.setId("otherE");
+                    foundActions.add(fpa2);
+                }
+                if(typesOfEvidenceUsed.contains("Controlled Experiment")) {
+                    FeedbackPromptAction fpa2=new FeedbackPromptAction(this);
+                    fpa2.setPrompt("How did you do a Controlled Experiment with an ecological system?");
+                    fpa2.setFace(cpaAmazedFrontBulb);
+                    fpa2.setId("controledE");
+                    foundActions.add(fpa2);
+                }
+                
                 //general request for thoughts on later days (delay until later in the lesson?)
 
                 //Iterate through responses and give the first one that hasn't been given already
                 Action doAction=null;
                 for(Action action : foundActions) {
-                    if(!StaticVars.usedActions.contains(action.getId())) {
+                    if(action.getId().length()==0||!StaticVars.usedActions.contains(action.getId())) {
                         doAction=action;
                         break;
                     }
