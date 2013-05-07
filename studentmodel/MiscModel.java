@@ -17,6 +17,7 @@ public class MiscModel    {
     private int interviewerCount;
     private int simulationCount;
     private int noteCount;
+    private boolean hasInserted;
 
     public MiscModel() {
           guideCount=0;
@@ -49,6 +50,14 @@ public class MiscModel    {
 
     public int getSimulationCount() {
         return simulationCount;
+    }
+
+    public boolean getHasInserted() {
+        return hasInserted;
+    }
+
+    public void setHasInserted(boolean hasInserted) {
+        this.hasInserted = hasInserted;
     }
 
     public void setCriticCount(int criticCount) {

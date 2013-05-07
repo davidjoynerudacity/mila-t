@@ -159,6 +159,11 @@ public class Tutor {
     public void showTutor() {
         myFrame.setTFARead();
         myFrame.setVisible(true);
+        if(myName.equals("Guide")) {
+            StaticVars.currentMiscModel.incrementGuideCount(1);
+        } else if(myName.equals("Critic")) {
+            StaticVars.currentMiscModel.incrementCriticCount(1);
+        }
     }
     public void hideTutor() {
         myFrame.setVisible(false);

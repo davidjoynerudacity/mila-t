@@ -44,10 +44,10 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
     
     private void saveFeedback() {
         try {
-            new File("Feedback Answers").mkdir();
+            new File(StaticVars.PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "Feedback Answers").mkdir();
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-            PrintWriter save = new PrintWriter("Feedback Answers" + File.separator + "feedback-"+sdf.format(cal.getTime())+".txt");
+            PrintWriter save = new PrintWriter(StaticVars.PROJECTROOTPATH + File.separator + "StudentModels" + File.separator + "Feedback Answers" + File.separator + "feedback-"+sdf.format(cal.getTime())+".txt");
             save.println(QuestionLabel.getText());
             save.println(FeedbackTextArea.getText());
             save.close();
