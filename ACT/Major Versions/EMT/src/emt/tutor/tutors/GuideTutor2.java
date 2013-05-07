@@ -165,6 +165,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 tfaBacteria2.setNextAction(tfaBacteria3);
                 tfaBacteria3.setNextAction(tfaBacteria4);
                 QIBacteria.setAction(tfaBacteria1);
+                tfaBacteria1.setFace(cpaInterestedFront);
                 qta.add(QIBacteria);
             }
             
@@ -181,6 +182,23 @@ public class GuideTutor2 extends OnDemandTutor {
                 tfa2.setNextAction(tfa3);
                 tfa3.setNextAction(tfa4);
                 tfa4.setNextAction(tfa5);
+                tfa1.setFace(cpaInterestedFront);
+                q5.setAction(tfa1);
+                qta.add(q5);
+            }
+            PresentNodePercept pnp2=new PresentNodePercept(this,"Fish");
+            if(pnp2.isTrue()) {
+                QuestionItem q5=new QuestionItem("What could cause a lot of fish to die suddenly?");
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"The sudden death of lots of fish -- called a \"fish kill\" -- is actually a pretty common natural phenomenon with lots of possible causes.");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Sometimes, these events happen because a disease moves quickly through the entire system. Other times, the system becomes so overcrowded with fish that many start to suffocate or starve.");
+                TextFeedbackAction tfa3=new TextFeedbackAction(this,"Sometimes, sudden significant pollution can cause lots of fish to die at once, especially if the pollutant limits the fish's ability to reproduce or breathe.");
+                TextFeedbackAction tfa4=new TextFeedbackAction(this,"There are also events that suck the oxygen out of the water all at once, causing lots of fish and other organisms to suffocate.");
+                TextFeedbackAction tfa5=new TextFeedbackAction(this,"Any or all of these things could contribute to a fish kill. It's always possible that more than one cause interacted to cause a the fish kill in a particular system.");
+                tfa1.setFace(cpaInterestedFront);
+                tfa1.setNextAction(tfa2);
+                tfa2.setNextAction(tfa3);
+                tfa3.setNextAction(tfa4);
+                tfa4.setNextAction(tfa5);
                 q5.setAction(tfa1);
                 qta.add(q5);
             }
@@ -192,6 +210,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 TextFeedbackAction tfaPhenomenon2=new TextFeedbackAction(this,"Ask yourself what you are trying to explain, then try to write down how you would describe that to another person.");
                 TextFeedbackAction tfaPhenomenon3=new TextFeedbackAction(this,"Your phenomenon will be the final piece of every scientific model you make, so you can try to think of where your models will lead.");
                 tfaPhenomenon1.setNextAction(tfaPhenomenon2);
+                tfaPhenomenon1.setFace(cpaHappyFront);
                 tfaPhenomenon2.setNextAction(tfaPhenomenon3);
                 QIphenomenon.setAction(tfaPhenomenon1);
                 qta.add(QIphenomenon);
@@ -237,9 +256,10 @@ public class GuideTutor2 extends OnDemandTutor {
                 qta.add(modelParallelCauses);
             }
             if(StaticVars.currentInquiryModel.getBasicLevel()>2) {
-                QuestionItem evidenceQs=new QuestionItem("What are the various forms of evidence?");
+                QuestionItem evidenceQs=new QuestionItem("What are the different forms of evidence?");
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"There are lots of types of evidence, including many that are not mentioned here in MILA. What type of evidence do you want to read about?");
                 evidenceQs.setAction(tfa1);
+                tfa1.setFace(cpaInterestedFront);
                 QuestionItem e1=new QuestionItem("What is a Direct Observation?");
                 TextFeedbackAction e1tfa1=new TextFeedbackAction(this,"A direct observation is something you actually saw in the system. Chances are, the phenomenon you're trying to explain is something you observed: after all, that's why you're explaining it!");
                 TextFeedbackAction e1tfa2=new TextFeedbackAction(this,"Direct observations are not the best source of evidence because they cannot be repeated or tested. However, they are useful in getting a starting point when you're exploring the system.");
@@ -303,6 +323,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 QuestionItem seeMore3=new QuestionItem("See more kinds of evidence...");
                 
                 QuestionListAction eQs1=new QuestionListAction(this);
+                eQs1.setFace(cpaHappyFront);
                 QuestionListAction eQs2=new QuestionListAction(this);
                 QuestionListAction eQs3=new QuestionListAction(this);
                 
@@ -330,6 +351,7 @@ public class GuideTutor2 extends OnDemandTutor {
             if(StaticVars.currentModelingModel.getBasicLevel()<15) {
                 QuestionItem q1=new QuestionItem("How do I create MILA models?");
                 QuestionListAction milaQs=new QuestionListAction(this);
+                milaQs.setFace(cpaHappyFront);
                 q1.setAction(milaQs);
                 QuestionItem milaQ1=new QuestionItem("How and when do I create new models?");
                     TextFeedbackAction milaQ1tfa1=new TextFeedbackAction(this,"When you first start a new project in MILA, you first describe the phenomenon you're explaining in the box in the top left. For example, 'fish are dying' or 'fish are growing out of control' would be two phenomena to explain. In MILA, you're always trying to explain phenomena.");
@@ -401,6 +423,7 @@ public class GuideTutor2 extends OnDemandTutor {
 
                 QuestionItem q2=new QuestionItem("How do I take notes?");
                 QuestionListAction notesQs=new QuestionListAction(this);
+                notesQs.setFace(cpaHappyFront);
                 q2.setAction(notesQs);
                 QuestionItem noteQ1=new QuestionItem("How do I open up the notepad?", new TextFeedbackAction(this,"To open up the Notepad, just click the Take Notes button on the left."));
                 QuestionItem noteQ2=new QuestionItem("How do I create new notes?", new TextFeedbackAction(this,"With the Notepad open, click Add Note to create a new note. You'll be asked to name your note. Give it a name, then click OK."));
@@ -413,6 +436,7 @@ public class GuideTutor2 extends OnDemandTutor {
 
                 QuestionItem q3=new QuestionItem("How do I use the tutors?");
                 QuestionListAction tutorsQs=new QuestionListAction(this);
+                tutorsQs.setFace(cpaHappyFront);
                 q3.setAction(tutorsQs);
                 QuestionItem tutorQ1=new QuestionItem("How should I use Gabriel the Guide?", new TextFeedbackAction(this,"I'm here to try to answer any of your questions. Whenever you need help or want to ask something about MILA or the lesson for the day, just click me and I'll do my best to help! I'll never interrupt you, so make sure to click me if you need me."));
                 QuestionItem tutorQ2=new QuestionItem("How should I use Craig the Critic?", new TextFeedbackAction(this,"Craig is here to look at your models and see if they show what you're trying to learn for the day. When you think your model is in good shape or you don't know what else to do with it, click him to see if he has any suggestions."));
@@ -427,6 +451,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 qta.add(q3);
             }
             QuestionItem milaQ4=new QuestionItem("What makes a good model?",new TextFeedbackAction(this,"We'll talk a lot about what makes a good model over the next several days. Generally, though, a good model is one that provides a good, thorough explanation of a phenomenon using the evidence you have gathered to support it."));
+            milaQ4.getAction().setFace(cpaExcitedFront);
             QuestionItem q4=new QuestionItem("What makes a good scientific model?",milaQ4.getAction());
             qta.add(q4);
             

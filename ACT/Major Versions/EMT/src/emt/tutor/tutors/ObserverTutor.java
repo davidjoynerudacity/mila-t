@@ -102,6 +102,9 @@ public class ObserverTutor extends InterruptTutor {
             }
         } else if(command.equals("Component Removed")||command.equals("Inserted New Component")) {
             StaticVars.currentModelingModel.incrementInsertingAndDeleting(1);
+            if(command.equals("Inserted New Component")) {
+                StaticVars.currentMiscModel.setHasInserted(true);
+            }
         } else if(command.equals("New Model Added")) {
             StaticVars.currentInquiryModel.incrementHypothesisGeneration(1);
         } else if(command.equals("Model Dismissed")||command.equals("Model Reconsidered")) {

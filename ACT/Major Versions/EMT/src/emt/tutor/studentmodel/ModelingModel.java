@@ -11,7 +11,7 @@ import emt.tutor.StaticVars;
  * @author David
  */
 public class ModelingModel   {
-    private int cap=5;
+    private int cap=15;
     
     //BASIC CONSTRUCTS
     private int addComponents;

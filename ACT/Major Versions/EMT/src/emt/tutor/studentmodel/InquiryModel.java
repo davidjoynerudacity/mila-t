@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author David
  */
 public class InquiryModel  {
-    private int cap=5;
+    private int cap=15;
     
     //BASIC CONSTRUCTS
     private int hypothesisGeneration;

@@ -62,8 +62,13 @@ public class StaticVars {
             out.newLine();
             out.close();
             fstream.close();
-            StaticHooks.alertTutor("Interviewer");
-            StaticHooks.alertTutor("Observer");
+            if(!eventType.contains("Tutor")) {
+                StaticHooks.alertTutor("Interviewer");
+                StaticHooks.alertTutor("Observer");
+                if(!currentMiscModel.getHasInserted()) {
+                    StaticHooks.alertTutor("Mentor");
+                }
+            }
         } catch(Exception ex) {}
     }
     

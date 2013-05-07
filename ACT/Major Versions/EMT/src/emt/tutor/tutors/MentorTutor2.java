@@ -20,7 +20,7 @@ import javax.swing.Timer;
  * @author David
  */
 public class MentorTutor2 extends InterruptTutor {
-    private long threshold=120000;
+    private long threshold=90000;
     
     ChangePictureAction cpaAmazedFront=new ChangePictureAction(this,"amazed-front");
     ChangePictureAction cpaAmazedSide=new ChangePictureAction(this,"amazed-side");
@@ -192,7 +192,7 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(command.equals("New Model Added")) {
+            if(this.getModelCount('a')>0&&this.getPhenomenon().length()>0) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Nicely done! You've added your first hypothesis.");
                 tfa1.setId("step2");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, you probably want to add a node for what you're trying to explain. Click Add Component, then click on the canvas to add a new node.");
@@ -200,7 +200,7 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(command.equals("Component Added")) {
+            if(this.getModel()!=null&&this.getModel().getNodes().size()>0) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good! You've added your first node. The first node should describe what you're trying to explain.");
                 tfa1.setId("step3");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, you probably want to add a node for what you think caused this to occur. Add another node to the model to show what you think caused this phenomenon.");
@@ -208,7 +208,7 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(command.equals("Component Added")) {
+            if(this.getModel()!=null&&this.getModel().getNodes().size()>1) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Well done! You should now have two nodes in your model.");
                 tfa1.setId("step4");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, you want to connect these two. Draw a connection from the cause to the phenomenon by clicking and dragging from the border of the cause.");
@@ -216,7 +216,7 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(command.equals("New Connection")) {
+            if(this.getModel()!=null&&this.getModel().getEdges().size()>0) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good! You've now drawn a connection between your phenomenon and your hypothesized cause.");
                 tfa1.setId("step5");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now what we want to do is explain more about how that cause caused the phenomenon. Click Insert Component, then click on this connection to add a new node between the cause and the phenomenon.");
@@ -224,13 +224,14 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(command.equals("Inserted New Component")) {
+            if(StaticVars.currentMiscModel.getHasInserted()) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Well done! You've successfully constructed a simple model for this hypothesis. Notice that when you insert a new node into a connection, any evidence you gave for that connection gets copied to both new connections.");
                 tfa1.setId("step6");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, do this for other hypotheses as well. Focus also on making these models bigger, more detailed, and supporting them with evidence by clicking on the connections. Good luck! I'll let you know if I have anything else to say.");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, do this for two other hypotheses as well. Then, try to make these models bigger, more detailed, and supported by with evidence by clicking on the connections. Good luck! I'll let you know if I have anything else to say.");
                 tfa1.setNextAction(tfa2);
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
+                myTimer.setDelay(10000);
             }
             
             if(new Date().getTime()-lastFeedbackTime.getTime()>threshold) {
@@ -270,6 +271,12 @@ public class MentorTutor2 extends InterruptTutor {
                     tfa1.setId("BA5");
                     TextFeedbackAction tfa2=new TextFeedbackAction(this,"Learning to understand the role that invisible things play in ecology is one of the most important parts of life science. You're off to a great start with it!");
                     tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaExcitedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentEcologyModel.getInvisibleComponents()>3) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"You're really doing a great job of bringing invisible pieces into your model. That's crucial to understanding any ecological system. Nicely done!");
+                    tfa1.setId("BA5");
                     tfa1.setFace(cpaExcitedFrontBulb);
                     foundActions.add(tfa1);
                 }
@@ -345,7 +352,8 @@ public class MentorTutor2 extends InterruptTutor {
                     tfa1.setNextAction(tfa2);
                     tfa1.setFace(cpaHappyFrontBulb);
                     foundActions.add(tfa1);
-                } else if(typesOfEvidenceUsed.contains("Similar System Observation")){
+                }
+                if(typesOfEvidenceUsed.contains("Similar System Observation")){
                     TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Similar System Observation as evidence to your model.");
                     tfa1.setId("003");
                     TextFeedbackAction tfa2=new TextFeedbackAction(this,"Observations from similar systems are great pieces of evidence as long as you can be sure that your system is similar. Can you be sure about that?");
@@ -359,28 +367,32 @@ public class MentorTutor2 extends InterruptTutor {
 //                    tfa1.setNextAction(tfa2);
 //                    tfa1.setFace(cpaHappyFrontBulb);
 //                    foundActions.add(tfa1);
-                } else if(typesOfEvidenceUsed.contains("Expert Information")){
+                }
+                if(typesOfEvidenceUsed.contains("Expert Information")){
                     TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added some Expert Information as evidence to your model.");
                     tfa1.setId("005");
                     TextFeedbackAction tfa2=new TextFeedbackAction(this,"Expert Information is a great source of information. Your goal is to be an expert, too -- how can you move from repeating experts to being an expert?");
                     tfa1.setNextAction(tfa2);
                     tfa1.setFace(cpaExcitedFrontBulb);
                     foundActions.add(tfa1);                    
-                } else if(typesOfEvidenceUsed.contains("Simulation Observation")){
+                }
+                if(typesOfEvidenceUsed.contains("Simulation Observation")){
                     TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Simulation Observation as evidence to your model.");
                     tfa1.setId("006");
                     TextFeedbackAction tfa2=new TextFeedbackAction(this,"Simulations are really good pieces of evidence, but you have to assume they're accurate versions of the system. Can you be sure about that?");
                     tfa1.setNextAction(tfa2);
                     tfa1.setFace(cpaHappyFrontBulb);
                     foundActions.add(tfa1);                    
-                } else if(typesOfEvidenceUsed.contains("Non-Expert Information")){
+                } 
+                if(typesOfEvidenceUsed.contains("Non-Expert Information")){
                     TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added some Non-Expert Information as evidence to your model.");
                     tfa1.setId("007");
                     TextFeedbackAction tfa2=new TextFeedbackAction(this,"Evidence from non-expert is a good place to start because it lets you know what to investigate. Now, how can you find some even stronger evidence for your model?");
                     tfa1.setNextAction(tfa2);
                     tfa1.setFace(cpaConcernedFrontBulb);
                     foundActions.add(tfa1);
-                } else if(typesOfEvidenceUsed.contains("Logical Explanation")){
+                } 
+                if(typesOfEvidenceUsed.contains("Logical Explanation")){
                     TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Logical Explanation as evidence to your model.");
                     tfa1.setId("008");
                     TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's good to start with a logical explanation of your system, but what you think is logical might not be logical to something else. How can you convince someone that your explanation is true?");
@@ -416,11 +428,34 @@ public class MentorTutor2 extends InterruptTutor {
                 if(StaticVars.currentInquiryModel.getEvidenceBreadth().size()>5) {
                     TextFeedbackAction tfa1=new TextFeedbackAction(this,"Wow! You've used almost every kind of evidence we have. You're doing a great job of using a lot of different sources to defend your models.");
                     tfa1.setId("012");
-                    tfa1.setFace(cpaHappyFrontBulb);
+                    tfa1.setFace(cpaExcitedFrontBulb);
                     foundActions.add(tfa1);
                 }
-                //Positive feedback on general number of different kinds of evidence
-                //Reacting to skill milestones
+                if(StaticVars.currentInquiryModel.getEvidenceStrength()>4) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Nicely done! I can tell you're using some very strong evidence to defend your model. Keep up the good work!");
+                    tfa1.setId("OZC");
+                    tfa1.setFace(cpaExcitedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentInquiryModel.getAdvancedLevel()>8&&StaticVars.CURRENTDAY>=13) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"You've come a long way since we started! You're showing some real ability with scientific inquiry. You ought to think about a career as a scientist!");
+                    tfa1.setId("OZC");
+                    tfa1.setFace(cpaAmazedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentModelingModel.getIntermediateLevel()>8&&StaticVars.CURRENTDAY>=13) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"You're getting to be a really strong modeler -- your models are large and complex, which means they have a lot more potential to describe complicated systems. Nicely done!");
+                    tfa1.setId("Q3Z");
+                    tfa1.setFace(cpaAmazedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentModelingModel.getAdvancedLevel()>8&&StaticVars.currentModelingModel.getIntermediateLevel()>8&&StaticVars.CURRENTDAY>=13) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"You're doing an excellent job of modeling this system! Your skills have really come along. Scientific modeling like this is exactly what scientists do every day. You've shown that you have what it takes!");
+                    tfa1.setId("Q3Z");
+                    tfa1.setFace(cpaAmazedFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                
 
                 //Iterate through responses and give the first one that hasn't been given already
 
