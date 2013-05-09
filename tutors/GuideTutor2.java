@@ -225,6 +225,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 tfaFlow2.setNextAction(tfaFlow3);
                 tfaFlow3.setNextAction(tfaFlow4);
                 tfaFlow1.setFace(this.cpaInterestedFront);
+                modelFlow.setAction(tfaFlow1);
                 qta.add(modelFlow);
                 
                 QuestionItem modelParallelCauses=new QuestionItem("What does it mean for something to have parallel effects?");
@@ -236,6 +237,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 tfaParallel3.setNextAction(tfaParallel2);
                 tfaParallel4.setNextAction(tfaParallel3);
                 tfaParallel1.setFace(this.cpaAmazedFront);
+                modelParallelCauses.setAction(tfaParallel1);
                 qta.add(modelParallelCauses);
             }
             if(StaticVars.currentModelingModel.getBasicLevel()>10) {
@@ -244,6 +246,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 TextFeedbackAction tfaSize2=new TextFeedbackAction(this,"The important thing is that your model is convincing and informative. Try reading your model and imagining what someone else might ask you. That should tell you where to go look for more information. ");
                 tfaSize1.setNextAction(tfaSize2);
                 tfaSize1.setFace(cpaHappyFront);
+                modelSize.setAction(tfaSize1);
                 qta.add(modelSize);
                 
                 QuestionItem modelParallelCauses=new QuestionItem("What does it mean for something to have parallel causes?");
@@ -253,6 +256,7 @@ public class GuideTutor2 extends OnDemandTutor {
                 tfaParallel2.setNextAction(tfaParallel1);
                 tfaParallel3.setNextAction(tfaParallel2);
                 tfaParallel1.setFace(this.cpaInterestedFront);
+                modelParallelCauses.setAction(tfaParallel1);
                 qta.add(modelParallelCauses);
             }
             if(StaticVars.currentInquiryModel.getBasicLevel()>2) {
