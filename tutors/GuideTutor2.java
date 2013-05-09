@@ -348,6 +348,38 @@ public class GuideTutor2 extends OnDemandTutor {
                 tfa1.setNextAction(eQs1);
                 qta.add(evidenceQs);
             }
+            QuestionItem theoryQI=new QuestionItem("What is the difference between a hypothesis and a theory?");
+            TextFeedbackAction tfaTheory1=new TextFeedbackAction(this,"A hypothesis is a potential, possible answer to a question. In MILA, hypotheses usually answer the question, 'What caused this phenomenon?'");
+            TextFeedbackAction tfaTheory2=new TextFeedbackAction(this,"A theory, on the other hand, is a believable, plausible generalization that the scientific community accepts.");
+            TextFeedbackAction tfaTheory3=new TextFeedbackAction(this,"Theories start as hypotheses, and become theories over time with more evidence. Once the hypothesis has been thoroughly tested and held up to scrutiny, it can become a theory.");
+            TextFeedbackAction tfaTheory4=new TextFeedbackAction(this,"Just because it's called a 'theory' doesn't mean it doesn't have evidence supporting it! 'Theories' are the strongest conclusions science can make.");
+            tfaTheory1.setNextAction(tfaTheory2);
+            tfaTheory2.setNextAction(tfaTheory3);
+            tfaTheory3.setNextAction(tfaTheory4);
+            tfaTheory1.setFace(cpaHappyFront);
+            theoryQI.setAction(tfaTheory1);
+            qta.add(theoryQI);
+            
+            QuestionItem modelQI=new QuestionItem("How do scientists use models?");
+            TextFeedbackAction tfaModel1=new TextFeedbackAction(this,"Scientists use models in lots of ways. Sometimes, they use models to help them figure out what they know and what they don't know.");
+            TextFeedbackAction tfaModel2=new TextFeedbackAction(this,"Sometimes, they use models to be able to tell other scientists something about their understanding. Other times, they use models to mentally simulate what might happen in different situations.");
+            TextFeedbackAction tfaModel3=new TextFeedbackAction(this,"Can you think of any other reasons a model of a system might be useful?");
+            tfaModel1.setNextAction(tfaModel2);
+            tfaModel2.setNextAction(tfaModel3);
+            tfaModel1.setFace(cpaInterestedFront);
+            modelQI.setAction(tfaModel1);
+            qta.add(modelQI);
+            
+            QuestionItem argueQI=new QuestionItem("Should scientists argue?");
+            TextFeedbackAction tfaArgue1=new TextFeedbackAction(this,"Absolutely! Arguing might seem bad, but it's the only way that scientists can figure out which theories are good and which are not!");
+            TextFeedbackAction tfaArgue2=new TextFeedbackAction(this,"As a scientist, it is important to know how to argue for your theories or models. It is also important to know how to take feedback and criticism and strengthen your theories.");
+            TextFeedbackAction tfaArgue3=new TextFeedbackAction(this,"Perhaps most importantly, it is critical to know that it's okay to be wrong! Proposing and dismissing hypotheses is the only way science makes progress! Never be afraid to be wrong, or to admit you're wrong!");
+            tfaArgue1.setNextAction(tfaArgue2);
+            tfaArgue2.setNextAction(tfaArgue3);
+            tfaArgue1.setFace(cpaExcitedFront);
+            argueQI.setAction(tfaArgue1);
+            qta.add(argueQI);
+            
             QuestionItem milaQ4=new QuestionItem("What makes a good model?",new TextFeedbackAction(this,"We'll talk a lot about what makes a good model over the next several days. Generally, though, a good model is one that provides a good, thorough explanation of a phenomenon using the evidence you have gathered to support it."));
             milaQ4.getAction().setFace(cpaExcitedFront);
             QuestionItem q4=new QuestionItem("What makes a good scientific model?",milaQ4.getAction());

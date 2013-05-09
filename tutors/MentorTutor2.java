@@ -204,7 +204,7 @@ public class MentorTutor2 extends InterruptTutor {
                     myTimer.setDelay(10000);
                 }
             }
-            if(StaticVars.CURRENTDAY==9) {
+            if(StaticVars.CURRENTDAY==10) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
                 tfa1.setId("GNB");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to have at least four or five things in each of your hypotheses by the end of the day. Feel free to add new hypotheses if any come to mind, or to dismiss ones that don't seem to be working.");
@@ -213,8 +213,8 @@ public class MentorTutor2 extends InterruptTutor {
                 foundActions.add(tfa1);
             }
 
-            if(StaticVars.CURRENTDAY==10) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving really solid evidence for your hypotheses. Try to add evidence to as many of your connections as possible.");
+            if(StaticVars.CURRENTDAY==9) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving really solid evidence for your hypotheses. Remember, the biggest requirement of a good model is for it to be supported by lots of evidence.");
                 tfa1.setId("B2T");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Check with Gabriel the Guide if you need some tips on what the different kinds of evidence are. Remember to check with Craig the Critic if you want feedback on how good your evidence is and where your models could be improved.");
                 tfa1.setNextAction(tfa2);
