@@ -153,6 +153,57 @@ public class MentorTutor2 extends InterruptTutor {
                 ma1.setId("tfa1");
                 foundActions.add(ma1);
             }
+            if(StaticVars.CURRENTDAY==7) {
+                if(this.getPhenomenon().length()>0&&this.getModelCount('a')==0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good job! It looks like you've written up a description of your phenomenon. Describing what you're trying to explain is the first step in science.");
+                    tfa1.setId("GD5");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, try to think of some hypotheses for what might have caused your phenomenon to occur. To add a hypothesis, click Propose New Hypothesis.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(this.getModelCount('a')>0&&this.getPhenomenon().length()>0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Nicely done! You've added your first hypothesis.");
+                    tfa1.setId("step2");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, you probably want to add a node for what you're trying to explain. Click Add Component, then click on the canvas to add a new node.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(this.getModel()!=null&&this.getModel().getNodes().size()>0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good! You've added your first node. The first node should describe what you're trying to explain.");
+                    tfa1.setId("step3");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, you probably want to add a node for what you think caused this to occur. Add another node to the model to show what you think caused this phenomenon.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(this.getModel()!=null&&this.getModel().getNodes().size()>1) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Well done! You should now have two nodes in your model.");
+                    tfa1.setId("step4");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, you want to connect these two. Draw a connection from the cause to the phenomenon by clicking and dragging from the border of the cause.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(this.getModel()!=null&&this.getModel().getEdges().size()>0) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good! You've now drawn a connection between your phenomenon and your hypothesized cause.");
+                    tfa1.setId("step5");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now what we want to do is explain more about how that cause caused the phenomenon. Click Insert Component, then click on this connection to add a new node between the cause and the phenomenon.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                }
+                if(StaticVars.currentMiscModel.getHasInserted()) {
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"Well done! You've successfully constructed a simple model for this hypothesis. Notice that when you insert a new node into a connection, any evidence you gave for that connection gets copied to both new connections.");
+                    tfa1.setId("step6");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, do this for two other hypotheses as well. Then, try to make these models bigger, more detailed, and supported by with evidence by clicking on the connections. Good luck! I'll let you know if I have anything else to say.");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setFace(cpaHappyFrontBulb);
+                    foundActions.add(tfa1);
+                    myTimer.setDelay(10000);
+                }
+            }
             if(StaticVars.CURRENTDAY==9) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
                 tfa1.setId("GNB");
@@ -183,55 +234,6 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setNextAction(tfa2);
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
-            }
-            if(this.getPhenomenon().length()>0&&this.getModelCount('a')==0) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good job! It looks like you've written up a description of your phenomenon. Describing what you're trying to explain is the first step in science.");
-                tfa1.setId("GD5");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, try to think of some hypotheses for what might have caused your phenomenon to occur. To add a hypothesis, click Propose New Hypothesis.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-            if(this.getModelCount('a')>0&&this.getPhenomenon().length()>0) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Nicely done! You've added your first hypothesis.");
-                tfa1.setId("step2");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, you probably want to add a node for what you're trying to explain. Click Add Component, then click on the canvas to add a new node.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-            if(this.getModel()!=null&&this.getModel().getNodes().size()>0) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good! You've added your first node. The first node should describe what you're trying to explain.");
-                tfa1.setId("step3");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Next, you probably want to add a node for what you think caused this to occur. Add another node to the model to show what you think caused this phenomenon.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-            if(this.getModel()!=null&&this.getModel().getNodes().size()>1) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Well done! You should now have two nodes in your model.");
-                tfa1.setId("step4");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, you want to connect these two. Draw a connection from the cause to the phenomenon by clicking and dragging from the border of the cause.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-            if(this.getModel()!=null&&this.getModel().getEdges().size()>0) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Good! You've now drawn a connection between your phenomenon and your hypothesized cause.");
-                tfa1.setId("step5");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now what we want to do is explain more about how that cause caused the phenomenon. Click Insert Component, then click on this connection to add a new node between the cause and the phenomenon.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-            if(StaticVars.currentMiscModel.getHasInserted()) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Well done! You've successfully constructed a simple model for this hypothesis. Notice that when you insert a new node into a connection, any evidence you gave for that connection gets copied to both new connections.");
-                tfa1.setId("step6");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Now, do this for two other hypotheses as well. Then, try to make these models bigger, more detailed, and supported by with evidence by clicking on the connections. Good luck! I'll let you know if I have anything else to say.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-                myTimer.setDelay(10000);
             }
             
             if(new Date().getTime()-lastFeedbackTime.getTime()>threshold) {

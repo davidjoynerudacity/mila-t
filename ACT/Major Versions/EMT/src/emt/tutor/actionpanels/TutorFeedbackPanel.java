@@ -122,6 +122,9 @@ public class TutorFeedbackPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         saveFeedback();
+        if(myFPA.getId().length()>0) {
+            StaticVars.usedActions.add(myFPA.getId());
+        }
         new MultipleAction(myFPA.getTutor(),new Action[]{new ChangePictureAction(myFPA.getTutor(),"happy-front"),new TextFeedbackAction(myFPA.getTutor(),"Thanks for your response! You can close me now -- I'll let you know if I have any more questions.")}).doAction();
         FeedbackTextArea.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
