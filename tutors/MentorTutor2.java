@@ -204,15 +204,7 @@ public class MentorTutor2 extends InterruptTutor {
                     myTimer.setDelay(10000);
                 }
             }
-            if(StaticVars.CURRENTDAY==10) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
-                tfa1.setId("GNB");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to have at least four or five things in each of your hypotheses by the end of the day. Feel free to add new hypotheses if any come to mind, or to dismiss ones that don't seem to be working.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-
+            
             if(StaticVars.CURRENTDAY==9) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving really solid evidence for your hypotheses. Remember, the biggest requirement of a good model is for it to be supported by lots of evidence.");
                 tfa1.setId("B2T");
@@ -221,9 +213,17 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(StaticVars.CURRENTDAY==14) {
+            if(StaticVars.CURRENTDAY==10) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, you're using the simulations. Simulations can be fun to play around with, but remember to try to use what you observe in the simulations to support or refute your hypotheses, or to create new hypotheses.");
                 tfa1.setId("BR0");
+                tfa1.setFace(cpaHappyFrontBulb);
+                foundActions.add(tfa1);
+            }
+            if(StaticVars.CURRENTDAY==14) {
+                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
+                tfa1.setId("GNB");
+                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to have at least four or five things in each of your hypotheses by the end of the day. Feel free to add new hypotheses if any come to mind, or to dismiss ones that don't seem to be working.");
+                tfa1.setNextAction(tfa2);
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
