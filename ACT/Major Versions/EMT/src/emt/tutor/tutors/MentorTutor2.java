@@ -346,61 +346,63 @@ public class MentorTutor2 extends InterruptTutor {
                     tfa1.setFace(cpaConcernedFrontBulb);
                     foundActions.add(tfa1);
                 }
-                ArrayList<String> typesOfEvidenceUsed=this.getModel().getTypesOfEvidenceUsed();
-                if(typesOfEvidenceUsed.contains("Direct Observation")) {
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Direct Observation as evidence to your model.");
-                    tfa1.setId("002");
-                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Observations are always the best place to start. Now, see if you can find some even better evidence for this part of your model.");
-                    tfa1.setNextAction(tfa2);
-                    tfa1.setFace(cpaHappyFrontBulb);
-                    foundActions.add(tfa1);
-                }
-                if(typesOfEvidenceUsed.contains("Similar System Observation")){
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Similar System Observation as evidence to your model.");
-                    tfa1.setId("003");
-                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Observations from similar systems are great pieces of evidence as long as you can be sure that your system is similar. Can you be sure about that?");
-                    tfa1.setNextAction(tfa2);
-                    tfa1.setFace(cpaHappyFrontBulb);
-                    foundActions.add(tfa1);
-//                } else if(typesOfEvidenceUsed.contains("Controlled Experiment")){
-//                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Controlled Experiment as evidence to your model.");
-//                    tfa1.setId("004");
-//                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Controlled experiments are the best form of evidence, but they can be really hard to get in ecology. How did you do a controlled experiment here?");
-//                    tfa1.setNextAction(tfa2);
-//                    tfa1.setFace(cpaHappyFrontBulb);
-//                    foundActions.add(tfa1);
-                }
-                if(typesOfEvidenceUsed.contains("Expert Information")){
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added some Expert Information as evidence to your model.");
-                    tfa1.setId("005");
-                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Expert Information is a great source of information. Your goal is to be an expert, too -- how can you move from repeating experts to being an expert?");
-                    tfa1.setNextAction(tfa2);
-                    tfa1.setFace(cpaExcitedFrontBulb);
-                    foundActions.add(tfa1);                    
-                }
-                if(typesOfEvidenceUsed.contains("Simulation Observation")){
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Simulation Observation as evidence to your model.");
-                    tfa1.setId("006");
-                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Simulations are really good pieces of evidence, but you have to assume they're accurate versions of the system. Can you be sure about that?");
-                    tfa1.setNextAction(tfa2);
-                    tfa1.setFace(cpaHappyFrontBulb);
-                    foundActions.add(tfa1);                    
-                } 
-                if(typesOfEvidenceUsed.contains("Non-Expert Information")){
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added some Non-Expert Information as evidence to your model.");
-                    tfa1.setId("007");
-                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Evidence from non-expert is a good place to start because it lets you know what to investigate. Now, how can you find some even stronger evidence for your model?");
-                    tfa1.setNextAction(tfa2);
-                    tfa1.setFace(cpaConcernedFrontBulb);
-                    foundActions.add(tfa1);
-                } 
-                if(typesOfEvidenceUsed.contains("Logical Explanation")){
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Logical Explanation as evidence to your model.");
-                    tfa1.setId("008");
-                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's good to start with a logical explanation of your system, but what you think is logical might not be logical to something else. How can you convince someone that your explanation is true?");
-                    tfa1.setNextAction(tfa2);
-                    tfa1.setFace(cpaConcernedFrontBulb);
-                    foundActions.add(tfa1);
+                if(StaticVars.CURRENTDAY==9) {
+                    ArrayList<String> typesOfEvidenceUsed=this.getModel().getTypesOfEvidenceUsed();
+                    if(typesOfEvidenceUsed.contains("Direct Observation")) {
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Direct Observation as evidence to your model.");
+                        tfa1.setId("002");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Observations are always the best place to start. Now, see if you can find some even better evidence for this part of your model.");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaHappyFrontBulb);
+                        foundActions.add(tfa1);
+                    }
+                    if(typesOfEvidenceUsed.contains("Similar System Observation")){
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Similar System Observation as evidence to your model.");
+                        tfa1.setId("003");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Observations from similar systems are great pieces of evidence as long as you can be sure that your system is similar. Can you be sure about that?");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaHappyFrontBulb);
+                        foundActions.add(tfa1);
+    //                } else if(typesOfEvidenceUsed.contains("Controlled Experiment")){
+    //                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Controlled Experiment as evidence to your model.");
+    //                    tfa1.setId("004");
+    //                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"Controlled experiments are the best form of evidence, but they can be really hard to get in ecology. How did you do a controlled experiment here?");
+    //                    tfa1.setNextAction(tfa2);
+    //                    tfa1.setFace(cpaHappyFrontBulb);
+    //                    foundActions.add(tfa1);
+                    }
+                    if(typesOfEvidenceUsed.contains("Expert Information")){
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added some Expert Information as evidence to your model.");
+                        tfa1.setId("005");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Expert Information is a great source of information. Your goal is to be an expert, too -- how can you move from repeating experts to being an expert?");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaExcitedFrontBulb);
+                        foundActions.add(tfa1);                    
+                    }
+                    if(typesOfEvidenceUsed.contains("Simulation Observation")){
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Simulation Observation as evidence to your model.");
+                        tfa1.setId("006");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Simulations are really good pieces of evidence, but you have to assume they're accurate versions of the system. Can you be sure about that?");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaHappyFrontBulb);
+                        foundActions.add(tfa1);                    
+                    } 
+                    if(typesOfEvidenceUsed.contains("Non-Expert Information")){
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added some Non-Expert Information as evidence to your model.");
+                        tfa1.setId("007");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"Evidence from non-expert is a good place to start because it lets you know what to investigate. Now, how can you find some even stronger evidence for your model?");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaConcernedFrontBulb);
+                        foundActions.add(tfa1);
+                    } 
+                    if(typesOfEvidenceUsed.contains("Logical Explanation")){
+                        TextFeedbackAction tfa1=new TextFeedbackAction(this,"I see you've added a Logical Explanation as evidence to your model.");
+                        tfa1.setId("008");
+                        TextFeedbackAction tfa2=new TextFeedbackAction(this,"It's good to start with a logical explanation of your system, but what you think is logical might not be logical to something else. How can you convince someone that your explanation is true?");
+                        tfa1.setNextAction(tfa2);
+                        tfa1.setFace(cpaConcernedFrontBulb);
+                        foundActions.add(tfa1);
+                    }
                 }
                 ArrayList<EvexEdge> strongEvidenceEdges=this.getModel().getEdgesByMinScore(4);
                 if(strongEvidenceEdges.size()>0) {

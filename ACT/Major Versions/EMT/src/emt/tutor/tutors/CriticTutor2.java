@@ -183,7 +183,7 @@ public class CriticTutor2 extends OnDemandTutor {
         }
         EvexEdge edgeWithoutEvidenceText=this.getModel().getEvidencedEdgeWithoutText();
         if(edgeWithoutEvidenceText!=null) { //edge without a type for one piece of evidence
-            TextFeedbackAction tfa1=new TextFeedbackAction(this,"On the connection you drew between " + edgeWithoutEvidenceType.getDirectedSource().toString() + " and " + edgeWithoutEvidenceType.getDirectedDest().toString() + ", you've selected a category for a piece of evidence, but you haven't actually written your evidence down.");
+            TextFeedbackAction tfa1=new TextFeedbackAction(this,"On the connection you drew between " + edgeWithoutEvidenceText.getDirectedSource().toString() + " and " + edgeWithoutEvidenceText.getDirectedDest().toString() + ", you've selected a category for a piece of evidence, but you haven't actually written your evidence down.");
             TextFeedbackAction tfa2=new TextFeedbackAction(this,"After selecting a category for your piece of evidence, write down what exactly the evidence is to the right.");
             tfa1.setNextAction(tfa2);
             tfa1.setFace(cpaConcernedFront);
