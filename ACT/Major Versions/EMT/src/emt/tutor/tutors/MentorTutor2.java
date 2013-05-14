@@ -219,15 +219,15 @@ public class MentorTutor2 extends InterruptTutor {
                 tfa1.setFace(cpaHappyFrontBulb);
                 foundActions.add(tfa1);
             }
-            if(StaticVars.CURRENTDAY==14) {
-                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
-                tfa1.setId("GNB");
-                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to have at least four or five things in each of your hypotheses by the end of the day. Feel free to add new hypotheses if any come to mind, or to dismiss ones that don't seem to be working.");
-                tfa1.setNextAction(tfa2);
-                tfa1.setFace(cpaHappyFrontBulb);
-                foundActions.add(tfa1);
-            }
-            if(StaticVars.CURRENTDAY>=15) {
+//            if(StaticVars.CURRENTDAY==14) {
+//                TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, your main goal is to focus on giving a really thorough explanation of how you think your hypotheses actually caused the phenomenon.");
+//                tfa1.setId("GNB");
+//                TextFeedbackAction tfa2=new TextFeedbackAction(this,"Try to have at least four or five things in each of your hypotheses by the end of the day. Feel free to add new hypotheses if any come to mind, or to dismiss ones that don't seem to be working.");
+//                tfa1.setNextAction(tfa2);
+//                tfa1.setFace(cpaHappyFrontBulb);
+//                foundActions.add(tfa1);
+//            }
+            if(StaticVars.CURRENTDAY>=14) {
                 TextFeedbackAction tfa1=new TextFeedbackAction(this,"Today, we're tying everything together. Using what you know, try to make one of your models really strong. Justify all your claims with evidence and give a really thorough description of your hypothesis.");
                 tfa1.setId("9X9");
                 TextFeedbackAction tfa2=new TextFeedbackAction(this,"Remember also to dismiss hypotheses that you don't think really worked. That's a crucial part of science, and it's something to be proud of! By the end of the day, remember to dismiss all but one of your hypotheses.");
