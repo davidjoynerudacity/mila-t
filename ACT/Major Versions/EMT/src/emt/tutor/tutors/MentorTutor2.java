@@ -424,8 +424,10 @@ public class MentorTutor2 extends InterruptTutor {
                 
                 //STUDENT MODEL REACTIONS
                 if(StaticVars.currentInquiryModel.getEvidenceBreadth().size()>3) {
-                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I can see that you've started to use a few different kinds of evidence in your models. That's great! Keep it up and try to include as many pieces of strong evidence as possible.");
-                    tfa1.setId("011");
+                    TextFeedbackAction tfa1=new TextFeedbackAction(this,"I can see that you've started to use a few different kinds of evidence in your models. That's great! A variety of evidence can help you make a strong case for your model. It's like having lots of witnesses that an event actually occurred!");
+                    TextFeedbackAction tfa2=new TextFeedbackAction(this,"I can see that you've started to use a few different kinds of evidence in your models. That's great! A variety of evidence can help you make a strong case for your model. It's like having lots of witnesses that an event actually occurred!");
+                    tfa1.setNextAction(tfa2);
+                    tfa1.setId("011B");
                     tfa1.setFace(cpaHappyFrontBulb);
                     foundActions.add(tfa1);
                 }
