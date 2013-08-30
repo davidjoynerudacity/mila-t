@@ -40,8 +40,8 @@ public class StaticVars {
     //public static ArrayList<String> logs=new ArrayList<String>();
     public static String mostRecentLog="";
     public static ComboBoxModel evidenceBoxModel=new DefaultComboBoxModel(new String[]{"","Observation on the system itself","Observation from a simulation","Observation from a similar situation","Result from a controlled experiment","Information from an expert","Information from a non-expert","Information from a trusted source","Logical explanation"});
-    public static int CURRENTDAY=new Date().getDate();
-    //public static int CURRENTDAY=12;
+    //public static int CURRENTDAY=new Date().getDate();
+    public static int CURRENTDAY=19;
     
     public static void Log(String eventType, String ... parameters) {
         
